@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::('/register', 'RegisterController@');
+
+//Route::get('/', 'HomeController@index');
+
+//Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
+
+Route::get('/tea', 'TeaController@index');
