@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tea;
+use App\Models\Brand;
+
 
 class TeaController extends Controller
 {
@@ -34,7 +37,8 @@ class TeaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        return redirect ('data.create');
     }
 
     /**
@@ -80,11 +84,5 @@ class TeaController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-
-    public function store()
-    {
-        return  redirect('data.create');
     }
 }

@@ -25,8 +25,4 @@ Route::get('/', function () {
 
 Route::get('/tea', 'TeaController@index');
 
-<<<<<<< HEAD
-Route::post('/add-tea', 'TeaController@store');
-=======
 Route::get('/form', 'TeaController@index');
->>>>>>> b26c52b6129df0c6e330f6201fd73c3674876add

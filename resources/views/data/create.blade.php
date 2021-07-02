@@ -4,7 +4,7 @@
     <form action="{{ action('TeaController@store') }}">
     @csrf
 
-    <label htmlfor="">tea name</label>
+    <label htmlfor="">brand name</label>
     <input type="text" name="name">
     
     
