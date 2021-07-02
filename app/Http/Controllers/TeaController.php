@@ -11,4 +11,10 @@ class TeaController extends Controller
     {
         return  view('layouts.main');
     }
+
+
+    public function store()
+    {
+        return  redirect('data.create');
+    }
 }

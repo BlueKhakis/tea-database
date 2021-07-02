@@ -24,6 +24,8 @@
 
         <span>This is a massive Tea web application bitch</span>
 
+        @yield('content')
+
     </main>
 
 </body>
