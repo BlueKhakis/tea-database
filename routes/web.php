@@ -24,3 +24,5 @@ Route::get('/', function () {
 //Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
 Route::get('/tea', 'TeaController@index');
+
+Route::get('/form', 'TeaController@index');
