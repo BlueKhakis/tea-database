@@ -11,15 +11,15 @@ class Plantation extends Model
 {
     use HasFactory;
 
-    // defines 1:n relationshit to tea
+    // defines 1:n relationship with tea
     public function tea()
     {
-        return $this->belongsTo(Tea::class, 'tea_id');
+        return $this->hasMany(Tea::class, 'tea_id');
     }
 
     // defines n:1 relationship with country
     public function country()
     {
-        return $this->hasMany(Country::class, 'tea_id');
+        return $this->belongsTo(Country::class, 'country_id');
     }
 }

@@ -16,15 +16,16 @@ class Country extends Model
     // defines n:1 relationship with tea
     public function tea()
     {
-        return $this->hasMany(Tea::class, 'tea_id');
+        return $this->belongsTo(Tea::class, 'tea_id');
     }
 
-    // defines 1:n relationshit to plantation
+    // defines 1:n relationship with plantation
     public function plantation()
     {
-        return $this->belongsTo(Plantation::class, 'tea_id');
+        return $this->hasMany(Plantation::class, 'plantation_id');
     }
 
+    // defines m:n relationship with region
     public function region()
     {
         return $this->belongsToMany(Region::class);

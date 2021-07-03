@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Tea;
+use App\Models\Type;
 
 class Style extends Model
 {
@@ -13,6 +14,12 @@ class Style extends Model
     // defines 1:n relationshit to tea
     public function tea() 
     {
-        return $this->belongsTo(Tea::class, 'tea_id');
+        return $this->hasMany(Tea::class, 'tea_id');
+    }
+
+    //defines n:m relationship with type
+    public function type()
+    {
+        return $this->belongsTo(Type::class, 'type_id');
     }
 }

@@ -10,6 +10,7 @@ class Region extends Model
 {
     use HasFactory;
 
+    // defines m:n relationship with country
     public function country()
     {
         return $this->belongsToMany(Country::class);
