@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\List;
+use App\Models\Catalogue;
 use App\Models\Review;
 
 
@@ -38,10 +38,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // defines n:1 relationship to lists
+    // defines 1:n relationship to lists
     public function list()
     {
-        return $this->hasMany(List::class);
+        return $this->hasMany(Catalogue::class);
     }
 
     // defines 1:n relationship with review

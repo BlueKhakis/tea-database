@@ -10,6 +10,7 @@ use App\Models\Style;
 use App\Models\Plantation;
 use App\Models\Type;
 use App\Models\Review;
+use App\Models\Catalogue;
 
 
 class Tea extends Model
@@ -56,5 +57,11 @@ class Tea extends Model
     public function type()
     {
         return $this->belongsTo(Type::class, 'type_id');
+    }
+
+    // defines n:m relationship with catalogues
+    public function catalogue()
+    {
+        return $this->belongsToMany(Catalogue::class);
     }
 }
