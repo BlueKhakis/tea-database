@@ -25,7 +25,12 @@
           <a href="#">Favorites</a>
           <a href="#">Something</a>
           <a href="#">Account</a>
-          <a href="#">Logout</a>
+          <a href="#">
+            <form action="{{ route('logout') }}" method="post">
+              @csrf
+              <button>Logout</button>
+            </form>
+          </a>
         </div>
       </div>
 
