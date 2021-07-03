@@ -13,18 +13,22 @@
 </head>
 <body>
 
-    <form action="{{ route('logout') }}" method="post">
-        @csrf
-        <button>Logout</button>
-    </form>
+    <header>
+        @extends('navigation.navigation')
+    </header>
 
-    <h1>Final project</h1>
+        
+    {{-- I dont know why if uncoment this section it will display first and Navigation is under --}}
+    
+    {{-- <section>
+        <h1>Final project</h1>
+        <span>This is a massive Tea web application amigo</span>
 
-    <main>
-
-        <span>This is a massive Tea web application bitch</span>
-
-    </main>
-
+    </section>  --}}
+ 
 </body>
+
+<footer>
+  
+</footer>
 </html>
