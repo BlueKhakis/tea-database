@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\List;
 
 class User extends Authenticatable
 {
@@ -13,9 +14,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+     * @var arra*/
     protected $fillable = [
         'name',
         'email',
@@ -24,9 +23,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+     * @var array*/
     protected $hidden = [
         'password',
         'remember_token',
@@ -34,10 +31,14 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+     * @var array*/
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // defines n:1 relationshit to styles
+    public function list()
+    {
+        return $this->hasMany(List::class);
+    }
 }
