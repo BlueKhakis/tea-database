@@ -18,8 +18,6 @@ class CreateTeasTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('type_id');
-            $table->integer('style_id');
-            $table->boolean('fair_trade');
             $table->integer('country_id');
             $table->integer('brand_id');
             $table->integer('plantation_id');

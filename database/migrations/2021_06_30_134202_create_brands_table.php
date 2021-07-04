@@ -17,7 +17,6 @@ class CreateBrandsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->boolean('fair_trade');
         });
     }
 

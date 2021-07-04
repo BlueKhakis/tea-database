@@ -11,6 +11,7 @@ use App\Models\Plantation;
 use App\Models\Type;
 use App\Models\Review;
 use App\Models\Catalogue;
+use Illuminate\Support\Facades\Session;
 
 
 class Tea extends Model
@@ -20,7 +21,11 @@ class Tea extends Model
 
     protected $fillable = [
         'name',
-        'fair_trade'
+        'type_id',
+        'country_id',
+        'brand_id',
+        'plantation_id',
+        'average_rating',
     ];
 
     // defines n:1 relationship to brands
