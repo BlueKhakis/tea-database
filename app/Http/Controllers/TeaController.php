@@ -23,7 +23,7 @@ class TeaController extends Controller
      */
     public function create()
     {
-        //
+        return view('teas.create');
     }
 
     /**
@@ -34,7 +34,7 @@ class TeaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

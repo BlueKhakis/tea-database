@@ -25,4 +25,4 @@ Route::get('/', function () {
 
 Route::get('/tea', 'TeaController@index');
 
-Route::get('/form', 'TeaController@index');
+Route::get('/create', 'TeaController@create');
