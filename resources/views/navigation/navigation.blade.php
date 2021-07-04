@@ -62,6 +62,7 @@ so I use styling in blade <style>Magic</style> --}}
         align-items: center;
         margin: 0;
         padding: 0;
+        border-radius: 15px;
     }
 
     a {
@@ -89,6 +90,13 @@ so I use styling in blade <style>Magic</style> --}}
         border-radius: 3px;
     }
 
+    .dropdown form button {
+      border: none;
+      background-color: inherit;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-block;
+    }
 
     /* Dropdown Button */
 .dropbtn {

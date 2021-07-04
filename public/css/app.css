@@ -1,3 +1,5 @@
 html {
     background-color: rgb(203, 255, 238);
+    background-image: url('/img/30993.jpg');
+    background-size: cover;
 }
