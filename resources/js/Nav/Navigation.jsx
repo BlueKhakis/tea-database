@@ -1,23 +1,27 @@
+import { includes } from 'lodash';
 import React from 'react';
 
 export default function App() {
     
     return (
+
+    
+
         <nav>
 
             <Logo/>
-                {/* I prepare <logo/> if we would make logo JS magic ready just in case (not component) */}
+                {/* I prepare <logo/> if we would make logo some magic ready just in case (not component) */}
             
             
-            <Teas/>
+            <a href="#" Teas/>
                 {/* Display teas */}
            
 
-            <Countries/>
+            <a href="#" Countries/>
                 {/* Display countries by regions */}
             
 
-            <Top-Rated/>
+            <a href="#" Top-Rated/>
                 {/* Display top-rated teas */}
             
 

@@ -21,8 +21,9 @@ Route::get('/', function () {
 
 //Route::get('/', 'HomeController@index');
 
-//Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
+Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
 Route::get('/tea', 'TeaController@index');
 
 Route::get('/create', 'TeaController@create');
+Route::get('/form', 'TeaController@index');
