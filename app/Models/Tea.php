@@ -11,7 +11,6 @@ use App\Models\Plantation;
 use App\Models\Type;
 use App\Models\Review;
 use App\Models\Catalogue;
-use Illuminate\Support\Facades\Session;
 
 
 class Tea extends Model
