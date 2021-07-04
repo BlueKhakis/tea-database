@@ -25,4 +25,6 @@ Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
 Route::get('/tea', 'TeaController@index');
 
-Route::get('/form', 'TeaController@index');
+Route::get('/create', 'TeaController@create');
+
+Route::post('/create', 'TeaController@store');

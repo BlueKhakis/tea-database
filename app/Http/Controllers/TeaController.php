@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tea;
 use App\Models\Brand;
+use App\Models\Country;
+use App\Models\Plantation;
+use App\Models\Type;
+use Illuminate\Support\Facades\Session;
 
 
 class TeaController extends Controller
@@ -26,7 +30,14 @@ class TeaController extends Controller
      */
     public function create()
     {
-        //
+        
+
+        $types = Type::orderBy('name')->get();
+        $countries = Country::orderBy('name')->get();
+        $brands = Brand::orderBy('name')->get();
+        $plantations = Plantation::orderBy('name')->get();
+
+        return view('teas.create', compact('types', 'countries', 'brands', 'plantations'));
     }
 
     /**
@@ -38,7 +49,11 @@ class TeaController extends Controller
     public function store(Request $request)
     {
 
-        return redirect ('data.create');
+        Tea::create($request->all());
+
+        Session::flash('status', 'you did it');
+
+        return redirect(action('TeaController@create'));
     }
 
     /**
