@@ -1,6 +1,7 @@
-<form action="" id="searchbar" method="get">
+<!-- <form action="" id="searchbar" method="get">
     @csrf
     <label for="Search">Search</label>
     <input type="text">
     
-</form>
+</form> -->
+<div id='search'></div>

@@ -14,10 +14,11 @@
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
           <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     </head>
-    <div class="search-box">
+    <!-- <div class="search-box">
         <button class="btn-search"><i class="fas fa-search"></i></button>
         <input type="text" class="input-search" placeholder="Search your Tea..">
-      </div>
+      </div> -->
+      <div id='search'></div>
 
     <div class="dropdown">
         <button class="dropbtn">User</button>
