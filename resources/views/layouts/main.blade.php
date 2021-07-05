@@ -14,17 +14,13 @@
 <body>
 
     <header>
-        @extends('navigation.navigation')
+        @include('navigation.navigation')
     </header>
 
         
-    {{-- I dont know why if uncoment this section it will display first and Navigation is under --}}
+    @yield('content')
     
-    {{-- <section>
-        <h1>Final project</h1>
-        <span>This is a massive Tea web application amigo</span>
-
-    </section>  --}}
+    
  
 </body>
 
