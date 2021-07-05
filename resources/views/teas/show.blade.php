@@ -27,10 +27,6 @@
 
     @endif
     
-
-    Rating
-    
-
     @if(count($reviews) === 0)
         <div>This tea has not been reviewed yet. <br/> Start a trend and review it now.</div>
     @else
@@ -39,7 +35,7 @@
             <ul>
                 @foreach ($reviews as $review)
                     @if ($review->user_id === Auth::user()->id)
-                        <li>{{$review->text}}</li>
+                        <li>{{$review->text}} <button><a href={{ action('ReviewController@edit', $review->id) }}>edit</a></button></li>
                     @endif
                 @endforeach
             </ul>

@@ -47,3 +47,7 @@ Route::put('/userpage/useremail', 'UserController@userEmailUpdate');
 
 // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
 Route::get('/react', 'ReviewController@index');
+
+// Showing and editing an existing review
+Route::get('/review/{id}/edit', 'ReviewController@edit');
+Route::put('/review/{id}/edit', 'ReviewController@update');

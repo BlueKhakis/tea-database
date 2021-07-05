@@ -79,7 +79,8 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $review = Review::findOrFail($id);
+        return view('review.edit', compact('review'));
     }
 
     /**
@@ -91,7 +92,17 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //edits and existing reviews text and rating
+        $review = Review::findOrFail($id);
+        $review->update($request->all());
+
+        //updates average rating of the specific tea
+        $tea = Tea::findOrFail($review->tea_id);
+        $rating_count= Review::where('tea_id', $review->tea_id)->count();
+        $tea->average_rating = ($tea->average_rating * $rating_count + $request->rating)/($rating_count + 1);
+        $tea->save();
+
+        return redirect(action('TeaController@show', $review->tea_id));
     }
 
     /**

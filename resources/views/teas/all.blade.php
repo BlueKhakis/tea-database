@@ -15,7 +15,7 @@
     </button>
 @else
     <button>
-        <a href="/login">Log in to add a tea</a>
+        <a href="">Log in to add a tea</a>
     </button>
 @endif
 
