@@ -4,7 +4,7 @@
     <div class="navigation">
        <img src={{asset('img/LEAVES1[2505].jpg')}} alt="logo" width="150" height="100">
 
-    <a href="#">Teas</a>
+    <a href={{action('TeaController@index')}}>Teas</a>
     <a href="#">Countries</a>
     <a href="#">Top-rated</a>
    
