@@ -11,6 +11,12 @@ class Review extends Model
 {
     use HasFactory;
 
+    protected $fillable =
+    ['text',
+    'rating',
+    'tea_id',
+    'user_id'];
+
     // defines n:1 relationship with tea
     public function tea()
     {

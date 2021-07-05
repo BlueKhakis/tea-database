@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Review;
 use App\Models\Tea;
-use App\Models\Brand;
-use App\Models\Country;
-use App\Models\Plantation;
-use App\Models\Type;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 
-class TeaController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +17,7 @@ class TeaController extends Controller
      */
     public function index()
     {
-        return view('layouts.main');
+        //
     }
 
     /**
@@ -28,16 +25,31 @@ class TeaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, $tea_id)
     {
-        
 
-        $types = Type::orderBy('name')->get();
-        $countries = Country::orderBy('name')->get();
-        $brands = Brand::orderBy('name')->get();
-        $plantations = Plantation::orderBy('name')->get();
+        $tea = Tea::findOrFail($tea_id);
+       
+        $review = Review::create(
+            [
+            'text' => $request->text,
+            'rating' => $request->rating,
+            'user_id' => Auth::user()->id,
+            'tea_id' => $tea->id
+            ]);
+            
+            $rating_count= Review::where('tea_id', $tea_id)->count();
+           
+            $old_avg = $tea->average_rating;
+            $new_rating = $request->rating;
 
-        return view('teas.create', compact('types', 'countries', 'brands', 'plantations'));
+            $new_avg = ($old_avg * $rating_count + $new_rating)/($rating_count + 1);
+
+            $tea->average_rating = $new_avg;
+
+            $tea->save();
+
+            return redirect(action('TeaController@show', $tea->id));
     }
 
     /**
@@ -48,12 +60,7 @@ class TeaController extends Controller
      */
     public function store(Request $request)
     {
-
-        $tea = Tea::create($request->all());
-
-        Session::flash('status', 'you did it');
-
-        return redirect(action('TeaController@show', $tea ));
+        //
     }
 
     /**
@@ -64,8 +71,7 @@ class TeaController extends Controller
      */
     public function show($id)
     {
-        $tea = Tea::findOrFail($id);
-        return view('teas.show', compact('tea'));
+        //
     }
 
     /**

@@ -28,3 +28,7 @@ Route::get('/tea', 'TeaController@index');
 Route::get('/create', 'TeaController@create');
 
 Route::post('/create', 'TeaController@store');
+
+Route::get('/show/{id}', 'TeaController@show');
+
+Route::post('/create/review/{tea}', 'ReviewController@create');
