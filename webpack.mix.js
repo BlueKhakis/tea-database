@@ -18,7 +18,7 @@
 
 
 
-    const mix = require('laravel-mix');
+const mix = require('laravel-mix');
 require('dotenv').config();
 /*
  |--------------------------------------------------------------------------
@@ -39,21 +39,20 @@ if (!mix.inProduction()) {
     mix.webpackConfig({
         devtool: 'source-map'
     })
-    .sourceMaps()
+        .sourceMaps()
 }
 
-mix.sass('resources/css/style.scss', 'public/css');
+// mix.sass('resources/css/style.scss', 'public/css');
 
-mix.js('resources/js/Auth/index.jsx', 'public/js/auth.js').react();
 mix.js('resources/js/app.js', 'public/js/app.js').react();
 
 mix.browserSync({
-        host: 'localhost',
-        port: 3000,
-        proxy: {
-            target: process.env.APP_URL // Yay! Using APP_URL from the .env file!
-        }
-    });
+    host: 'localhost',
+    port: 3000,
+    proxy: {
+        target: process.env.APP_URL // Yay! Using APP_URL from the .env file!
+    }
+});
 
 // add versioning
 mix.version();

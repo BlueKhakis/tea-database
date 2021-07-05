@@ -8,6 +8,7 @@ use App\Models\Brand;
 use App\Models\Country;
 use App\Models\Plantation;
 use App\Models\Type;
+use App\Models\Review;
 use Illuminate\Support\Facades\Session;
 
 
@@ -20,7 +21,8 @@ class TeaController extends Controller
      */
     public function index()
     {
-        return view('layouts.main');
+        $teas = Tea::all();
+        return view('teas.all', compact('teas'));
     }
 
     /**
@@ -73,7 +75,8 @@ class TeaController extends Controller
     public function show($id)
     {
         $tea = Tea::findOrFail($id);
-        return view('teas.show', compact('tea'));
+        $reviews = Review::where('tea_id', $id)->get() ?? ['no reviews yet'];
+        return view('teas.show', compact('tea', 'reviews'));
     }
 
     /**

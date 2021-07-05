@@ -3,7 +3,7 @@
 @section('content')
     <h1>{{$tea->name}}</h1>
 
-    Review
+    <div>Review</div>
     
     <form method='post' action="{{action('ReviewController@create', $tea)}}" name='review'>
     @csrf
@@ -13,7 +13,6 @@
     <input type="submit" value="submit">
     </form>
 
-    Rating
-    
+    <div>Rating</div>
     {{$tea->average_rating}}/10
     @endsection

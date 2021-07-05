@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
-Route::get('/tea', 'TeaController@index');
+Route::get('/teas', 'TeaController@index');
 
 Route::get('/create', 'TeaController@create');
 
@@ -32,3 +32,5 @@ Route::post('/create', 'TeaController@store');
 Route::get('/show/{id}', 'TeaController@show');
 
 Route::post('/create/review/{tea}', 'ReviewController@create');
+
+Route::get('/react', 'ReviewController@index');
