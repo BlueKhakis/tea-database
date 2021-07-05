@@ -75,7 +75,7 @@ class TeaController extends Controller
     public function show($id)
     {
         $tea = Tea::findOrFail($id);
-        $reviews = Review::where('tea_id', $id)->get() ?? ['no reviews yet'];
+        $reviews = Review::where('tea_id', $id)->get();
         return view('teas.show', compact('tea', 'reviews'));
     }
 
