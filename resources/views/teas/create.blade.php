@@ -1,30 +1,30 @@
 <form method='post' action="{{action('TeaController@store')}}">
-@csrf
-Name
-<input type="text" name='name'>
+    @csrf
+        Name
+    <input type="text" name='name'>
 <br>
-Type
+    Type
 <select name = "type_id">
 @foreach ($types as $type)
             <option value = {{$type->id}}> {{$type->name}}</option>
             @endforeach
 </select>
 <br>
-Brands
+    Brands
 <select name = "brand_id">
 @foreach ($brands as $brand)
             <option value = {{$brand->id}}> {{$brand->name}}</option>
             @endforeach
 </select>
 <br>
-Countries
+    Countries
 <select name = "country_id">
 @foreach ($countries as $countries)
             <option value = {{$countries->id}}> {{$countries->name}}</option>
             @endforeach
 </select>
 <br>
-Plantations
+    Plantations
 <select name = "plantation_id">
 @foreach ($plantations as $plantation)
             <option value = {{$plantation->id}}> {{$plantation->name}}</option>
@@ -40,4 +40,14 @@ Plantations
 
 @if (session('status'))
 {{session('status')}}
+@endif
+
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif

@@ -48,8 +48,16 @@ class TeaController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'type_id' => 'required',
+            'brand_id' => 'required',
+            'country_id' => 'required',
+            'plantation_id' => 'required',
+        ]);
 
         Tea::create($request->all());
+
 
         Session::flash('status', 'you did it');
 

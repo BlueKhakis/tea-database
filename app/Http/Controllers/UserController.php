@@ -47,4 +47,5 @@ class UserController extends Controller
 
         $user->tokens()->delete();
     }
+    
 }
