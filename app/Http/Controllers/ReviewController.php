@@ -42,11 +42,8 @@ class ReviewController extends Controller
            
             $old_avg = $tea->average_rating;
             $new_rating = $request->rating;
-
             $new_avg = ($old_avg * $rating_count + $new_rating)/($rating_count + 1);
-
             $tea->average_rating = $new_avg;
-
             $tea->save();
 
             return redirect(action('TeaController@show', $tea->id));

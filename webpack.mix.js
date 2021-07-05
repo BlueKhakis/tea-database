@@ -45,6 +45,7 @@ if (!mix.inProduction()) {
 mix.sass('resources/css/style.scss', 'public/css');
 
 mix.js('resources/js/Auth/index.jsx', 'public/js/auth.js').react();
+mix.js('resources/js/app.js', 'public/js/app.js').react();
 
 mix.browserSync({
         host: 'localhost',
