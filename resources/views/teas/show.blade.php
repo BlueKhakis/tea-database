@@ -13,4 +13,4 @@
 
     Rating
     
-    {{$tea->average_rating}}
+    {{$tea->average_rating}}/10
