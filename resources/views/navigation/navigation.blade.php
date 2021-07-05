@@ -2,7 +2,7 @@
 
 <nav>
     <div class="navigation">
-       <img src=./img/LEAVES1[2505].jpg alt="logo" width="150" height="100">
+       <img src={{asset('img/LEAVES1[2505].jpg')}} alt="logo" width="150" height="100">
 
     <a href="#">Teas</a>
     <a href="#">Countries</a>

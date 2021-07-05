@@ -1,4 +1,6 @@
+@extends('layouts.main')
 
+@section('content')
     <h1>{{$tea->name}}</h1>
 
     Review
@@ -14,3 +16,4 @@
     Rating
     
     {{$tea->average_rating}}/10
+    @endsection
