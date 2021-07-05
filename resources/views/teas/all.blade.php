@@ -9,4 +9,14 @@
 @endforeach
     </ul>
 
+@if (Auth::user())
+   <button>
+       <a href={{action('TeaController@create')}}>Extend our database, add a new tea</a>
+    </button>
+@else
+    <button>
+        <a href="/login">Log in to add a tea</a>
+    </button>
+@endif
+
 @endsection
