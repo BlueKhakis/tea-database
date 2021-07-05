@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Tea;
 
 class UserController extends Controller
 {
@@ -46,6 +48,97 @@ class UserController extends Controller
         $user = Auth::user();
 
         $user->tokens()->delete();
+    }
+
+    public function userNameUpdate(Request $request)
+    {
+        // $user = Auth::user();
+        
+        // $request->name ? $request->name : $user->name;
+        // $user->update([
+        //     'name' => $request->name,
+        //     'email' => $user->email
+        // ]);
+
+        // $request->email ? $request->email : $user->email;
+        // $user->update([
+            
+        //     'email' => $request->email
+           
+        // ]);
+
+        // $request->password ? $request->password : $user->password;
+
+        // $user->update([
+            
+        //     'password' => $request->password
+        // ]);
+        
+
+        return view('user.editUserName');
+        
+    }
+
+    public function userEmailUpdate(Request $request)
+    {
+        $user = Auth::user();
+        
+        // $request->name ? $request->name : $user->name;
+        // $user->update([
+        //     'name' => $request->name,
+        //     'email' => $user->email
+        // ]);
+
+        //$request->email ? $request->email : $user->email;
+        $user->update([
+            'name' => $user->name,
+            'email' => $request->email
+           
+        ]);
+
+        // $request->password ? $request->password : $user->password;
+
+        // $user->update([
+            
+        //     'password' => $request->password
+        // ]);
+        
+
+        return redirect(action('UserController@index'));
+        
+    }
+
+    public function userNameUpdate2(Request $request)
+    {
+
+        $user = Auth::user();
+        
+        $request->name ? $request->name : $user->name;
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $user->email
+        ]);
+
+        return redirect(action('UserController@index'));
+    }
+
+    public function userEmailUpdate2()
+    {
+
+        return view('user.edituseremail');
+    }
+
+    public function index()
+    {
+
+        return view('user.userHomePage');
+
+    }
+
+    public function editUserName()
+    {
+        return view('user.editusername');
     }
     
 }

@@ -1,3 +1,9 @@
+@if (Auth::user());
+    
+
+    
+
+
 <form method='post' action="{{action('TeaController@store')}}">
     @csrf
         Name
@@ -38,6 +44,10 @@
 
 </form>
 
+@else <span>Need to be login</span>
+
+@endif
+
 @if (session('status'))
 {{session('status')}}
 @endif
@@ -51,3 +61,4 @@
         </ul>
     </div>
 @endif
+

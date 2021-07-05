@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
-Route::get('/tea', 'TeaController@index');
+Route::get('/teas', 'TeaController@index');
 
 Route::get('/create', 'TeaController@create');
 
@@ -33,4 +33,17 @@ Route::get('/show/{id}', 'TeaController@show');
 
 Route::post('/create/review/{tea}', 'ReviewController@create');
 
+Route::get('/userpage', 'UserController@index');
+
+Route::put('/userpage/user', 'UserController@edit');
+
+Route::get('/userpage/username', 'UserController@userNameUpdate');
+
+Route::put('/userpage/username2', 'UserController@userNameUpdate2');
+
+Route::get('/userpage/useremails','UserController@userEmailUpdate2');
+
+Route::put('/userpage/useremail', 'UserController@userEmailUpdate');
+
+// Route::get('/userpage/userpassword', 'UserController@editUserPassword');
 Route::get('/react', 'ReviewController@index');
