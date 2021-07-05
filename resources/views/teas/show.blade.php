@@ -3,9 +3,16 @@
 @section('content')
     <h1>{{$tea->name}}</h1>
 
+    @if ($tea->description)
+
+        <div>Description</div>
+        <div>{{$tea->description}}</div>
+
+    @endif
+
     <div>Review</div>
     
-    @if (Auth::user());
+    @if (Auth::user())
 
     <form method='post' action="{{action('ReviewController@create', $tea)}}" name='review'>
     @csrf
