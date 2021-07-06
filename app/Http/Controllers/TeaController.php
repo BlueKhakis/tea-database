@@ -61,7 +61,7 @@ class TeaController extends Controller
         $tea = Tea::create($request->all());
 
 
-        Session::flash('status', 'you did it');
+        Session::flash('status', 'Thank you for enriching the database');
 
         return redirect(action('TeaController@show', $tea ));
     }

@@ -2,7 +2,7 @@
 
 <nav>
     <div class="navigation">
-       <img src={{asset('img/LEAVES1[2505].jpg')}} alt="logo" width="150" height="100">
+       <a href="/"><img src={{asset('img/teapot.png')}} alt="logo" width="150" height="100"></a>
 
     <a href={{action('TeaController@index', 'all')}}>Teas</a>
     <a href={{action('TeaController@index', 'all')}}>Countries</a>
@@ -72,7 +72,7 @@ so I use styling in blade <style>Magic</style> --}}
         font-size: 1.5em;
         width: 100%;
         height: 100px;
-        background-color: rgb(42, 54, 43);
+        background-color: rgb(204, 204, 204);
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -82,7 +82,8 @@ so I use styling in blade <style>Magic</style> --}}
     }
 
     a {
-        color: aqua;
+        color: rgb(97, 97, 97);
+        background-color: rgba(0,0,0,0.2)
         text-decoration: none;
     }
 
@@ -104,6 +105,7 @@ so I use styling in blade <style>Magic</style> --}}
 
     img {
         border-radius: 3px;
+        width: auto;
     }
 
     .dropdown form button {
