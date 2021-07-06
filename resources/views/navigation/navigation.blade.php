@@ -5,8 +5,8 @@
        <img src={{asset('img/LEAVES1[2505].jpg')}} alt="logo" width="150" height="100">
 
     <a href={{action('TeaController@index', 'all')}}>Teas</a>
-    <a href="#">Countries</a>
-    <a href="#">Top-rated</a>
+    <a href={{action('TeaController@index', 'all')}}>Countries</a>
+    <a href={{action('TeaController@index', 'all')}}>Top-rated</a>
    
 
     {{-- Searchbar - open on click --}}
@@ -22,15 +22,31 @@
     <div class="dropdown">
         <button class="dropbtn">User</button>
         <div class="dropdown-content">
+          
+            @auth
           <a href="#">Favorites</a>
           <a href="#">Something</a>
           <a href="#">Account</a>
-          <a href="#">
-            <form action="{{ route('logout') }}" method="post">
-              @csrf
-              <button>Logout</button>
-            </form>
-          </a>
+            <a href="#">
+              <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <button>Logout</button>
+              </form>
+            </a>
+            @endauth
+             @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
         </div>
       </div>
 
