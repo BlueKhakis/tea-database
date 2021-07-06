@@ -57,3 +57,6 @@ Route::get('/home', 'HomeController@index');
 Route::get('/show/{id}', 'TeaController@show');
 
 Route::get('/teas', 'TeaController@index');
+
+Route::get('/countries', 'CountryController@index');
+Route::get('/countries/{id}', 'CountryController@show');

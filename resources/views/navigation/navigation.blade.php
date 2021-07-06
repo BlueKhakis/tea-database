@@ -4,9 +4,9 @@
     <div class="navigation">
        <a href="/"><img src={{asset('img/teapot.png')}} alt="logo" width="150" height="100"></a>
 
-    <a href={{action('TeaController@index', 'all')}}>Teas</a>
-    <a href={{action('TeaController@index', 'all')}}>Countries</a>
-    <a href={{action('TeaController@index', 'all')}}>Top-rated</a>
+    <a href={{action('TeaController@index')}}>Teas</a>
+    <a href={{action('CountryController@index')}}>Countries</a>
+    <a href={{action('TeaController@index')}}>Top-rated</a>
    
 
     {{-- Searchbar - open on click --}}
