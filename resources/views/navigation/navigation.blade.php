@@ -93,7 +93,7 @@ so I use styling in blade <style>Magic</style> --}}
         font-size: 16px;
     }
     a:hover {
-        color: rgba(0, 255, 255, 0.651);
+        color: rgba(46, 47, 66, 0.959);
         text-decoration: none;
     }
 
