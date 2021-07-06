@@ -21,15 +21,13 @@ Route::get('/', function () {
 
 //Route::get('/', 'HomeController@index');
 
-Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
+Route::middleware(['verified'])->group(function () {
 
-Route::get('/teas', 'TeaController@index');
+Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
 Route::get('/create', 'TeaController@create');
 
 Route::post('/create', 'TeaController@store');
-
-Route::get('/show/{id}', 'TeaController@show');
 
 Route::post('/create/review/{tea}', 'ReviewController@create');
 
@@ -51,3 +49,9 @@ Route::get('/react', 'ReviewController@index');
 // Showing and editing an existing review
 Route::get('/review/{id}/edit', 'ReviewController@edit');
 Route::put('/review/{id}/edit', 'ReviewController@update');
+
+});
+
+Route::get('/show/{id}', 'TeaController@show');
+
+Route::get('/teas', 'TeaController@index');
