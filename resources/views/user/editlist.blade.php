@@ -15,6 +15,13 @@ Update list
 
 <ul>
 @foreach ($catalogue->tea as $tea)
-<li>{{$tea->name}}</li>
+<form action="{{ action('CatalogueController@updateDelete', [$tea->id, $catalogue->id]) }}" method="post">
+@method('PUT')
+    @csrf
+<li>{{$tea->name}} <input type='submit' value='delete'></li>
+</form>
 @endforeach
 </ul>
+@if (session('status'))
+    {{session('status')}}
+    @endif

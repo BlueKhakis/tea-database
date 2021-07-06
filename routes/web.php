@@ -56,7 +56,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/show/{id}', 'TeaController@show');
 
-<<<<<<< HEAD
 // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
 Route::get('/react', 'ReviewController@index');
 
@@ -67,6 +66,8 @@ Route::post('/createlist/create', 'CatalogueController@store');
 Route::get('/editlist/{id}', 'CatalogueController@edit');
 
 Route::put('/updatelist/{id}', 'CatalogueController@update');
-=======
 Route::get('/teas', 'TeaController@index');
->>>>>>> ae82fe21613ee443f12f5afc39306d4030f88ac6
+
+Route::put('/updatedelete/{tea_id}/{catalogue_id}', 'CatalogueController@updateDelete');
+
+Route::get('/search/{query}', 'SearchController@search');

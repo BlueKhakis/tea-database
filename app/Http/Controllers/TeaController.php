@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tea;
 use App\Models\Brand;
+use App\Models\Catalogue;
 use App\Models\Country;
 use App\Models\Plantation;
 use App\Models\Type;
@@ -63,7 +64,9 @@ class TeaController extends Controller
 
         Session::flash('status', 'you did it');
 
-        return redirect(action('TeaController@show', $tea ));
+        
+
+        return redirect(action('TeaController@show', $tea));
     }
 
     /**
@@ -76,7 +79,10 @@ class TeaController extends Controller
     {
         $tea = Tea::findOrFail($id);
         $reviews = Review::where('tea_id', $id)->get();
-        return view('teas.show', compact('tea', 'reviews'));
+
+        $catalogues = Catalogue::all();
+
+        return view('teas.show', compact('tea', 'reviews', 'catalogues'));
     }
 
     /**

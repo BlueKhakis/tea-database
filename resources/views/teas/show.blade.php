@@ -2,9 +2,7 @@
 
 @section('content')
 
-    @if (session('status'))
-    {{session('status')}}
-    @endif
+
 
 
     <h1>{{$tea->name}}</h1>
@@ -59,4 +57,23 @@
 
     <div>Rating</div>
     {{$tea->average_rating}}/10
+<br>
+<br>
+    Add this tea to a list
+    <form action={{ action('CatalogueController@update', $tea->id) }} method="post">
+    @method('PUT')
+    @csrf
+    <input type="hidden" name="fromShow" value=1>
+
+    <select name = "catalogue_id">
+@foreach ($catalogues as $catalogue)
+            <option value = {{$catalogue->id}}> {{$catalogue->name}}</option>
+            @endforeach
+</select>
+<input type="submit" value="submit">
+</form>
+@if (session('status'))
+    {{session('status')}}
+    @endif
+
 @endsection

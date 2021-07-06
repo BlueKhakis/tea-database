@@ -7,6 +7,7 @@ use App\Models\Type;
 use App\Models\Tea;
 use App\Models\Catalogue;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CatalogueController extends Controller
 {
@@ -98,14 +99,48 @@ class CatalogueController extends Controller
      */
     public function update(Request $request, $id)
     {
+       
+        if ($request->fromShow =1)
+        {
+            $catalogue = Catalogue::findOrFail($request->catalogue_id);
+            $tea = Tea::findOrFail($id);
+            
+            if($catalogue->tea->contains($tea)){
+                Session::flash('status', "tea already there");
+                return redirect(action('TeaController@show', $tea->id));
+            }
+            
+            Session::flash('status', 'you added '.$tea->name.' to '.$catalogue->name);
+            $catalogue->tea()->attach($tea);
+            return redirect(action('TeaController@show', $tea->id));
+        }
+        else
+        {
+            $catalogue = Catalogue::findOrFail($id);
+            $tea = Tea::findOrFail($request->tea_id);
+            if($catalogue->tea->contains($tea)){
+                Session::flash('status', "tea already there");
+                return redirect(action('CatalogueController@edit', $catalogue->id));
+            }
+
+            $catalogue->tea()->attach($tea);
+            return redirect(action('CatalogueController@edit', $catalogue->id));
+        }
+
         
-        $catalogue = Catalogue::findOrFail($id);
+
+
         
+    }
 
+    public function updateDelete($tea_id, $catalogue_id)
+    {
 
-        $tea = Tea::findOrFail($request->tea_id);
+        $catalogue = Catalogue::findOrFail($catalogue_id);
+        
+        $tea = Tea::findOrFail($tea_id);
 
-        $catalogue->tea()->attach($tea);
+        $catalogue->tea()->detach($tea);
 
         return redirect(action('CatalogueController@edit', $catalogue->id));
     }
