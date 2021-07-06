@@ -1,6 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
+
+    @if (session('status'))
+    {{session('status')}}
+    @endif
+
+
     <h1>{{$tea->name}}</h1>
 
     @if ($tea->description)
@@ -23,7 +29,7 @@
     </form>
 {{-- {{dd($reviews)}} --}}
 
-    @else <span>Need to be login</span>
+    @else <span>Need to be logged in to add a review</span>
 
     @endif
     
