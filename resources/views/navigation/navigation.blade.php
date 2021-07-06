@@ -27,12 +27,12 @@
           <a href="#">Favorites</a>
           <a href="#">Something</a>
           <a href="#">Account</a>
-            <a href="#">
+
               <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <button>Logout</button>
               </form>
-            </a>
+
             @endauth
              @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 //Route::('/register', 'RegisterController@');
@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::middleware(['verified'])->group(function () {
 
-    Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
+    // Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
     Route::get('/create', 'TeaController@create');
 
@@ -51,6 +51,8 @@ Route::middleware(['verified'])->group(function () {
     Route::put('/review/{id}/edit', 'ReviewController@update');
 
 });
+
+Route::get('/home', 'HomeController@index');
 
 Route::get('/show/{id}', 'TeaController@show');
 
