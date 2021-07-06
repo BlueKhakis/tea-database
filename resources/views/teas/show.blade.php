@@ -1,11 +1,24 @@
 @extends('layouts.main')
 
 @section('content')
+
+    @if (session('status'))
+    {{session('status')}}
+    @endif
+
+
     <h1>{{$tea->name}}</h1>
+
+    @if ($tea->description)
+
+        <div>Description</div>
+        <div>{{$tea->description}}</div>
+
+    @endif
 
     <div>Review</div>
     
-    @if (Auth::user());
+    @if (Auth::user())
 
     <form method='post' action="{{action('ReviewController@create', $tea)}}" name='review'>
     @csrf
@@ -16,14 +29,10 @@
     </form>
 {{-- {{dd($reviews)}} --}}
 
-    @else <span>Need to be login</span>
+    @else <span>Need to be logged in to add a review</span>
 
     @endif
     
-
-    Rating
-    
-
     @if(count($reviews) === 0)
         <div>This tea has not been reviewed yet. <br/> Start a trend and review it now.</div>
     @else
@@ -32,7 +41,7 @@
             <ul>
                 @foreach ($reviews as $review)
                     @if ($review->user_id === Auth::user()->id)
-                        <li>{{$review->text}}</li>
+                        <li>{{$review->text}} <button><a href={{ action('ReviewController@edit', $review->id) }}>edit</a></button></li>
                     @endif
                 @endforeach
             </ul>

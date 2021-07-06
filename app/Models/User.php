@@ -10,7 +10,7 @@ use App\Models\Catalogue;
 use App\Models\Review;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
 

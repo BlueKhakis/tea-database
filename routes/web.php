@@ -14,37 +14,49 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 //Route::('/register', 'RegisterController@');
 
 //Route::get('/', 'HomeController@index');
 
-Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
+Route::middleware(['verified'])->group(function () {
 
-Route::get('/teas', 'TeaController@index');
+    // Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
-Route::get('/create', 'TeaController@create');
+    Route::get('/create', 'TeaController@create');
 
-Route::post('/create', 'TeaController@store');
+    Route::post('/create', 'TeaController@store');
+
+    Route::post('/create/review/{tea}', 'ReviewController@create');
+
+    Route::get('/userpage', 'UserController@index');
+
+    Route::put('/userpage/user', 'UserController@edit');
+
+    Route::get('/userpage/username', 'UserController@userNameUpdate');
+
+    Route::put('/userpage/username2', 'UserController@userNameUpdate2');
+
+    Route::get('/userpage/useremails','UserController@userEmailUpdate2');
+
+    Route::put('/userpage/useremail', 'UserController@userEmailUpdate');
+
+    // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
+    Route::get('/react', 'ReviewController@index');
+
+    // Showing and editing an existing review
+    Route::get('/review/{id}/edit', 'ReviewController@edit');
+    Route::put('/review/{id}/edit', 'ReviewController@update');
+
+});
+
+Route::get('/home', 'HomeController@index');
 
 Route::get('/show/{id}', 'TeaController@show');
 
-Route::post('/create/review/{tea}', 'ReviewController@create');
-
-Route::get('/userpage', 'UserController@index');
-
-Route::put('/userpage/user', 'UserController@edit');
-
-Route::get('/userpage/username', 'UserController@userNameUpdate');
-
-Route::put('/userpage/username2', 'UserController@userNameUpdate2');
-
-Route::get('/userpage/useremails','UserController@userEmailUpdate2');
-
-Route::put('/userpage/useremail', 'UserController@userEmailUpdate');
-
+<<<<<<< HEAD
 // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
 Route::get('/react', 'ReviewController@index');
 
@@ -55,3 +67,6 @@ Route::post('/createlist/create', 'CatalogueController@store');
 Route::get('/editlist/{id}', 'CatalogueController@edit');
 
 Route::put('/updatelist/{id}', 'CatalogueController@update');
+=======
+Route::get('/teas', 'TeaController@index');
+>>>>>>> ae82fe21613ee443f12f5afc39306d4030f88ac6
