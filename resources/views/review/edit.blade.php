@@ -11,11 +11,11 @@
         <form action={{action('ReviewController@update', $review->id)}} method="post">
         @csrf
         @method('PUT')
-
+{{-- {{dd($review->text)}} --}}
             <p>Edit here:</p> 
             <div>
                 <label htmlFor="">Text</label>
-                <input type="text" name="text" value={{$review->text}}>
+                <input type="text" name="text" value="{{$review->text}}">
             </div>
             <div>
                 <label htmlFor="">Rating</label>

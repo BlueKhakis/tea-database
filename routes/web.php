@@ -71,3 +71,7 @@ Route::get('/teas', 'TeaController@index');
 Route::put('/updatedelete/{tea_id}/{catalogue_id}', 'CatalogueController@updateDelete');
 
 Route::get('/search/{query}', 'SearchController@search');
+Route::get('/teas', 'TeaController@index');
+
+Route::get('/countries', 'CountryController@index');
+Route::get('/countries/{id}', 'CountryController@show');

@@ -1,4 +1,9 @@
-@if (Auth::user());
+@extends('layouts.main')
+@section('content')
+    
+
+
+@if (Auth::user())
     
 
     
@@ -62,3 +67,4 @@
     </div>
 @endif
 
+@endsection

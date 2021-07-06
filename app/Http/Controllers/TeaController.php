@@ -15,22 +15,13 @@ use Illuminate\Support\Facades\Session;
 
 class TeaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $teas = Tea::all();
         return view('teas.all', compact('teas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         
@@ -62,7 +53,7 @@ class TeaController extends Controller
         $tea = Tea::create($request->all());
 
 
-        Session::flash('status', 'you did it');
+        Session::flash('status', 'Thank you for enriching the database');
 
         
 
