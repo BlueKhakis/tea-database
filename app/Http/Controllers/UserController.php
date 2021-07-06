@@ -136,6 +136,22 @@ class UserController extends Controller
 
     }
 
+    public function edit(Request $request)
+    {
+
+                $request->password ? $request->password : $user->password;
+
+                $user = Auth::user();
+        $new_password = bcrypt($request->password);
+        $user->update([
+            
+            'password' => $new_password
+        ]);
+
+        return redirect(action('UserController@index'));
+
+    }
+
     public function editUserName()
     {
         return view('user.editusername');

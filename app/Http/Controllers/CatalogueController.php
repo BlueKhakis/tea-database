@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tea;
-use App\Models\Brand;
-use App\Models\Country;
-use App\Models\Plantation;
 use App\Models\Type;
-use App\Models\Review;
-use Illuminate\Support\Facades\Session;
+use App\Models\Tea;
+use App\Models\Catalogue;
+use Illuminate\Support\Facades\Auth;
 
-
-class TeaController extends Controller
+class CatalogueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +18,8 @@ class TeaController extends Controller
     public function index()
     {
         $teas = Tea::all();
-        return view('teas.all', compact('teas'));
+
+        return view('user.createList', compact('teas'));
     }
 
     /**
@@ -30,16 +27,13 @@ class TeaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        
+        $teas = Tea::all();
 
-        $types = Type::orderBy('name')->get();
-        $countries = Country::orderBy('name')->get();
-        $brands = Brand::orderBy('name')->get();
-        $plantations = Plantation::orderBy('name')->get();
+        $user = Auth::user();
 
-        return view('teas.create', compact('types', 'countries', 'brands', 'plantations'));
+        return view('user.createList', compact('teas'));
     }
 
     /**
@@ -50,20 +44,21 @@ class TeaController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'type_id' => 'required',
-            'brand_id' => 'required',
-            'country_id' => 'required',
-            'plantation_id' => 'required',
+        if (Auth::user())
+        {
+            $user = Auth::user();
+        }
+        else
+        {
+            return view('auth.login');
+        }
+
+        $catalogue = Catalogue::create([
+            'name' => $request->name,
+            'user_id' => $user->id
         ]);
 
-        $tea = Tea::create($request->all());
-
-
-        Session::flash('status', 'you did it');
-
-        return redirect(action('TeaController@show', $tea ));
+        return redirect(action('CatalogueController@edit', $catalogue->id ));
     }
 
     /**
@@ -74,9 +69,7 @@ class TeaController extends Controller
      */
     public function show($id)
     {
-        $tea = Tea::findOrFail($id);
-        $reviews = Review::where('tea_id', $id)->get();
-        return view('teas.show', compact('tea', 'reviews'));
+        //
     }
 
     /**
@@ -87,7 +80,13 @@ class TeaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $catalogue = Catalogue::findOrFail($id);
+
+        $teas = Tea::all();
+
+        $user = Auth::user();
+
+        return view('user.editlist', compact('id', 'teas', 'catalogue'));
     }
 
     /**
@@ -99,8 +98,16 @@ class TeaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $catalogue = Catalogue::findOrFail($id);
-        $catalogue->update($request->all());
+        
+
+
+        $tea = Tea::findOrFail($request->tea_id);
+
+        $catalogue->tea()->attach($tea);
+
+        return redirect(action('CatalogueController@edit', $catalogue->id));
     }
 
     /**

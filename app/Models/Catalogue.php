@@ -11,6 +11,12 @@ class Catalogue extends Model
 {
     use HasFactory;
 
+    protected $fillable =
+    [
+        'name',
+        'user_id'
+    ];
+
     // defines n:1 relationship with user
     public function user()
     {

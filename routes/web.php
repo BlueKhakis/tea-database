@@ -47,3 +47,11 @@ Route::put('/userpage/useremail', 'UserController@userEmailUpdate');
 
 // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
 Route::get('/react', 'ReviewController@index');
+
+Route::get('/createlist', 'CatalogueController@index');
+
+Route::post('/createlist/create', 'CatalogueController@store');
+
+Route::get('/editlist/{id}', 'CatalogueController@edit');
+
+Route::put('/updatelist/{id}', 'CatalogueController@update');

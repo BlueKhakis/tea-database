@@ -5,7 +5,7 @@ Edit user name
     @csrf
 
     edit Password
-<input type="text" name="password" >
+    <input type="password" name="password" id="">
 <input type="submit" value="Submit">
 </form>
 
