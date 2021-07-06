@@ -49,6 +49,7 @@ export default function Search(props) {
                         value={term}
                         onChange={onInputChange}
                         placeholder="Enter term"
+                        autocomplete="off"
                     />
                 </label>
 
