@@ -50,12 +50,12 @@
 
         <div class="main__home__section main__home__section__countries"> 
             <h2>Countries</h2>
-            <a href="/basics"> <div class="button"> touch me </div></a>
+            <a href="#"> <div class="button"> touch me </div></a>
         </div>
 
         <div class="main__home__section main__home__section__history"> 
             <h2>History</h2>
-            <a href="/basics"> <div class="button"> Learn more </div></a>
+            <a href="#"> <div class="button"> Learn more </div></a>
         </div>
 
     </main>

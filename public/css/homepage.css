@@ -59,6 +59,7 @@
 .main__home__section__countries {
     background-image: url("/img/tea4.jpg");
     background-size: cover;
+    background-position: center;
 }
 
 .main__home__section__history {
