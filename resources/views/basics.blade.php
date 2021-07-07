@@ -1,3 +1,5 @@
+<a href='/'>Home</a> -> Basics
+
 <h1>basics</h1>
 <h2>Get started</h2>
 Lorem ipsum dolor sit amet consectetur adipisicing elit. At, perspiciatis. Unde, et itaque? Accusantium iure saepe officiis autem, deleniti voluptatibus velit maxime magni delectus suscipit harum eum aliquam culpa laboriosam!<br>

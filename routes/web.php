@@ -82,3 +82,6 @@ Route::get('/top', 'TeaController@top');
 
 Route::get('/region/{id}', 'CountryController@region');
 
+Route::get('/region/{id}', 'CountryController@region');
+
+Route::get('/type/{id}', 'TypeController@show');
