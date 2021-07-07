@@ -53,6 +53,7 @@ Route::middleware(['verified'])->group(function () {
 });
 
 Route::get('/home', 'HomeController@index');
+Route::get('/browse', 'HomeController@browse');
 
 Route::get('/show/{id}', 'TeaController@show');
 
@@ -75,3 +76,8 @@ Route::get('/teas', 'TeaController@index');
 
 Route::get('/countries', 'CountryController@index');
 Route::get('/countries/{id}', 'CountryController@show');
+
+Route::get('/basics', 'HomeController@basics');
+Route::get('/top', 'TeaController@top');
+
+Route::get('/region/{id}', 'CountryController@top');

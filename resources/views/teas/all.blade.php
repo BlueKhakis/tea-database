@@ -1,5 +1,8 @@
 @extends('layouts.main');
 @section('content')
+
+
+{{country[0]->name}} ?? <h1>{{$country[0]->name}}</h1>
     
     <ul>
 @foreach ($teas as $tea)

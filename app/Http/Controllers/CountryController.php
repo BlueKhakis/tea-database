@@ -9,6 +9,7 @@ use App\Models\Country;
 use App\Models\Plantation;
 use App\Models\Type;
 use App\Models\Review;
+use App\Models\Region;
 use Illuminate\Support\Facades\Session;
 
 
@@ -16,8 +17,16 @@ class CountryController extends Controller
 {
     public function index()
     {
+        $regions = Region::all();
         $countries = Country::all();
-        return view('countries.all', compact('countries'));
+        return view('countries.all', compact('countries', 'regions'));
+    }
+
+    public function region($id)
+    {
+        $countries = Country::where('region_id', $id)->get();
+        
+        return view('countries.all', compact('countries', 'regions'));
     }
 
     
@@ -34,10 +43,10 @@ class CountryController extends Controller
     
     public function show($id)
     {
-      
+        $country = Country::where('id', $id)->get();
         $teas = Tea::where('country_id', $id)->get();
         //   dd($teas);
-        return view('teas.all', compact('teas'));
+        return view('teas.all', compact('teas', 'country'));
     }
 
 

@@ -21,6 +21,12 @@ class TeaController extends Controller
         return view('teas.all', compact('teas'));
     }
 
+    public function top()
+    {
+        $teas = Tea::orderBy('average_rating', 'desc')->get();
+        return view('teas.top', compact('teas'));
+    }
+
     
     public function create()
     {
