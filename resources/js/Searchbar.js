@@ -42,7 +42,7 @@ export default function Search(props) {
         <div>
             <form className="search-form" onSubmit={onFormSubmit}>
                 <label htmlFor="">
-                    Search (with React):<br />
+                    <br />
                     <input
                         type="text"
                         name="s"
