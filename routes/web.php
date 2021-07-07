@@ -80,4 +80,5 @@ Route::get('/countries/{id}', 'CountryController@show');
 Route::get('/basics', 'HomeController@basics');
 Route::get('/top', 'TeaController@top');
 
-Route::get('/region/{id}', 'CountryController@top');
+Route::get('/region/{id}', 'CountryController@region');
+
