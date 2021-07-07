@@ -1,6 +1,6 @@
-<a href='/'>Home</a>->Top-rated
+<a href='/'>Home</a>->Top-rated<br><br>
 
-toptees cunt
+Teas by rating
 
 <ul>
 @foreach ($teas as $tea)

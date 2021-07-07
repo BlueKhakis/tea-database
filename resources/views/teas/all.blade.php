@@ -1,5 +1,7 @@
-@extends('layouts.main');
+@extends('layouts.main')
 @section('content')
+
+
 
 @if(isset($country))
 <a href='/'>Home</a> -> <a href='/countries'>Countries</a>->{{$country[0]->name}}
