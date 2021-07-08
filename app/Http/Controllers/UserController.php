@@ -157,4 +157,19 @@ class UserController extends Controller
         return view('user.editusername');
     }
     
+    public function store(Request $request)
+    {
+        $image_file = $request->file('image');
+
+        $image_file->storeAs('users', $image_file->getClientOriginalName(), 'public');
+
+        $user = Auth::user();
+
+        $user->image = 'users/'.$image_file->getClientOriginalName();
+
+        $user->save();
+
+        return redirect(action('user.homepage'));
+        
+    }
 }

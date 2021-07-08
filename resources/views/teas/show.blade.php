@@ -56,7 +56,12 @@
             </ul>
     @endif 
 
-
+    {{-- Temporary Upload Files Form --}}
+    <form class="form_upload" action={{ action('UserController@store') }} method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="image">
+        <button class="button button--confirm-save">Upload Image</button>
+    </form>
 
     <div>Rating</div>
     {{$tea->average_rating}}/10

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Catalogue;
 use App\Models\Review;
+use App\Models\Image;
 
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -48,5 +49,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function review()
     {
         return $this->belongsTo(Review::class, 'review_id');
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
     }
 }
