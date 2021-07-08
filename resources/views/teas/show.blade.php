@@ -39,6 +39,10 @@
     @else
         @if (Auth::user())
             <div>Your words of wisdom:</div>
+            <div id="react__reviews"></div>
+            <script>
+                window.reactReviewsData = {tea_id: {{$tea->id}}}
+            </script>
             <ul>
                 @foreach ($reviews as $review)
                     @if ($review->user_id === Auth::user()->id)

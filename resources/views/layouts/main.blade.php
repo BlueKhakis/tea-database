@@ -29,6 +29,7 @@
   
 </footer>
  <script src="{{asset('js\search.js')}}"></script>
+ <script src="{{asset('js\reviews.js')}}"></script>
 </body>
 
 

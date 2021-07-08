@@ -46,6 +46,7 @@ if (!mix.inProduction()) {
 
 // mix.js('resources/js/app.js', 'public/js/app.js').react();
 mix.js('resources/js/search.js', 'public/js/search.js').react();
+mix.js('resources/js/reviews.js', 'public/js/reviews.js').react();
 
 mix.browserSync({
     host: 'localhost',
