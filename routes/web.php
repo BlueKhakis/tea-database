@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+Route::get('/', 'HomeController@index');
 
 //Route::('/register', 'RegisterController@');
 
@@ -43,6 +45,10 @@ Route::middleware(['verified'])->group(function () {
 
     Route::put('/userpage/useremail', 'UserController@userEmailUpdate');
 
+    Route::post('/upload', 'UserController@store');
+
+    Route::get('/account', 'UserController@store');
+    
     // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
     Route::get('/react', 'ReviewController@index');
 
@@ -85,3 +91,4 @@ Route::get('/region/{id}', 'CountryController@region');
 Route::get('/region/{id}', 'CountryController@region');
 
 Route::get('/type/{id}', 'TypeController@show');
+

@@ -14,8 +14,8 @@ class AddImgColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-             $table->text('img')
-                    ->after('password')
+             $table->text('image')
+                    ->after('id')
                     ->nullable();
         });
     }
@@ -28,7 +28,7 @@ class AddImgColumnToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            table->dropColumn('img');
+            $table->dropColumn('image');
         });
     }
 }

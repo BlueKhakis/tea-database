@@ -29,7 +29,11 @@
             @auth
           <a href="#">Favorites</a>
           <a href="#">Something</a>
-          <a href="#">Account</a>
+          
+        <div>
+          <a href="/account">Account</a>
+        </div>  
+          
 
               <form action="{{ route('logout') }}" method="post">
                 @csrf
