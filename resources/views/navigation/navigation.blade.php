@@ -66,7 +66,7 @@ so I use styling in blade <style>Magic</style> --}}
     }
 
     html {
-    font-family: 'Alegreya Sans', sans-serif;
+
     margin: 0;
     padding: 0;
 }
