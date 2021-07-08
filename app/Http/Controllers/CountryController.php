@@ -52,9 +52,11 @@ class CountryController extends Controller
     public function show($id)
     {
         $country = Country::where('id', $id)->get();
+       
         $teas = Tea::where('country_id', $id)->get();
+        $region = Region::where('id', $country[0]->region_id)->get();
           
-        return view('teas.all', compact('teas', 'country'));
+        return view('countries.detail', compact('teas', 'country', 'region'));
     }
 
 
