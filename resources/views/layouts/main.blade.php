@@ -22,8 +22,8 @@
     @yield('content')
 
     <footer>
-  
-</footer>
+       
+    </footer>
  <script src="{{asset('js\search.js')}}"></script>
 </body>
 
