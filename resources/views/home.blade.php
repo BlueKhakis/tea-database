@@ -9,14 +9,20 @@
         <h1>welcome guest</h1>
     @endif --}}
 
-        <div class="main__home__section main__home__section__map"> 
-            <h2>Map here</h2>
-            <p>map will be here</p>
-        </div>
+    <script>
 
+window.mapData = '{!! json_encode($countries) !!}';
+
+
+</script>
+
+        <div class="main__home__section main__home__section__map"> 
+            
+        </div>
+        <script src="{{mix('js/map.js')}}"></script>
         <div class="main__home__section main__home__section__start"> 
             <h2>Get Started</h2>
-            {{-- <a href={{ action('HomeController@basics') }}> teabag me</a> --}}
+            {{-- <a href="{{ action('HomeController@basics') }}"> teabag me</a> --}}
             <a href="/basics"> <div class="button"> teabag me</div></a>
         </div>
 
