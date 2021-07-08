@@ -24,6 +24,14 @@ class CountryController extends Controller
 
     public function region($id)
     {
+        $region = Region::where('id', $id)->get();
+        $countries = Country::where('region_id', $id)->get();
+        
+        return view('countries.region', compact('countries', 'region'));
+    }
+
+    public function regionIndex($id)
+    {
         $countries = Country::where('region_id', $id)->get();
         
         return view('countries.all', compact('countries', 'regions'));
@@ -45,7 +53,7 @@ class CountryController extends Controller
     {
         $country = Country::where('id', $id)->get();
         $teas = Tea::where('country_id', $id)->get();
-        //   dd($teas);
+          
         return view('teas.all', compact('teas', 'country'));
     }
 

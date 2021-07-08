@@ -6,7 +6,7 @@
 
     <a href={{action('TeaController@index')}}>Teas</a>
     <a href={{action('CountryController@index')}}>Countries</a>
-    <a href={{action('TeaController@index')}}>Top-rated</a>
+    <a href={{action('TeaController@top')}}>Top-rated</a>
    
 
     {{-- Searchbar - open on click --}}
@@ -66,7 +66,7 @@ so I use styling in blade <style>Magic</style> --}}
     }
 
     html {
-    font-family: 'Alegreya Sans', sans-serif;
+
     margin: 0;
     padding: 0;
 }

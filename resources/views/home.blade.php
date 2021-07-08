@@ -14,19 +14,6 @@
             <p>map will be here</p>
         </div>
 
-Main browsing page
-    <br>
-    <a href='/countries/1'>China</a>
-    <br>
-    <a href='/countries/2'>India</a>
-    <br>
-    Feel like a sophisticated cunt with our best english breakfast teas
-    <br>
-    Rest of Asia South America
-    <br>
-    Africa Oceania
-
-
         <div class="main__home__section main__home__section__start"> 
             <h2>Get Started</h2>
             {{-- <a href={{ action('HomeController@basics') }}> teabag me</a> --}}
@@ -38,22 +25,22 @@ Main browsing page
                 <h2 class="main__home__section__box__h2">types of tea</h2>
                 <div class="main__home__section__box__types">
                         <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header">Green</h3>
+                            <h3 class="main__home__section__box__types__type__header"><a href='/type/1'>Black</a></h3>
                         </div>
                         <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header">White</h3>
+                            <h3 class="main__home__section__box__types__type__header"><a href='/type/2'>Dark</a></h3>
                         </div>
                         <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header">Black</h3>
+                            <h3 class="main__home__section__box__types__type__header"><a href='/type/3'>Green</a></h3>
                         </div>
                         <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header">Yellow</h3>
+                            <h3 class="main__home__section__box__types__type__header"><a href='/type/4'>Oolong</a></h3>
                         </div>
                         <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header">Idk</h3>
+                            <h3 class="main__home__section__box__types__type__header"><a href='/type/5'>White</a></h3>
                         </div>
                         <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header">The last one</h3>
+                            <h3 class="main__home__section__box__types__type__header"><a href='/type/6'>Yellow</a></h3>
                         </div>
                     </div> 
                 </div>
@@ -62,7 +49,7 @@ Main browsing page
 
         <div class="main__home__section main__home__section__countries"> 
             <h2>Countries</h2>
-            <a href="#"> <div class="button"> touch me </div></a>
+            <a href="/countries"> <div class="button"> touch me </div></a>
         </div>
 
         <div class="main__home__section main__home__section__history"> 

@@ -1,8 +1,18 @@
-@extends('layouts.main');
+@extends('layouts.main')
 @section('content')
 
 
-{{country[0]->name}} ?? <h1>{{$country[0]->name}}</h1>
+
+@if(isset($country))
+<a href='/'>Home</a> -> <a href='/countries'>Countries</a>->{{$country[0]->name}}
+@else
+<a href='/'>Home</a> -> Teas
+@endif
+
+
+@if(isset($country))
+<h1>{{$country[0]->name}}</h1>
+@endif
     
     <ul>
 @foreach ($teas as $tea)

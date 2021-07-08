@@ -76,10 +76,12 @@ class TeaController extends Controller
     {
         $tea = Tea::findOrFail($id);
         $reviews = Review::where('tea_id', $id)->get();
-
+        $country = Country::where('id', $tea->country_id)->get();
+        $type = Type::where('id', $tea->type_id)->get();
+        
         $catalogues = Catalogue::all();
 
-        return view('teas.show', compact('tea', 'reviews', 'catalogues'));
+        return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country','type'));
     }
 
     /**

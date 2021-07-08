@@ -1,5 +1,6 @@
 @extends('layouts.main');
 @section('content')
+<a href='/'>Home</a> -> Countries
 
 <ul>
 @foreach ($regions as $region)
