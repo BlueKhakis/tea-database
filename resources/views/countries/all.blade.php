@@ -1,12 +1,27 @@
 @extends('layouts.main');
 @section('content')
+<a href='/'>Home</a> -> Countries
+
+<ul>
+@foreach ($regions as $region)
+    <li>{{$region->name}}</li>
+    @endforeach
+    </ul>
     
     <ul>
-@foreach ($countries as $country)
+
     <li> 
-        <a href={{action('CountryController@show', $country->id)}}>{{$country->name}}</a>
+    <a href='/countries/1'>China</a>
     </li>
-@endforeach
+    <li> 
+    <a href='/countries/2'>India</a>
+    </li>
+    <li> 
+        <a href='/region/2'>Rest of Asia</a> <a href='/region/3'>Africa</a>
+    </li>
+    <li> 
+    <a href='/region/1'>South America</a> <a href='/region/4'>Oceania</a>
+    </li>
     </ul>
 
 {{-- @if (Auth::user())

@@ -25,9 +25,9 @@ class Country extends Model
         return $this->hasMany(Plantation::class, 'plantation_id');
     }
 
-    // defines m:n relationship with region
+    // defines 1:m relationship with region
     public function region()
     {
-        return $this->belongsToMany(Region::class);
+        return $this->belongsTo(Region::class);
     }
 }

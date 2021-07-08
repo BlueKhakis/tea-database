@@ -21,6 +21,12 @@ class TeaController extends Controller
         return view('teas.all', compact('teas'));
     }
 
+    public function top()
+    {
+        $teas = Tea::orderBy('average_rating', 'desc')->get();
+        return view('teas.top', compact('teas'));
+    }
+
     
     public function create()
     {
@@ -70,10 +76,12 @@ class TeaController extends Controller
     {
         $tea = Tea::findOrFail($id);
         $reviews = Review::where('tea_id', $id)->get();
-
+        $country = Country::where('id', $tea->country_id)->get();
+        $type = Type::where('id', $tea->type_id)->get();
+        
         $catalogues = Catalogue::all();
 
-        return view('teas.show', compact('tea', 'reviews', 'catalogues'));
+        return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country','type'));
     }
 
     /**

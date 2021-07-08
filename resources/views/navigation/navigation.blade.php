@@ -6,7 +6,7 @@
 
     <a href={{action('TeaController@index')}}>Teas</a>
     <a href={{action('CountryController@index')}}>Countries</a>
-    <a href={{action('TeaController@index')}}>Top-rated</a>
+    <a href={{action('TeaController@top')}}>Top-rated</a>
    
 
     {{-- Searchbar - open on click --}}
