@@ -4,7 +4,7 @@
     <div class="navigation">
        <a href="/"><img src={{asset('img/teapot.png')}} alt="logo" width="150" height="100"></a>
 
-    <a href={{action('TeaController@index')}}>Teas</a>
+    <a href={{action('TypeController@index')}}>Types</a>
     <a href={{action('CountryController@index')}}>Countries</a>
     <a href={{action('TeaController@top')}}>Top-rated</a>
    

@@ -92,3 +92,4 @@ Route::get('/region/{id}', 'CountryController@region');
 
 Route::get('/type/{id}', 'TypeController@show');
 
+Route::get('/types', 'TypeController@index');
