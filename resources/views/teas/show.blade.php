@@ -64,7 +64,7 @@
     </form>
 
     <div>Rating</div>
-    {{$tea->average_rating}}/10
+    {{$tea->average_rating}}/10 ({{$number_of_votes}} votes)
 <br>
 <br>
     Add this tea to a list

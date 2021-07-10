@@ -111,10 +111,12 @@ class TeaController extends Controller
         $reviews = Review::where('tea_id', $id)->get();
         $country = Country::where('id', $tea->country_id)->get();
         $type = Type::where('id', $tea->type_id)->get();
+
+        $number_of_votes = sizeof($reviews);
         
         $catalogues = Catalogue::all();
 
-        return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country','type'));
+        return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country', 'number_of_votes', 'type'));
     }
 
     /**
