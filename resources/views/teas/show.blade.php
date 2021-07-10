@@ -25,7 +25,7 @@
     @csrf
     <textarea rows=5 cols=30 name="text"></textarea>
     
-    <input type="number" name="rating">
+    <input type="number" name="rating" min="0" max="10">
     <input type="submit" value="submit">
     </form>
 {{-- {{dd($reviews)}} --}}
