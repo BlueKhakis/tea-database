@@ -21,7 +21,7 @@ class CreateTeasTable extends Migration
             $table->integer('country_id');
             $table->integer('brand_id');
             $table->integer('plantation_id');
-            $table->float('average_rating');
+            $table->float('average_rating')->nullable();
         });
     }
 

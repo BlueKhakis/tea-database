@@ -19,7 +19,7 @@
 </ul>
 @else
 <br>
-No countries in {{$region[0]->name}} yet!
+No countries from {{$region[0]->name}} in our database yet!
 @endif
 
 

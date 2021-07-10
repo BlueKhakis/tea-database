@@ -51,12 +51,6 @@ class Tea extends Model
         return $this->belongsTo(Style::class, 'style_id');
     }
 
-    // defines n:1 relationship with plantations
-    public function plantation()
-    {
-        return $this->belongsTo(Plantation::class, 'plantation_id');
-    }
-
     // defines n:1 relationship with types
     public function type()
     {

@@ -26,7 +26,7 @@
     @else
 <br>
 
-No teas in {{$country[0]->name}} yet!
+No teas from {{$country[0]->name}} in our database yet!
 <br>
 @endif
 
