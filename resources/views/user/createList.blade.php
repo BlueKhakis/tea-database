@@ -1,3 +1,6 @@
+@section('list')
+    
+
 Make new list
 <br>
 <form method='post' action={{ action('CatalogueController@store') }}>
@@ -12,3 +15,5 @@ Make new list
 <input type="hidden" name="user_id" value=''>
 <input type="submit" value="submit">
 </form>
+
+@endsection

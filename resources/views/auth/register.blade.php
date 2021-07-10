@@ -139,14 +139,29 @@ text-align: center;
 height: 100vh;
 }
 
+
+
+
 .form {
-background-color: #15172b;
+/* background-color: #15172b; */
 border-radius: 20px;
 box-sizing: border-box;
 height: 70  0px;
 padding: 20px;
 width: 320px;
+
+box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
+    color: rgb(255, 255, 255);
+    margin: 1em;
+    padding: 1em;
+    transition: all 0.2s ease-out;
 }
+
+.form:hover {
+    box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
+}
+
+
 
 .title {
 color: #eee;
@@ -200,7 +215,7 @@ width: 100%;
 }
 
 .cut {
-background-color: #15172b;
+background-color: #15172b09;
 border-radius: 10px;
 height: 20px;
 left: 20px;
@@ -211,6 +226,7 @@ transition: transform 200ms;
 width: 76px;
 }
 
+
 .cut-short {
 width: 50px;
 }
@@ -218,6 +234,7 @@ width: 50px;
 .input:focus ~ .cut,
 .input:not(:placeholder-shown) ~ .cut {
 transform: translateY(8px);
+background-color: #15172b;
 }
 
 .placeholder {
@@ -246,13 +263,13 @@ color: #dc2f55;
 }
 
 .submit {
-background-color: rgb(51, 136, 216);
+background-color: rgba(51, 136, 216, 0.623);
 border-radius: 12px;
 border: 0;
 box-sizing: border-box;
 color: #eee;
 cursor: pointer;
-font-size: 18px;
+font-size: 20px;
 height: 50px;
 margin-top: 50px;
 // outline: 0;

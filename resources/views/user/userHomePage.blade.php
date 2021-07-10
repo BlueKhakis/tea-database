@@ -1,3 +1,6 @@
+
+
+@section('username')
 Edit user name
 
 <form method="post" action={{ action('UserController@edit') }}>
@@ -8,7 +11,7 @@ Edit user name
     <input type="password" name="password" id="">
 <input type="submit" value="Submit">
 </form>
-
+@endsection
 
 {{-- edit Img ()
 

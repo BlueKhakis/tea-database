@@ -80,13 +80,24 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px
 
 
 .form {
-background-color: #15172bb2;
+/* background-color: #15172bb2; */
 border-radius: 20px;
 box-sizing: border-box;
 height: 450px;
 padding: 20px;
 width: 320px;
 text-align: center;
+
+/* background-color: rgba(172, 172, 172, 0.226); */
+    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
+    color: rgb(255, 255, 255);
+    margin: 1em;
+    padding: 1em;
+    transition: all 0.2s ease-out;
+}
+
+.form:hover {
+    box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
 }
 
 .title {
@@ -149,7 +160,7 @@ width: 100%;
 }
 
 .cut {
-background-color: #15172b60;
+background-color: #15172b15;
 border-radius: 10px;
 height: 20px;
 left: 20px;
@@ -167,6 +178,7 @@ width: 50px;
 .input:focus ~ .cut,
 .input:not(:placeholder-shown) ~ .cut {
 transform: translateY(8px);
+background-color: #15172bfb;
 }
 
 .placeholder {
@@ -195,13 +207,13 @@ color: #dc2f55;
 }
 
 .submit {
-background-color: rgb(51, 136, 216);
+background-color: rgba(51, 136, 216, 0.623);
 border-radius: 12px;
 border: 0;
 box-sizing: border-box;
 color: #eee;
 cursor: pointer;
-font-size: 18px;
+font-size: 20px;
 height: 50px;
 margin-top: 50px;
 // outline: 0;
