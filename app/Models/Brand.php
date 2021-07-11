@@ -11,6 +11,10 @@ class Brand extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name'
+    ];
+
     // defines 1:n relationship with tea    
     public function tea()
     {

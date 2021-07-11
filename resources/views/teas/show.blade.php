@@ -28,7 +28,7 @@ window.user_reviews = '{!! json_encode($user_reviews) !!}';
     @csrf
     <textarea rows=5 cols=30 name="text"></textarea>
     
-    <input type="number" name="rating">
+    <input type="number" name="rating" min="0" max="10">
     <input type="submit" value="submit">
     </form>
 {{-- {{dd($reviews)}} --}}
@@ -71,7 +71,7 @@ window.user_reviews = '{!! json_encode($user_reviews) !!}';
     </form>
 
     <div>Rating</div>
-    {{$tea->average_rating}}/10
+    {{$tea->average_rating}}/10 ({{$number_of_votes}} votes)
 <br>
 <br>
     Add this tea to a list

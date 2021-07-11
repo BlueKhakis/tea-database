@@ -37,9 +37,8 @@ class TeaController extends Controller
         $types = Type::orderBy('name')->get();
         $countries = Country::orderBy('name')->get();
         $brands = Brand::orderBy('name')->get();
-        $plantations = Plantation::orderBy('name')->get();
 
-        return view('teas.create', compact('types', 'countries', 'brands', 'plantations'));
+        return view('teas.create', compact('types', 'countries', 'brands'));
     }
 
     /**
@@ -53,12 +52,46 @@ class TeaController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'type_id' => 'required',
-            'brand_id' => 'required',
-            'country_id' => 'required',
-            'plantation_id' => 'required',
+            'brand' => 'required',
+            'country_id' => 'required'
         ]);
 
-        $tea = Tea::create($request->all());
+        $all_brands = Brand::all();
+        
+        $test = 'no';
+
+        foreach($all_brands as $brand)
+        {
+            if ($brand->name === $request->brand)
+            {
+                $test = 'yes';
+            }
+        }
+
+        if ($test==='yes')
+        {
+            $brand = Brand::where('name', $request->brand)->get();
+            $brand = $brand[0];
+        }
+        else
+        {
+            $brand = Brand::create(
+                [
+                'name' => $request->brand,
+                ]);
+                
+        }
+
+
+        
+
+            $tea = Tea::create(
+                [
+                'name' => $request->name,
+                'type_id' => $request->type_id,
+                'country_id' => $request->country_id,
+                'brand_id' => $brand->id
+                ]);
 
 
         Session::flash('status', 'Thank you for enriching the database');
@@ -81,10 +114,12 @@ class TeaController extends Controller
         $user_reviews = Review::where('tea_id', $id)->where('user_id', Auth::user()->id)->get();
         $country = Country::where('id', $tea->country_id)->get();
         $type = Type::where('id', $tea->type_id)->get();
+
+        $number_of_votes = sizeof($reviews);
         
         $catalogues = Catalogue::all();
 
-        return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country','type', 'user_reviews'));
+        return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country', 'user_reviews', 'number_of_votes', 'type'));
     }
 
     /**
