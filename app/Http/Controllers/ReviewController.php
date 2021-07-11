@@ -47,7 +47,9 @@ class ReviewController extends Controller
 
     public function show($id)
     {
-        //
+        $user_id = Auth::user()->id;
+        $reviews = Review::where('tea_id', $id)->where('user_id', $user_id)->get();
+        return $reviews;
     }
 
     public function edit($id)
@@ -59,18 +61,38 @@ class ReviewController extends Controller
     
     public function update(Request $request, $id)
     {
-        //edits and existing reviews text and rating
-        $review = Review::findOrFail($id);
+        // works for updating with laravel
+        // //edits and existing reviews text and rating
+        // $review = Review::findOrFail($id);
+        // $old_rating = $review->rating;
+        // $review->update($request->all());
+
+        // //updates average rating of the specific tea
+        // $tea = Tea::findOrFail($review->tea_id);
+        // $rating_count= Review::where('tea_id', $review->tea_id)->count();
+        // $tea->average_rating = ($tea->average_rating * $rating_count - $old_rating + $request->rating)/($rating_count);
+        // $tea->save();
+
+        // return redirect(action('TeaController@show', $review->tea_id));
+        // dd($request->text);
+        $review = Review::where('id', $request->id)->first();
         $old_rating = $review->rating;
         $review->update($request->all());
+        // $review->rating = $request->rating;
+        // $review->text = $request->text;
+        // $review->save();
+        dd($review);
 
-        //updates average rating of the specific tea
+
+// 
         $tea = Tea::findOrFail($review->tea_id);
-        $rating_count= Review::where('tea_id', $review->tea_id)->count();
+        $rating_count= Review::where('tea_id', $review->tea)->count();
         $tea->average_rating = ($tea->average_rating * $rating_count - $old_rating + $request->rating)/($rating_count);
         $tea->save();
+// dd($request->tea);
+        return redirect(action('TeaController@show', $tea->id));
 
-        return redirect(action('TeaController@show', $review->tea_id));
+
     }
 
     public function destroy($id)

@@ -1,7 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-
+ 
+ <script>
+window.user_reviews = '{!! json_encode($user_reviews) !!}';
+</script>
 
 
 <div><a href='/'>Home</a> -> <a href='/countries'>Countries</a>-><a href='/countries/{{$country[0]->id}}'>{{$country[0]->name}}</a>->{{$tea->name}}</div>

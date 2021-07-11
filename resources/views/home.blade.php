@@ -14,6 +14,7 @@
 window.mapData = '{!! json_encode($countries) !!}';
 
 
+
 </script>
 
         <div class="main__home__section main__home__section__map"> 

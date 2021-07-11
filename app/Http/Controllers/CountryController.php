@@ -55,7 +55,7 @@ class CountryController extends Controller
        
         $teas = Tea::where('country_id', $id)->get();
         $region = Region::where('id', $country[0]->region_id)->get();
-          
+
         return view('countries.detail', compact('teas', 'country', 'region'));
     }
 

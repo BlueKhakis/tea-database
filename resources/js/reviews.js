@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import Reviews from './reviews'
+import Reviews from './Reviews.jsx'
 
 const reviewsData = window.reactReviewsData || {};
 
