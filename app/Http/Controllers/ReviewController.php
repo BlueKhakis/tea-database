@@ -61,6 +61,8 @@ class ReviewController extends Controller
     
     public function update(Request $request, $id)
     {
+
+
         // works for updating with laravel
         // //edits and existing reviews text and rating
         // $review = Review::findOrFail($id);
@@ -75,21 +77,18 @@ class ReviewController extends Controller
 
         // return redirect(action('TeaController@show', $review->tea_id));
         // dd($request->text);
+
+        //chage of review in react
         $review = Review::where('id', $request->id)->first();
         $old_rating = $review->rating;
         $review->update($request->all());
-        // $review->rating = $request->rating;
-        // $review->text = $request->text;
-        // $review->save();
-        dd($review);
 
-
-// 
+        // updating average rating for a tea in react
         $tea = Tea::findOrFail($review->tea_id);
-        $rating_count= Review::where('tea_id', $review->tea)->count();
+        $rating_count= Review::where('tea_id', $review->tea_id)->count();
         $tea->average_rating = ($tea->average_rating * $rating_count - $old_rating + $request->rating)/($rating_count);
         $tea->save();
-// dd($request->tea);
+
         return redirect(action('TeaController@show', $tea->id));
 
 
