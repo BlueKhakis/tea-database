@@ -23,11 +23,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-<<<<<<< HEAD
-</main>
-=======
   {{-- </body> --}}
->>>>>>> 51d8d314ef43f3dede8efa1da47b8f1df9326f84
   
   
   
