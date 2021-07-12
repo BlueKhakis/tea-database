@@ -4,7 +4,7 @@
 
 <div class="form">
     <div class="title">{{ $user->name }}</div>
-
+//this is a comment
     <div class="subtitle">Edit your info<hr></div>
 
 <img class="user_profile_pic" src="{{$user->image}}">
