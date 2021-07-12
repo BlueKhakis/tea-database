@@ -16,10 +16,8 @@ class UserController extends Controller
         if (Auth::attempt($request->all())) {
             // storing authenticated user into variable
             $user = Auth::user();
-
             // revoking all existing tokens
             $user->tokens()->delete();
-
             // create new auth token
             $token = $user->createToken('token-name');
 
@@ -38,16 +36,12 @@ class UserController extends Controller
     public function user()
     {
         $user = Auth::user();
-
-        return [
-            'user' => $user
-        ];
+        return ['user' => $user];
     }
 
     public function logout()
     {
         $user = Auth::user();
-
         $user->tokens()->delete();
     }
 

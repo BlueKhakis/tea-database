@@ -31,11 +31,16 @@
           <a href="#">Something</a>
           
         <div>
-          <a href="/userpage">Account</a>
+          <a href="/userpage">
+            <div class="user__button">
+              <img class="nav__user__image" src="{{asset(Auth::user()->image)}}" alt="">
+              <p>Account</p>
+            </div> 
+          </a>
         </div>  
           
 
-              <form action="{{ route('logout') }}" method="post">
+              <form class="logout__form" action="{{ route('logout') }}" method="post">
                 @csrf
                 <button>Logout</button>
               </form>
@@ -61,6 +66,7 @@
 
 </nav>
 
+
 {{-- As I mentioned before I am not sure how to style this project
 so I use styling in blade <style>Magic</style> --}}
 
@@ -73,7 +79,37 @@ so I use styling in blade <style>Magic</style> --}}
 
     margin: 0;
     padding: 0;
-}
+    }
+
+    .user__button {
+      display: flex;
+      flex-direction: row;
+      width: 30px;
+      align-items: center;  
+      /* justify-content: space-around; */
+    }
+
+    .user__button p {
+      margin: 0;
+      margin-left: 5px;
+    }
+
+    .nav__user__image {
+      width: 25px;
+      height: 25px;
+      align-self: end;
+    }
+
+    .logout__form {
+      background-color: rgb(204, 204, 204); 
+      height: 42.48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logout__form:hover {
+      background-color: rgb(221, 252, 234); 
+    }
 
     .navigation {
         font-size: 1.5em;
@@ -88,14 +124,15 @@ so I use styling in blade <style>Magic</style> --}}
         border-radius: 15px;
     }
 
-    a {
+    .navigation > a {
         color: rgb(97, 97, 97);
-        background-color: rgba(0,0,0,0.2)
         text-decoration: none;
     }
 
     .dropdown-content a {
         color: aqua;
+
+        background-color: rgba(0,0,0,0.2);
         text-decoration: none;
         font-size: 16px;
     }
@@ -230,3 +267,4 @@ so I use styling in blade <style>Magic</style> --}}
   position: absolute;
 }
 </style>
+

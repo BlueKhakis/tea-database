@@ -193,16 +193,13 @@ function Search(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
       className: "search-form",
       onSubmit: onFormSubmit,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
-        htmlFor: "",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          type: "text",
-          name: "s",
-          value: term,
-          onChange: onInputChange,
-          placeholder: "Enter term",
-          autocomplete: "off"
-        })]
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        name: "s",
+        value: term,
+        onChange: onInputChange,
+        placeholder: "Enter term",
+        autocomplete: "off"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "results",

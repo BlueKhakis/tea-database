@@ -40,8 +40,7 @@ export default function Search(props) {
     return (
         <div>
             <form className="search-form" onSubmit={onFormSubmit}>
-                <label htmlFor="">
-                    <br />
+                
                     <input
                         type="text"
                         name="s"
@@ -50,7 +49,7 @@ export default function Search(props) {
                         placeholder="Enter term"
                         autocomplete="off"
                     />
-                </label>
+                
 
 
             </form>

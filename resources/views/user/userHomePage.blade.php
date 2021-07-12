@@ -1,10 +1,14 @@
 
 
-{{-- @extends('layouts.main') --}}
+@extends('layouts.main')
 
+@section('content')
+
+
+<main>
 <div class="form">
     <div class="title">{{ $user->name }}</div>
-//this is a comment
+
     <div class="subtitle">Edit your info<hr></div>
 
 <img class="user_profile_pic" src="{{$user->image}}">
@@ -62,10 +66,10 @@
 </form>
 
 </div>
-
+</main>
 
 <style>
-      body {
+      main {
 align-items: center;
 background: url('./img/30993.jpg') no-repeat center center fixed; 
 -webkit-background-size: cover;
@@ -109,7 +113,7 @@ gap: 35px;
 
 .user_profile_pic {
     border-radius: 50%;
-    margin-bottom: -70px;
+    margin-bottom: -40px;
 }
 
 .title {
@@ -187,6 +191,7 @@ width: 100%;
     box-shadow: inset 0px 0px 10px 2px rgba(255, 255, 255, 0.37);
     color: rgb(255, 255, 255);
     border-radius: 20px;
+    margin-bottom: -50px;
 }
 
 .placeholder {
@@ -234,3 +239,5 @@ width: 100%;
 
 </style>
 
+    
+@endsection
