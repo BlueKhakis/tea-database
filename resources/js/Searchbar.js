@@ -39,11 +39,12 @@ export default function Search(props) {
 
     return (
         <div>
-            <form className="search-form" onSubmit={onFormSubmit}>
+            <form className="search__form" onSubmit={onFormSubmit}>
                 
                     <input
                         type="text"
                         name="s"
+                        className="search__form__input"
                         value={term}
                         onChange={onInputChange}
                         placeholder="Enter term"

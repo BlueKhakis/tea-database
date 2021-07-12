@@ -191,11 +191,12 @@ function Search(props) {
   }, [term]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
-      className: "search-form",
+      className: "search__form",
       onSubmit: onFormSubmit,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         type: "text",
         name: "s",
+        className: "search__form__input",
         value: term,
         onChange: onInputChange,
         placeholder: "Enter term",

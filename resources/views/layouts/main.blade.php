@@ -20,7 +20,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
 
-    <body>
+    <body class="document__body">
 
             <header>
                 @include('navigation.navigation')

@@ -18,7 +18,7 @@
                 <li class="list-inline-item"><a href="#">About</a></li>
                 <li class="list-inline-item"><a href="#">Privacy & Policy</a></li>
             </ul>
-            <p class="copyright">House of Teas © 2021</p>
+            <p class="copyright">House of Leaves © 2021</p>
         </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
