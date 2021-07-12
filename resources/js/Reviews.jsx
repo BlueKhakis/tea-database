@@ -5,7 +5,6 @@ export default function Search(props) {
 
 
     const [reviews, setReviews] = useState();
-    // const [clicked, setClicked] = useState(false);
 
     async function getReviews(){
         let user_reviews = await JSON.parse(window.user_reviews);
@@ -25,7 +24,7 @@ export default function Search(props) {
                 reviews.map((element, i) => (
                     <li key={i}>
                         {/* {console.log(element)} */}
-                        <Review  data={element} i={i}/> 
+                        <Review  data={element} i={i} refresh={refresh} setRefresh={setRefresh}/> 
 
                     </li>
                 ))

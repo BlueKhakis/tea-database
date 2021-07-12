@@ -62,8 +62,8 @@ function Review(props) {
       setClicked = _useState2[1];
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
-    text: '',
-    rating: '',
+    text: [props.data.text],
+    rating: [props.data.rating],
     id: [props.data.id],
     tea: [props.data.tea_id]
   }),
@@ -120,11 +120,11 @@ function Review(props) {
   }();
 
   var handleChange = function handleChange(event) {
-    var allowed_names = ['text', 'rating'],
+    var new_values = ['text', 'rating'],
         name = event.target.name,
         value = event.target.value;
 
-    if (-1 !== allowed_names.indexOf(name)) {
+    if (-1 !== new_values.indexOf(name)) {
       setValues(function (prev_values) {
         return _objectSpread(_objectSpread({}, prev_values), {}, _defineProperty({}, name, value));
       });
@@ -133,7 +133,7 @@ function Review(props) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: !clicked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-      children: [props.data.text, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      children: [text, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
         onClick: handleClick,
         children: "Edit"
       }), console.log(clicked)]
@@ -229,8 +229,7 @@ function Search(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
       reviews = _useState2[0],
-      setReviews = _useState2[1]; // const [clicked, setClicked] = useState(false);
-
+      setReviews = _useState2[1];
 
   function getReviews() {
     return _getReviews.apply(this, arguments);
@@ -273,7 +272,9 @@ function Search(props) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Review_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
           data: element,
-          i: i
+          i: i,
+          refresh: refresh,
+          setRefresh: setRefresh
         })
       }, i);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {

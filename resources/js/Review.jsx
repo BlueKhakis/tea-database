@@ -5,8 +5,8 @@ export default function Review(props)
 {
     const [clicked, setClicked] = useState(false);
     const [{ text, rating, tea, id }, setValues] = useState({
-    text: '',
-    rating: '',
+    text: [props.data.text],
+    rating: [props.data.rating],
     id: [props.data.id],
     tea: [props.data.tea_id] 
     })
@@ -15,7 +15,6 @@ export default function Review(props)
         event.preventDefault();
         setClicked(true);
         }
-
     const handleSubmission = async (event) =>  {
         setClicked(!clicked);
         // console.log(rating, text);
@@ -25,18 +24,19 @@ export default function Review(props)
             method: 'POST',
             body: JSON.stringify({ rating, text, id, tea }),
             headers: {
-            Accept: 'application/json',
-                    'Content-type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-      }
-            
-    });}
+                        Accept: 'application/json',
+                            'Content-type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                     }
+                }
+            );
+        }
 
      const handleChange = (event) => {
-        const allowed_names = ['text', 'rating'],
+        const new_values = ['text', 'rating'],
         name = event.target.name,
         value = event.target.value
-        if (-1 !== allowed_names.indexOf(name)) {
+        if (-1 !==  new_values.indexOf(name)) {
             setValues((prev_values) => {
         return { ...prev_values, [name]: value }
       })
@@ -49,7 +49,7 @@ export default function Review(props)
                 { !clicked 
                     ? 
                         <>
-                            {props.data.text}
+                            {text}
                             <button onClick={ handleClick }>Edit</button>
                             {console.log(clicked)}
                             {/* {console.log('/review/'${props.data.id}'/edit')} */}
