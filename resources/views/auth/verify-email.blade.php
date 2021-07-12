@@ -32,11 +32,11 @@
         }
 
         h3 {
-            color: rgb(128, 18, 18);
+            color: rgb(44, 99, 52);
         }
 
         html {
-            background-color: bisque;
+            background-color: rgba(57, 88, 66, 0.589);
             
         }
 
