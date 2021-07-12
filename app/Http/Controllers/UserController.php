@@ -180,18 +180,20 @@ class UserController extends Controller
     
     public function store(Request $request)
     {
-        $image_file = $request->file('image');
+        if($request->file('image'))
+        {
+            $image_file = $request->file('image');  
+            $image_file->storeAs('users', $image_file->getClientOriginalName(), 'public');
+            $user = Auth::user();
+            $user->image = 'users/'.$image_file->getClientOriginalName();
+            $user->save();
+        }
 
-        $image_file->storeAs('users', $image_file->getClientOriginalName(), 'public');
-
-        $user = Auth::user();
-
-        $user->image = 'users/'.$image_file->getClientOriginalName();
-
-        $user->save();
-
+<<<<<<< HEAD
         Session::flash('status', 'Thank you for uploading image');
 
+=======
+>>>>>>> 25718ebafd5fa00c02d3c6b2f47c1d7f07e1abcd
         return redirect(action('UserController@index'));
         
     }

@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
 
     
@@ -29,6 +29,7 @@
        
     </footer>
  <script src="{{asset('js\search.js')}}"></script>
+ <script src="{{asset('js\reviews.js')}}"></script>
 </body>
 
 

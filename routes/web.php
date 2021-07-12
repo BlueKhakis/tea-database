@@ -57,6 +57,9 @@ Route::middleware(['verified'])->group(function () {
     // Showing and editing an existing review
     Route::get('/review/{id}/edit', 'ReviewController@edit');
     Route::put('/review/{id}/edit', 'ReviewController@update');
+    Route::post('/show/{id}', 'ReviewController@update');
+    Route::post('/review/{id}/update', 'ReviewController@update');
+
 
 });
 
@@ -64,6 +67,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/browse', 'HomeController@browse');
 
 Route::get('/show/{id}', 'TeaController@show');
+// Route::get('/show/{id}', 'ReviewController@show');
 
 // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
 Route::get('/react', 'ReviewController@index');

@@ -22,11 +22,7 @@
 </select>
 <br>
     Brands
-<select name = "brand_id">
-@foreach ($brands as $brand)
-            <option value = {{$brand->id}}> {{$brand->name}}</option>
-            @endforeach
-</select>
+    <input type="text" name='brand'>
 <br>
     Countries
 <select name = "country_id">
@@ -35,12 +31,9 @@
             @endforeach
 </select>
 <br>
-    Plantations
-<select name = "plantation_id">
-@foreach ($plantations as $plantation)
-            <option value = {{$plantation->id}}> {{$plantation->name}}</option>
-            @endforeach
-</select>
+Description
+<textarea rows=5 cols=30 name="description"></textarea>
+<br>
 
 <input type="hidden" name="average_rating" value=0>
 

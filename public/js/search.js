@@ -168,12 +168,12 @@ function Search(props) {
 
             case 8:
               data = _context.sent;
-              // console.log(data)
-              // console.log(data[0])
+              console.log(data); // console.log(data[0])
               // console.log(data[0].name)
+
               setResults(data);
 
-            case 10:
+            case 11:
             case "end":
               return _context.stop();
           }

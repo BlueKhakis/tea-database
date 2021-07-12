@@ -1,7 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-
+ 
+ <script>
+window.user_reviews = '{!! json_encode($user_reviews) !!}';
+</script>
 
 
 <div><a href='/'>Home</a> -> <a href='/countries'>Countries</a>-><a href='/countries/{{$country[0]->id}}'>{{$country[0]->name}}</a>->{{$tea->name}}</div>
@@ -25,7 +28,7 @@
     @csrf
     <textarea rows=5 cols=30 name="text"></textarea>
     
-    <input type="number" name="rating">
+    <input type="number" name="rating" min="0" max="10">
     <input type="submit" value="submit">
     </form>
 {{-- {{dd($reviews)}} --}}
@@ -39,6 +42,10 @@
     @else
         @if (Auth::user())
             <div>Your words of wisdom:</div>
+            <div id="react__reviews"></div>
+            <script>
+                window.reactReviewsData = {tea_id: {{$tea->id}}}
+            </script>
             <ul>
                 @foreach ($reviews as $review)
                     @if ($review->user_id === Auth::user()->id)
@@ -64,7 +71,7 @@
     </form>
 
     <div>Rating</div>
-    {{$tea->average_rating}}/10
+    {{$tea->average_rating}}/10 ({{$number_of_votes}} votes)
 <br>
 <br>
     Add this tea to a list
