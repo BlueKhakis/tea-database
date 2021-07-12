@@ -1,5 +1,9 @@
 {
-    "/js/search.js": "/js/search.js",
-    "/js/map.js": "/js/map.js",
-    "/js/continent.js": "/js/continent.js"
+    "/js/search.js": "/js/search.js?id=a9221294d85a548c544c",
+    "/js/reviews.js": "/js/reviews.js?id=56aca024e0db3c3bc65e",
+    "/js/map.js": "/js/map.js?id=dba4bd8e24352928b7c0",
+    "/js/continent.js": "/js/continent.js?id=8e3206c7452b34f92b99",
+    "/js/search/pdfmake.js": "/js/search/pdfmake.js?id=faeb073fc5be4f159875",
+    "/js/search/canvg.js": "/js/search/canvg.js?id=41906d3eea6ce2e302da",
+    "/js/search/xlsx.js": "/js/search/xlsx.js?id=7f9865bd5a098b07ddef"
 }

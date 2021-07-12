@@ -272,9 +272,7 @@ function Search(props) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Review_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
           data: element,
-          i: i,
-          refresh: refresh,
-          setRefresh: setRefresh
+          i: i
         })
       }, i);
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
