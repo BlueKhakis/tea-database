@@ -3,11 +3,11 @@
 {{-- @extends('layouts.main') --}}
 
 <div class="form">
-    <div class="title">User Space</div>
+    <div class="title">{{ $user->name }}</div>
 
-    <div class="subtitle">Something about page...<hr></div>
+    <div class="subtitle">Edit your info<hr></div>
 
-<img src="{{$user->image}}">
+<img class="user_profile_pic" src="{{$user->image}}">
 
 <div class="thanks">
 @if (session('status'))
@@ -85,7 +85,7 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px
 /* background-color: #15172bb2; */
 border-radius: 20px;
 box-sizing: border-box;
-height: 750px;
+height: auto;
 padding: 20px;
 width: 320px;
 text-align: center;
@@ -105,6 +105,11 @@ gap: 35px;
 
 .form:hover {
     box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
+}
+
+.user_profile_pic {
+    border-radius: 50%;
+    margin-bottom: -70px;
 }
 
 .title {
