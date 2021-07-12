@@ -3,10 +3,14 @@
     @extends('layouts.main')
 </nav>
 
+@extends('layouts.main')
+
+@section('content')
+
+
 <main>
 <div class="form">
- 
-    <div class="title">Welcome {{Auth::user()->name}}</div>
+    <div class="title">{{ $user->name }}</div>
 
     <div class="subtitle">Edit your info<hr></div>
 
@@ -112,7 +116,7 @@ gap: 35px;
 
 .user_profile_pic {
     border-radius: 50%;
-    margin-bottom: -70px;
+    margin-bottom: -40px;
 }
 
 .title {
@@ -190,6 +194,7 @@ width: 100%;
     box-shadow: inset 0px 0px 10px 2px rgba(255, 255, 255, 0.37);
     color: rgb(255, 255, 255);
     border-radius: 20px;
+    margin-bottom: -50px;
 }
 
 .placeholder {
@@ -237,3 +242,5 @@ width: 100%;
 
 </style>
 
+    
+@endsection
