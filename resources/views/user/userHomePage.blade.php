@@ -7,6 +7,8 @@
 
     <div class="subtitle">Something about page...<hr></div>
 
+<img src="{{$user->image}}">
+
 <div class="thanks">
 @if (session('status'))
 {{session('status')}}
@@ -19,7 +21,7 @@
     @method('PUT')
     @csrf
     <label for="name" class="placeholder">Edit User Name</label>
-    <input class="input" type="text" name="name" >
+    <input class="input" type="text" name="name" placeholder="{{ $user->name }}">
     <input class="submit" type="submit" value="Submit">
 </form>
 </div>
@@ -32,7 +34,7 @@
     @method('PUT')
     @csrf
     <label for="editname" class="placeholder">Edit User E-mail</><br>
-        <input id="email" name="email" class="input" value="{{ old('email') }}" type="email" placeholder=" " /><br>
+        <input id="email" name="email" class="input" value="{{ old('email') }}" type="email" placeholder="{{ $user->email }}" /><br>
 <input class="submit" type="submit" value="Submit">
 </form>
 </div>
@@ -44,7 +46,7 @@
     @csrf
 
     <label for="editname" class="placeholder">Edit User Password</><br>
-    <input class="input" type="password" name="password" id=""><br>
+    <input class="input" type="password" name="password" id="" placeholder=""><br>
 <input class="submit" type="submit" value="Submit">
 </form>
 </div>

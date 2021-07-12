@@ -144,9 +144,8 @@ class UserController extends Controller
     public function index()
     {
         $teas = Tea::all();
-        
-        return view('user.userHomePage', compact('teas'));
-
+        $user = Auth::user();
+        return view('user.userHomePage', compact('teas', 'user'));
     }
 
     public function edit(Request $request)
@@ -183,14 +182,13 @@ class UserController extends Controller
         if($request->file('image'))
         {
             $image_file = $request->file('image');  
-            $image_file->storeAs('users', $image_file->getClientOriginalName(), 'public');
+            $image_file->storeAs('',$image_file->getClientOriginalName(), 'uploads');
             $user = Auth::user();
             $user->image = 'users/'.$image_file->getClientOriginalName();
             $user->save();
         }
 
         return redirect(action('UserController@index'));
-        
     }
 
     public function profile(){
