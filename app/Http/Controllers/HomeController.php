@@ -11,7 +11,6 @@ class HomeController extends Controller
     public function index()
     {
         $countries = Country::all();
-        
 
         return view('home', compact('countries'));
     }

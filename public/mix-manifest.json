@@ -1,5 +1,6 @@
 {
-    "/js/search.js": "/js/search.js",
-    "/js/map.js": "/js/map.js",
-    "/js/continent.js": "/js/continent.js"
+    "/js/search.js": "/js/search.js?id=a9221294d85a548c544c",
+    "/js/reviews.js": "/js/reviews.js?id=19548530cf8ee783a7f4",
+    "/js/map.js": "/js/map.js?id=dba4bd8e24352928b7c0",
+    "/js/continent.js": "/js/continent.js?id=8e3206c7452b34f92b99"
 }
