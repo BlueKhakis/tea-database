@@ -1,5 +1,4 @@
-@section('list')
-    
+
 
 Make new list
 <br>
@@ -16,4 +15,3 @@ Make new list
 <input type="submit" value="submit">
 </form>
 
-@endsection

@@ -31,7 +31,7 @@
           <a href="#">Something</a>
           
         <div>
-          <a href="/account">Account</a>
+          <a href="/userpage">Account</a>
         </div>  
           
 

@@ -35,6 +35,8 @@ Route::middleware(['verified'])->group(function () {
 
     Route::get('/userpage', 'UserController@index');
 
+    Route::post('/userpage', 'UserController@store');
+
     Route::put('/userpage/user', 'UserController@edit');
 
     Route::get('/userpage/username', 'UserController@userNameUpdate');
@@ -45,9 +47,9 @@ Route::middleware(['verified'])->group(function () {
 
     Route::put('/userpage/useremail', 'UserController@userEmailUpdate');
 
-    Route::post('/upload', 'UserController@store');
+    //Route::post('/upload', 'UserController@store');
 
-    Route::get('/account', 'UserController@store');
+    //Route::get('/account', 'UserController@store');
     
     // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
     Route::get('/react', 'ReviewController@index');

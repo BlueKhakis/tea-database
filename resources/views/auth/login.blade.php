@@ -225,4 +225,5 @@ width: 100%;
 background-color: #06b;
 }
 
+}
 </style>  
