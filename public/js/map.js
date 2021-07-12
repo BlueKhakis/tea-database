@@ -86319,7 +86319,7 @@ var countries = JSON.parse(window.mapData);
 var valid_countries = countries.map(function (country) {
   return {
     'id': country.country_code,
-    'fill': _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_0__.color('black'),
+    'fill': _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_0__.color('brown'),
     'url': "/countries/".concat(country.id)
   };
 });
@@ -86363,7 +86363,7 @@ activePolygonTemplate.propertyFields.fill = 'fill';
 activePolygonTemplate.propertyFields.url = 'url'; // Hover state
 
 var hs = activePolygonTemplate.states.create("hover");
-hs.properties.fill = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_0__.color("#367B25");
+hs.properties.fill = _amcharts_amcharts4_core__WEBPACK_IMPORTED_MODULE_0__.color("green");
 })();
 
 /******/ })()

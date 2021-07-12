@@ -9,7 +9,7 @@ let countries = JSON.parse(window.mapData);
 
 let valid_countries = countries.map((country) => ({
     'id': country.country_code,
-    'fill': am4core.color('black'),
+    'fill': am4core.color('brown'),
     'url': `/countries/${country.id}`,
 }))
 
@@ -62,4 +62,4 @@ activePolygonTemplate.propertyFields.url = 'url';
 
 // Hover state
 let hs = activePolygonTemplate.states.create("hover");
-hs.properties.fill = am4core.color("#367B25");
+hs.properties.fill = am4core.color("green");

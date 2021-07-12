@@ -1,4 +1,4 @@
-@extends('layouts.main');
+@extends('layouts.main')
 @section('content')
 <a href='/'>Home</a> -> Countries
 
@@ -17,7 +17,7 @@
     <a href='/countries/2'>India</a>
     </li>
     <li> 
-        <a href='/region/2'>Rest of Asia</a> <a href='/region/3'>Africa</a>
+        <a href='/region/2'>Asia</a> <a href='/region/3'>Africa</a>
     </li>
     <li> 
     <a href='/region/1'>South America</a> <a href='/region/4'>Oceania</a>

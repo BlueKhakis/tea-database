@@ -201,7 +201,7 @@ function Search(props) {
           value: term,
           onChange: onInputChange,
           placeholder: "Enter term",
-          autocomplete: "off"
+          autoComplete: "off"
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
