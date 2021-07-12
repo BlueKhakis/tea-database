@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Tea;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -96,13 +97,18 @@ class UserController extends Controller
            
         ]);
 
-        // $request->password ? $request->password : $user->password;
+        $request->password ? $request->password : $user->password;
 
-        // $user->update([
+        $user->update([
             
-        //     'password' => $request->password
-        // ]);
-        
+            'password' => $request->password
+        ]);
+
+        if ( $request->email == true )
+            Session::flash('status', 'Thank you for editing your email');
+        else
+            Session::flash('status', 'Type fyour new e-mail');
+
 
         return redirect(action('UserController@index'));
         
@@ -120,6 +126,12 @@ class UserController extends Controller
             'email' => $user->email
         ]);
 
+        if ( $request->name == true )
+            Session::flash('status', 'Thank you for editing your name');
+        else
+            Session::flash('status', 'Type your new user name');
+
+
         return redirect(action('UserController@index'));
     }
 
@@ -131,25 +143,34 @@ class UserController extends Controller
 
     public function index()
     {
-
-        return view('user.userHomePage');
+        $teas = Tea::all();
+        
+        return view('user.userHomePage', compact('teas'));
 
     }
 
     public function edit(Request $request)
     {
+                $user = Auth::user();
 
                 $request->password ? $request->password : $user->password;
-
-                $user = Auth::user();
+          
+        
         $new_password = bcrypt($request->password);
         $user->update([
             
             'password' => $new_password
         ]);
 
-        return redirect(action('UserController@index'));
+        if ( $request->password == true ) 
+            Session::flash('status', 'Thank you for editing your password');
+        else 
+            Session::flash('status', 'Type your new password');
 
+
+        
+        return redirect(action('UserController@index'));
+        
     }
 
     public function editUserName()
@@ -159,17 +180,25 @@ class UserController extends Controller
     
     public function store(Request $request)
     {
-        $image_file = $request->file('image');
+        if($request->file('image'))
+        {
+            $image_file = $request->file('image');  
+            $image_file->storeAs('users', $image_file->getClientOriginalName(), 'public');
+            $user = Auth::user();
+            $user->image = 'users/'.$image_file->getClientOriginalName();
+            $user->save();
+        }
 
-        $image_file->storeAs('users', $image_file->getClientOriginalName(), 'public');
+<<<<<<< HEAD
+        Session::flash('status', 'Thank you for uploading image');
 
-        $user = Auth::user();
-
-        $user->image = 'users/'.$image_file->getClientOriginalName();
-
-        $user->save();
-
-        return redirect(action('user.homepage'));
+=======
+>>>>>>> 25718ebafd5fa00c02d3c6b2f47c1d7f07e1abcd
+        return redirect(action('UserController@index'));
         
+    }
+
+    public function profile(){
+    	return view('profile', array('user' => Auth::user()) );
     }
 }

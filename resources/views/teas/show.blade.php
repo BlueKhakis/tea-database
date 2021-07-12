@@ -1,7 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-
+ 
+ <script>
+window.user_reviews = '{!! json_encode($user_reviews) !!}';
+</script>
 
 
 <div><a href='/'>Home</a> -> <a href='/countries'>Countries</a>-><a href='/countries/{{$country[0]->id}}'>{{$country[0]->name}}</a>->{{$tea->name}}</div>
@@ -39,6 +42,10 @@
     @else
         @if (Auth::user())
             <div>Your words of wisdom:</div>
+            <div id="react__reviews"></div>
+            <script>
+                window.reactReviewsData = {tea_id: {{$tea->id}}}
+            </script>
             <ul>
                 @foreach ($reviews as $review)
                     @if ($review->user_id === Auth::user()->id)

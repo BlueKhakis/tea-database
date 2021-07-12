@@ -16,7 +16,7 @@
     </head>
     <!-- <div class="search-box">
         <button class="btn-search"><i class="fas fa-search"></i></button>
-        <input type="text" class="input-search" placeholder="Search your Tea..">
+        <div id='search' class="input-search" >
       </div> -->
       <div id='search'>
       <!-- <script src= asset(js/search)> -->
@@ -31,7 +31,7 @@
           <a href="#">Something</a>
           
         <div>
-          <a href="/account">Account</a>
+          <a href="/userpage">Account</a>
         </div>  
           
 

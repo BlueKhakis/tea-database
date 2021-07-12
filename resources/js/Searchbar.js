@@ -16,7 +16,6 @@ export default function Search(props) {
     const doSearch = async (term) => {
         setResults(null);
         if (term === '') return;
-
         const response = await fetch('/search/' + encodeURIComponent(term), {
             method: 'GET',
             headers: {
@@ -27,7 +26,7 @@ export default function Search(props) {
 
         const data = await response.json();
 
-        // console.log(data)
+        console.log(data)
         // console.log(data[0])
         // console.log(data[0].name)
         setResults(data);

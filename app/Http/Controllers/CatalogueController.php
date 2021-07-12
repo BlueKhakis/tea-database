@@ -20,7 +20,8 @@ class CatalogueController extends Controller
     {
         $teas = Tea::all();
 
-        return view('user.createList', compact('teas'));
+        return view('user.userHomePage', compact('teas'));
+        
     }
 
     /**
@@ -87,6 +88,7 @@ class CatalogueController extends Controller
 
         $user = Auth::user();
 
+
         return view('user.editlist', compact('id', 'teas', 'catalogue'));
     }
 
@@ -100,6 +102,7 @@ class CatalogueController extends Controller
     public function update(Request $request, $id)
     {
        
+
         if ($request->fromShow =1)
         {
             $catalogue = Catalogue::findOrFail($request->catalogue_id);

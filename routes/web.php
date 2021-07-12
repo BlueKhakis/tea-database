@@ -35,6 +35,8 @@ Route::middleware(['verified'])->group(function () {
 
     Route::get('/userpage', 'UserController@index');
 
+    Route::post('/userpage', 'UserController@store');
+
     Route::put('/userpage/user', 'UserController@edit');
 
     Route::get('/userpage/username', 'UserController@userNameUpdate');
@@ -45,9 +47,9 @@ Route::middleware(['verified'])->group(function () {
 
     Route::put('/userpage/useremail', 'UserController@userEmailUpdate');
 
-    Route::post('/upload', 'UserController@store');
+    //Route::post('/upload', 'UserController@store');
 
-    Route::get('/account', 'UserController@store');
+    //Route::get('/account', 'UserController@store');
     
     // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
     Route::get('/react', 'ReviewController@index');
@@ -55,6 +57,9 @@ Route::middleware(['verified'])->group(function () {
     // Showing and editing an existing review
     Route::get('/review/{id}/edit', 'ReviewController@edit');
     Route::put('/review/{id}/edit', 'ReviewController@update');
+    Route::post('/show/{id}', 'ReviewController@update');
+    Route::post('/review/{id}/update', 'ReviewController@update');
+
 
 });
 
@@ -62,6 +67,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/browse', 'HomeController@browse');
 
 Route::get('/show/{id}', 'TeaController@show');
+// Route::get('/show/{id}', 'ReviewController@show');
 
 // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
 Route::get('/react', 'ReviewController@index');
