@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Final project</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('css/homepage.css')}}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+        <title>Final project</title>
 
-    
-</head>
-<body>
+        <link rel="stylesheet" href="{{asset('css/main.css')}}">
+        {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
+        {{-- <link rel="stylesheet" href="{{asset('css/homepage.css')}}"> --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+    </head>
 
-    <header>
-        @include('navigation.navigation')
-    </header>
+    <body>
 
+            <header>
+                @include('navigation.navigation')
+            </header>
+
+            @yield('content')
+
+            <footer>
+                @include('footer.footer')
+            </footer>
         
-    @yield('content')
-
-    <footer>
-       
-    </footer>
- <script src="{{asset('js\search.js')}}"></script>
- <script src="{{asset('js\reviews.js')}}"></script>
-</body>
+        <script src="{{asset('js\search.js')}}"></script>
+        <script src="{{asset('js\reviews.js')}}"></script>
+    </body>
 
 
 </html>

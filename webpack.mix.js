@@ -49,6 +49,7 @@ mix.js('resources/js/search.js', 'public/js/search.js').react();
 mix.js('resources/js/reviews.js', 'public/js/reviews.js').react();
 mix.js('resources/js/map/map.js', 'public/js/map.js');
 mix.js('resources/js/map/continent.js', 'public/js/continent.js');
+mix.sass('resources/sass/main.scss', 'public/css');
 
 mix.browserSync({
     host: 'localhost',

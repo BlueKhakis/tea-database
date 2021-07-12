@@ -1,9 +1,10 @@
 {
-    "/js/search.js": "/js/search.js?id=a8868499d66410839638",
+    "/js/search.js": "/js/search.js?id=fa65f37d99bd8bedb878",
     "/js/reviews.js": "/js/reviews.js?id=56aca024e0db3c3bc65e",
     "/js/map.js": "/js/map.js?id=07adf543b14ae68974be",
     "/js/continent.js": "/js/continent.js?id=18a7839862ee0b212907",
     "/js/search/pdfmake.js": "/js/search/pdfmake.js?id=faeb073fc5be4f159875",
     "/js/search/canvg.js": "/js/search/canvg.js?id=41906d3eea6ce2e302da",
-    "/js/search/xlsx.js": "/js/search/xlsx.js?id=7f9865bd5a098b07ddef"
+    "/js/search/xlsx.js": "/js/search/xlsx.js?id=7f9865bd5a098b07ddef",
+    "/css/main.css": "/css/main.css?id=297d31b4cbe698c489fe"
 }
