@@ -90,7 +90,7 @@ so I use styling in blade <style>Magic</style> --}}
 
     a {
         color: rgb(97, 97, 97);
-        background-color: rgba(0,0,0,0.2)
+        background-color: rgba(0,0,0,0.2);
         text-decoration: none;
     }
 

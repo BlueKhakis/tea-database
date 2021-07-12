@@ -1,4 +1,4 @@
-@extends('layouts.main');
+@extends('layouts.main')
 @section('content')
 <a href='/'>Home</a> -> Countries
 

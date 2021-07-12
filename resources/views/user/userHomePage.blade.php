@@ -1,10 +1,13 @@
 
+<nav class="navi">
+    @extends('layouts.main')
+</nav>
 
-{{-- @extends('layouts.main') --}}
-
+<main>
 <div class="form">
-    <div class="title">{{ $user->name }}</div>
-//this is a comment
+ 
+    <div class="title">Welcome {{Auth::user()->name}}</div>
+
     <div class="subtitle">Edit your info<hr></div>
 
 <img class="user_profile_pic" src="{{$user->image}}">
@@ -62,10 +65,10 @@
 </form>
 
 </div>
-
+</main>
 
 <style>
-      body {
+      main {
 align-items: center;
 background: url('./img/30993.jpg') no-repeat center center fixed; 
 -webkit-background-size: cover;
@@ -75,7 +78,7 @@ background-size: cover;
 background-repeat: no-repeat; 
 display: flex;
 justify-content: center;
-
+flex-flow: column;
 height: 100vh;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
