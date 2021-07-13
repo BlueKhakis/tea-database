@@ -7,6 +7,16 @@
   font-family: "Roboto", sans-serif;
   width: 1300px;
   margin: auto;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+button {
+  text-transform: uppercase;
+}
+
+.hidden {
+  display: none;
 }
 
 * {
@@ -434,8 +444,6 @@
   font-size: 1.25em;
   text-transform: uppercase;
   font-weight: 300;
-  -webkit-text-decoration: maroon;
-          text-decoration: maroon;
 }
 
 .react__button {
@@ -447,6 +455,20 @@
 }
 .react__button:hover {
   border: 3px solid #22007c;
+}
+
+.recent__reviews {
+  display: flex;
+  flex-direction: column;
+}
+.recent__reviews__header {
+  font-size: 1.25em;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.margin-top {
+  margin-top: 0.75em;
 }
 
 /*# sourceMappingURL=main.css.map*/

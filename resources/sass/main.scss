@@ -9,6 +9,16 @@
     font-family: "Roboto", sans-serif;
     width: $body_width;
     margin: auto;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+button {
+    text-transform: uppercase;
+}
+
+.hidden {
+    display: none;
 }
 
 @import "navigation.scss";

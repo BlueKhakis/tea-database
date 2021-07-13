@@ -59,6 +59,7 @@ Route::middleware(['verified'])->group(function () {
     Route::put('/review/{id}/edit', 'ReviewController@update');
     Route::post('/show/{id}', 'ReviewController@update');
     Route::post('/review/{id}/update', 'ReviewController@update');
+    Route::post('/review/{id}/delete', 'ReviewController@destroy');
 
 
 });

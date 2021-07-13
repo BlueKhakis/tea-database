@@ -4,23 +4,42 @@ import React, { useEffect, useState } from 'react';
 export default function Review(props) 
 {
     const [clicked, setClicked] = useState(false);
+    const [disp, setDisp] = useState('');
     const [{ text, rating, tea, id }, setValues] = useState({
     text: [props.data.text],
     rating: [props.data.rating],
     id: [props.data.id],
     tea: [props.data.tea_id] 
-    })
-// console.log(props.data.id);
+    });
+
     function handleClick(event){
         event.preventDefault();
         setClicked(true);
         }
+
     const handleSubmission = async (event) =>  {
         setClicked(!clicked);
         // console.log(rating, text);
         event.preventDefault();
 
         await fetch(`/review/${props.data.id}/update`, {
+            method: 'POST',
+            body: JSON.stringify({ rating, text, id, tea }),
+            headers: {
+                        Accept: 'application/json',
+                            'Content-type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                     }
+                }
+            );
+        }
+
+        const handleDelete = async (event) =>  {
+        setDisp('hidden');
+        // console.log(rating, text);
+        event.preventDefault();
+
+        await fetch(`/review/${props.data.id}/delete`, {
             method: 'POST',
             body: JSON.stringify({ rating, text, id, tea }),
             headers: {
@@ -41,21 +60,24 @@ export default function Review(props)
         return { ...prev_values, [name]: value }
       })
     }
-  }
-
+        }
 
 
     return( <>
                 { !clicked 
                     ? 
                         <>
-                            {text}
-                            <button className="animate__animated react__button" onClick={ handleClick }>Edit</button>
-                            {console.log(clicked)}
-                            {/* {console.log('/review/'${props.data.id}'/edit')} */}
+                            <p className={disp}>{text}</p>
+                            <button className={`animate__animated react__button ${disp}`} onClick={ handleClick }>Edit</button>
+                            {/* delete form */}
+                            <form onSubmit={ handleDelete }  method="post">
+                                <button className={`animate__animated react__button ${disp}`}>Delete</button>
+                            </form>
+
+
                         </>
                     :   <>
-                            <form onSubmit={ handleSubmission } action={`http://localhost:3000/review/${props.data.id}/update`} method="post">
+                            <form onSubmit={ handleSubmission } method="post">
                             {/* <form action={ action('ReviewController@update') } method="post"> */}
                                 <div>
                                     <label htmlFor="text">Text</label>
@@ -65,7 +87,7 @@ export default function Review(props)
                                     <label htmlFor="rating">Rating</label>
                                     <input name="rating" type="number" onChange={handleChange} defaultValue={rating}/>
                                 </div>
-                                <button className="animate__animated">click</button>
+                                <button className="animate__animated">update</button>
                                 {/* <input type="submit" value="update pls"></input> */}
                             </form>
                         </>

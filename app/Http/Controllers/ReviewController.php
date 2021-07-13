@@ -88,6 +88,7 @@ class ReviewController extends Controller
         $rating_count= Review::where('tea_id', $review->tea_id)->count();
         $tea->average_rating = ($tea->average_rating * $rating_count - $old_rating + $request->rating)/($rating_count);
         $tea->save();
+        Session::flash('status', 'Review updated');
 
         return redirect(action('TeaController@show', $tea->id));
 
@@ -96,6 +97,10 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
-        //
+        $review = Review::findOrFail($id);
+        $tea = Tea::findOrFail($review->tea_id);
+        $review->delete();
+        Session::flash('status', 'Review removed');
+        return redirect(action('TeaController@show', $tea->id));
     }
 }
