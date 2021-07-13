@@ -24,7 +24,7 @@ class ReviewController extends Controller
 
         $reviews = Review::all();
 
-        return view('user.listpage', compact('teas', 'user', 'reviews'));
+        return view('review.userreviews', compact('teas', 'user', 'reviews'));
     }
 
     public function create(Request $request, $tea_id)
