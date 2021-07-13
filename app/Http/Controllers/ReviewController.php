@@ -16,6 +16,17 @@ class ReviewController extends Controller
         return view('react.react');
     }
 
+    public function userReviews()
+    {
+        $user = Auth::user();
+
+        $teas = Tea::all();
+
+        $reviews = Review::all();
+
+        return view('review.userreviews', compact('teas', 'user', 'reviews'));
+    }
+
     public function create(Request $request, $tea_id)
     {
         $tea = Tea::findOrFail($tea_id);
@@ -97,10 +108,19 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
+<<<<<<< HEAD
         $review = Review::findOrFail($id);
         $tea = Tea::findOrFail($review->tea_id);
         $review->delete();
         Session::flash('status', 'Review removed');
         return redirect(action('TeaController@show', $tea->id));
+=======
+        
+        $review = Review::findOrFail($id);
+        $tea_id = $review->tea_id;
+        $review->delete();
+
+        return redirect(action('TeaController@show', $tea_id));
+>>>>>>> 2396d6d60d8189139bc0d5fb6be590386356eff9
     }
 }

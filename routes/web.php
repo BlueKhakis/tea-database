@@ -104,3 +104,7 @@ Route::get('/type/{id}', 'TypeController@show');
 Route::get('/types', 'TypeController@index');
 
 Route::delete('/deletelist/{id}', 'CatalogueController@destroy');
+
+Route::delete('/deletereview/{id}', 'ReviewController@destroy');
+
+Route::get('/reviews', 'ReviewController@userReviews');

@@ -81,6 +81,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
                 @foreach ($reviews as $review)
                     @if ($review->user_id === Auth::user()->id)
                         <li>{{$review->text}} <button><a href={{ action('ReviewController@edit', $review->id) }}>edit</a></button></li>
+                        <li><button><a href={{ action('ReviewController@destroy', $review->id) }}>delete</a></button></li>
                     @endif
                 @endforeach
             </ul> --}}
