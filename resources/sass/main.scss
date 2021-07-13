@@ -1,0 +1,13 @@
+@import "variables.scss";
+
+.document__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-white;
+}
+
+@import "navigation.scss";
+@import "home_page_body.scss";
+// @import "footer.scss";

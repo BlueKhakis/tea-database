@@ -24,7 +24,7 @@ export default function Search(props) {
                 reviews.map((element, i) => (
                     <li key={i}>
                         {/* {console.log(element)} */}
-                        <Review  data={element} i={i} refresh={refresh} setRefresh={setRefresh}/> 
+                        <Review  data={element} i={i}/> 
 
                     </li>
                 ))

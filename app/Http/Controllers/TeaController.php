@@ -113,7 +113,7 @@ class TeaController extends Controller
         $tea = Tea::findOrFail($id);
         $reviews = Review::where('tea_id', $id)->get();
         Auth::user() ? $user_reviews = Review::where('tea_id', $id)->where('user_id', Auth::user()->id)->get() :
-                        $user_reviews = [];
+                    $user_reviews = [];
         $country = Country::where('id', $tea->country_id)->get();
         $type = Type::where('id', $tea->type_id)->get();
 

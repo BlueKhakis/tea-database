@@ -1,0 +1,226 @@
+@import "variables.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+.nav {
+    width: 100vw;
+    height: 100px;
+    margin: 1em 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(
+        90deg,
+        rgba(113, 128, 185, 0.5) 0%,
+        $secondary-blue 25%,
+        $secondary-blue 75%,
+        rgba(113, 128, 185, 0.5) 100%
+    );
+    &__navigation {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: $body_width;
+        font-size: 1.5em;
+        &__image {
+            transform: scaleX(-1);
+            transition: all 0.5s ease-out;
+            &:hover {
+                transform: scaleX(-1) rotate(-45deg);
+            }
+        }
+        &__link {
+            font-family: Roboto, sans-serif;
+            font-weight: 300;
+            color: $primary-blue;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.5s ease-out;
+            &:hover {
+                font-weight: 500;
+                font-size: 1.1em;
+                color: $primary-white;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.user__button {
+    display: flex;
+    flex-direction: row;
+    width: 30px;
+    align-items: center;
+    /* justify-content: space-around; */
+    & p {
+        margin: 0;
+        margin-left: 5px;
+    }
+}
+
+.nav__user__image {
+    width: 25px;
+    height: 25px;
+    align-self: end;
+    border-radius: 3px;
+}
+
+.logout__form {
+    background-color: rgb(204, 204, 204);
+    height: 42.48px;
+    display: flex;
+    align-items: center;
+    & :hover {
+        background-color: rgb(221, 252, 234);
+    }
+}
+
+.dropdown-content a {
+    color: aqua;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.search_form {
+    color: #3e8e41;
+    border-radius: 3rem;
+    font-size: 20px;
+}
+
+.nav__navigation__image {
+    border-radius: 3px;
+    width: auto;
+}
+
+.dropdown form button {
+    border: none;
+    background-color: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: $primary-blue;
+    color: white;
+    padding: 16px;
+    font-size: 20px;
+    width: 100px;
+    border: none;
+    border-radius: 2px;
+    transition: all 0.25s ease-in-out;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    opacity: 0;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    /* Change color of dropdown links on hover */
+    &:hover {
+        background-color: rgb(221, 252, 234);
+        & .dropbtn {
+            background-color: #22a7b3b0;
+        }
+    }
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+    border-radius: 0 40% 0 0;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    opacity: 0.7;
+    border-radius: 70% 0;
+}
+
+/* Styling the Best Searchbar */
+.search-box {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+.input-search {
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all 0.5s ease-in-out;
+    background-color: #22a6b3;
+    padding-right: 40px;
+    color: #fff;
+}
+.input-box:hover > .input-search {
+    background-color: rgb(30, 32, 31);
+}
+
+.input-search::placeholder {
+    color: rgba(255, 255, 255, 0.822);
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+.btn-search {
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color: #ffffff;
+    background-color: transparent;
+    pointer-events: painted;
+}
+.btn-search:focus ~ .input-search {
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+.input-search:focus {
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+.results {
+    position: absolute;
+}

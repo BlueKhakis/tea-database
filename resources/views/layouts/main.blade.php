@@ -26,15 +26,36 @@
         @include('navigation.navigation')
     </header>
 
-        
-    @yield('content')
+        <title>Final project</title>
 
-    <footer>
-       
-    </footer>
- <script src="{{asset('js\search.js')}}"></script>
- <script src="{{asset('js\reviews.js')}}"></script>
-</body>
+        <link rel="stylesheet" href="{{asset('css/main.css')}}">
+        {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
+        {{-- <link rel="stylesheet" href="{{asset('css/homepage.css')}}"> --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+    </head>
+
+    <body class="document__body">
+
+            <header>
+                @include('navigation.navigation')
+            </header>
+
+            @yield('content')
+
+            <footer>
+                @include('footer.footer')
+            </footer>
+        
+        <script src="{{asset('js\search.js')}}"></script>
+        <script src="{{asset('js\reviews.js')}}"></script>
+    </body>
 
 
 </html>
