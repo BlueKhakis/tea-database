@@ -12,6 +12,7 @@
         {{-- <link rel="stylesheet" href="{{asset('css/homepage.css')}}"> --}}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -34,6 +35,7 @@
         
         <script src="{{asset('js\search.js')}}"></script>
         <script src="{{asset('js\reviews.js')}}"></script>
+        <script src="{{asset('js\animation/animation.js')}}"></script>
     </body>
 
 

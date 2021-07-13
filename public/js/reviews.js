@@ -242,15 +242,16 @@ function Search(props) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              console.log(window.user_reviews);
+              _context.next = 3;
               return JSON.parse(window.user_reviews);
 
-            case 2:
+            case 3:
               user_reviews = _context.sent;
               console.log(user_reviews);
               setReviews(user_reviews);
 
-            case 5:
+            case 6:
             case "end":
               return _context.stop();
           }
