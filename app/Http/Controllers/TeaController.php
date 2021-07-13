@@ -90,7 +90,8 @@ class TeaController extends Controller
                 'name' => $request->name,
                 'type_id' => $request->type_id,
                 'country_id' => $request->country_id,
-                'brand_id' => $brand->id
+                'brand_id' => $brand->id,
+                'description' => $request->description
                 ]);
 
 

@@ -146,6 +146,7 @@ class UserController extends Controller
     {
                 $user = Auth::user();
 
+
                 $request->password ? $request->password : $user->password;
           
         
@@ -181,6 +182,8 @@ class UserController extends Controller
             $user->image = 'users/'.$image_file->getClientOriginalName();
             $user->save();
         }
+
+        Session::flash('status', 'Thank you for uploading image');
 
         return redirect(action('UserController@index'));
     }

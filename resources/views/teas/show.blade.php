@@ -106,5 +106,21 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
     {{$tea->average_rating}}/10
 <br>
 <br>
-    
+    Add this tea to a list
+    <form action={{ action('CatalogueController@update', $tea->id) }} method="post">
+    @method('PUT')
+    @csrf
+    <input type="hidden" name="fromShow" value='yes'>
+
+    <select name = "catalogue_id">
+@foreach ($catalogues as $catalogue)
+            <option value = {{$catalogue->id}}> {{$catalogue->name}}</option>
+            @endforeach
+</select>
+<input type="submit" value="submit">
+</form>
+@if (session('status'))
+    {{session('status')}}
+    @endif
+
 @endsection

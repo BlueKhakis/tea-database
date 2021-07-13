@@ -1,9 +1,9 @@
 Update list
 <br>
-<form method='post' action={{ action('CatalogueController@update', $id) }}>
+<form method='post' action="{{ action('CatalogueController@update', $id) }}">
 @method('PUT')
     @csrf
-<input type="text" name="name">
+<input type="text" name="name" value="{{$catalogue->name}}">
 <select name = "tea_id">
 @foreach ($teas as $tea)
             <option value = {{$tea->id}}> {{$tea->name}}</option>
@@ -25,3 +25,9 @@ Update list
 @if (session('status'))
     {{session('status')}}
     @endif
+
+    <form method='post' action="{{ action('CatalogueController@destroy', $id) }}">
+    @method('DELETE')
+    @csrf
+        <input type="submit" value="delete list">
+    </form>
