@@ -16,6 +16,17 @@ class ReviewController extends Controller
         return view('react.react');
     }
 
+    public function userReviews()
+    {
+        $user = Auth::user();
+
+        $teas = Tea::all();
+
+        $reviews = Review::all();
+
+        return view('user.listpage', compact('teas', 'user', 'reviews'));
+    }
+
     public function create(Request $request, $tea_id)
     {
         $tea = Tea::findOrFail($tea_id);
@@ -96,6 +107,11 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
-        //
+        
+        $review = Review::findOrFail($id);
+        $tea_id = $review->tea_id;
+        $review->delete();
+
+        return redirect(action('TeaController@show', $tea_id));
     }
 }

@@ -71,6 +71,7 @@
 
 </main>
 <a href="/lists"><h3>Lists</h3></a>
+<a href="/reviews"><h3>Reviews</h3></a>
 <style>
       main {
 align-items: center;
