@@ -44,6 +44,12 @@ class UserController extends AdminController
     {
         $form = new Form(new User());
 
+        $form->saving(function (Form $form) {
+            if ($form->password && $form->model()->password != $form->password) {
+               $form->password = bcrypt($form->password);
+            }
+         });
+
         $form->textarea('name', __('Name'));
         $form->textarea('email', __('Email'));
         $form->textarea('password', __('Password'));

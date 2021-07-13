@@ -42,6 +42,12 @@ class ReviewController extends AdminController
     {
         $form = new Form(new Review());
 
+        $form->saving(function (Form $form) {
+            if ($form->password && $form->model()->password != $form->password) {
+               $form->password = bcrypt($form->password);
+            }
+         });
+
         $form->textarea('text', __('Text'));
         $form->textarea('rating', __('Rating'));
         // $form->textarea('tea_id', __('Tea_id'));

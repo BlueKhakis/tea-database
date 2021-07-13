@@ -1,12 +1,12 @@
 
 
-<nav>
-    <div class="navigation">
-       <a href="/"><img src={{asset('img/teapot.png')}} alt="logo" width="150" height="100"></a>
-
-    <a href={{action('TeaController@index')}}>Teas</a>
-    <a href={{action('CountryController@index')}}>Countries</a>
-    <a href={{action('TeaController@top')}}>Top-rated</a>
+<nav class="nav">
+    <div class="nav__navigation">
+       <a  href="/"><img class="nav__navigation__image" src={{asset('img/teapot.png')}} alt="logo" width="150" height="100"></a>
+      
+        <a class="nav__navigation__link" href={{action('TeaController@index')}}>Teas</a>
+        <a class="nav__navigation__link" href={{action('CountryController@index')}}>Countries</a>
+        <a class="nav__navigation__link" href={{action('TeaController@top')}}>Top-rated</a>
    
       <div id='search'></div>
 
@@ -16,11 +16,11 @@
         <div class="dropdown-content">
           
             @auth
-          <a href="#">Favorites</a>
-          <a href="#">Something</a>
+          <a class="nav__navigation__link" href="#">Favorites</a>
+          <a class="nav__navigation__link" href="#">Something</a>
           
         <div>
-          <a href="/userpage">
+          <a class="nav__navigation__link" href="/userpage">
             <div class="user__button">
               <img class="nav__user__image" src="{{asset(Auth::user()->image)}}" alt="">
               <p>Account</p>
