@@ -72,7 +72,9 @@ Route::get('/show/{id}', 'TeaController@show');
 // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
 Route::get('/react', 'ReviewController@index');
 
-Route::get('/createlist', 'CatalogueController@index');
+Route::get('/lists', 'CatalogueController@index');
+
+Route::get('/createlist/new', 'CatalogueController@create');
 
 Route::post('/createlist/create', 'CatalogueController@store');
 
@@ -99,3 +101,5 @@ Route::get('/region/{id}', 'CountryController@region');
 Route::get('/type/{id}', 'TypeController@show');
 
 Route::get('/types', 'TypeController@index');
+
+Route::delete('/deletelist/{id}', 'CatalogueController@destroy');
