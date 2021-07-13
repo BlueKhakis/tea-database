@@ -3,7 +3,7 @@
 @section('content')
  
 <script>
-window.user_reviews = '{!! json_encode($user_reviews) !!}';
+window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 </script>
 
 
@@ -12,14 +12,39 @@ window.user_reviews = '{!! json_encode($user_reviews) !!}';
 
 
     <h1>{{$tea->name}}</h1>
+    <div class="tea__desc__list">
+        <div class="tea__desc__list__description">
+            @if ($tea->description)
 
-    @if ($tea->description)
+                <h3 class="tea__desc__list__description__headline">Description</h3>
+                <div>{{$tea->description}}</div>
 
-        <div>Description</div>
-        <div>{{$tea->description}}</div>
+            @endif
+        </div>
+        <div class="tea__desc__list__catalogue text_align_right">
+            <h3 class="tea__desc__list__description__headline">
+                <span class="block">Add this tea </span>
+                <span class="block">to a list</span>
+            </h3>
+            <form action={{ action('CatalogueController@update', $tea->id) }} method="post">
+                @method('PUT')
+                @csrf
+                
+                <input type="hidden" name="fromShow" value=1>
 
-    @endif
-
+                <select name = "catalogue_id">
+                    @foreach ($catalogues as $catalogue)
+                        <option value = {{$catalogue->id}}> {{$catalogue->name}}</option>
+                    @endforeach
+                </select>
+                
+                <input type="submit" value="submit">
+            </form>
+            @if (session('status'))
+                {{session('status')}}
+            @endif
+        </div>
+    </div>
     <div>Review</div>
     
     @if (Auth::user())

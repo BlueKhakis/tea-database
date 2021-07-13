@@ -4,6 +4,9 @@
   align-items: center;
   justify-content: center;
   background-color: #faf3dd;
+  font-family: "Roboto", sans-serif;
+  width: 1300px;
+  margin: auto;
 }
 
 * {
@@ -12,7 +15,7 @@
 
 .nav {
   width: 100vw;
-  height: 100px;
+  height: 60px;
   margin: 1em 0;
   padding: 0;
   display: flex;
@@ -29,6 +32,7 @@
 .nav__navigation__image {
   transform: scaleX(-1);
   transition: all 0.5s ease-out;
+  height: 60px;
 }
 .nav__navigation__image:hover {
   transform: scaleX(-1) rotate(-45deg);
@@ -39,13 +43,55 @@
   color: #22007c;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all 0.5s ease-out;
+  transition: all 0.3s ease-out;
 }
 .nav__navigation__link:hover {
   font-weight: 500;
   font-size: 1.1em;
   color: #faf3dd;
   text-decoration: none;
+  background-color: #22007c;
+  opacity: 0.6;
+  padding: 0.25em;
+}
+.nav__navigation__link__user {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  color: #22007c;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-out;
+}
+.nav__navigation__link__user:hover {
+  font-weight: 500;
+  font-size: 1.1em;
+  color: #7180b9;
+  text-decoration: none;
+}
+
+.nav__navigation__link__user {
+  color: black;
+  font-weight: 300;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Links inside the dropdown */
+.nav__navigation__link__user {
+  background-color: #faf3dd;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  /* Change color of dropdown links on hover */
+}
+.nav__navigation__link__user:hover {
+  background-color: #22007c;
+  z-index: 900;
+  font-size: 0.9em;
+}
+.nav__navigation__link__user:hover .dropbtn {
+  background-color: #22a7b3b0;
 }
 
 .user__button {
@@ -68,25 +114,30 @@
 }
 
 .logout__form {
-  background-color: #cccccc;
   height: 42.48px;
   display: flex;
   align-items: center;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 .logout__form :hover {
-  background-color: #ddfcea;
+  background-color: #7180b9;
+  z-index: 900;
+  font-weight: 500;
+  font-size: 0.9em;
+  color: #22007c;
 }
 
-.dropdown-content a {
-  color: aqua;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.search_form {
+.search__form {
   color: #3e8e41;
   border-radius: 3rem;
-  font-size: 20px;
+  font-size: 15px;
+}
+.search__form__input {
+  background-color: #fff;
+  border: none;
 }
 
 .nav__navigation__image {
@@ -106,7 +157,7 @@
 .dropbtn {
   background-color: #22007c;
   color: white;
-  padding: 16px;
+  padding: 8px 16px;
   font-size: 20px;
   width: 100px;
   border: none;
@@ -128,23 +179,8 @@
   background-color: #ffffff;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 900;
   transition: all 0.2s ease-in-out;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  /* Change color of dropdown links on hover */
-}
-.dropdown-content a:hover {
-  background-color: #ddfcea;
-}
-.dropdown-content a:hover .dropbtn {
-  background-color: #22a7b3b0;
 }
 
 /* Show the dropdown menu on hover */
@@ -256,10 +292,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 1300px;
 }
 
 .main__home__section {
-  width: 80vw;
+  width: 100%;
+  max-width: 1300px;
   height: 25em;
   background-color: rgba(172, 172, 172, 0.226);
   box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
@@ -270,7 +308,6 @@
 }
 
 .main__home__section:hover {
-  width: 81vw;
   height: 25.5em;
   box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
 }
@@ -336,6 +373,35 @@
   height: 4em;
   background-color: rgba(255, 255, 255, 0.322);
   color: #042122;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.tea__desc__list {
+  display: flex;
+  justify-content: center;
+}
+.tea__desc__list__description {
+  width: 50%;
+}
+.tea__desc__list__description__headline {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.tea__desc__list__description__catalogue {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.block {
+  display: block;
+}
+
+.text_align_right {
+  text-align: right;
 }
 
 /*# sourceMappingURL=main.css.map*/

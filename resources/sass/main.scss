@@ -6,8 +6,12 @@
     align-items: center;
     justify-content: center;
     background-color: $primary-white;
+    font-family: "Roboto", sans-serif;
+    width: $body_width;
+    margin: auto;
 }
 
 @import "navigation.scss";
 @import "home_page_body.scss";
+@import "tea_page_body.scss";
 // @import "footer.scss";
