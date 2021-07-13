@@ -21,6 +21,9 @@
                         <div class="main__home__section__box__types__type">
                             <h3 class="main__home__section__box__types__type__header"><a href='/type/6'>Yellow</a></h3>
                         </div>
+                        <div class="main__home__section__box__types__type">
+                            <h3 class="main__home__section__box__types__type__header"><a href='/type/7'>Misc</a></h3>
+                        </div>
                     </div> 
                 </div>
             </div>
