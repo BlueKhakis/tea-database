@@ -1,0 +1,30 @@
+@import "variables.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+.tea__desc__list {
+    display: flex;
+    justify-content: center;
+    &__description {
+        width: 50%;
+        &__headline {
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+        &__catalogue {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.block {
+    display: block;
+}
+
+.text_align_right {
+    text-align: right;
+}

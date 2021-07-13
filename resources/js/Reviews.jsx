@@ -7,6 +7,7 @@ export default function Search(props) {
     const [reviews, setReviews] = useState();
 
     async function getReviews(){
+        console.log(window.user_reviews);
         let user_reviews = await JSON.parse(window.user_reviews);
         console.log(user_reviews);
         setReviews(user_reviews);
