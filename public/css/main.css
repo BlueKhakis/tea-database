@@ -436,8 +436,8 @@ ul {
   text-transform: uppercase;
   font-weight: 300;
 }
-.tea__desc__list__description__catalogue {
-  width: 30%;
+.tea__desc__list__catalogue {
+  width: 20%;
   display: flex;
   flex-direction: column;
 }
@@ -538,6 +538,10 @@ ul {
 .session__message {
   background-color: #7180b9;
   color: #faf3dd;
+}
+
+.tea_pic {
+  width: auto;
 }
 
 /*# sourceMappingURL=main.css.map*/

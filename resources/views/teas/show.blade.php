@@ -24,6 +24,17 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 
 {{-- adding tea to a catalogue --}}
         <div class="tea__desc__list__catalogue text_align_right">
+            @if($tea->image)
+
+            <img class="tea_pic" src="{{ asset($tea->image) }}" alt="{{$tea->name}}">
+            @endif
+
+            <h3 class="tea__desc__list__description__headline">
+                <span class="block">Average</span>
+                <span class="block">rating</span> 
+            </h3>
+            <div>{{$tea->average_rating}}</div>
+            <br>
             <h3 class="tea__desc__list__description__headline">
                 <span class="block">Add this tea </span>
                 <span class="block">to a list</span>
@@ -111,7 +122,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
     @endif 
 
     {{-- Temporary Upload Files Form --}}
-    <form class="form_upload" action={{ action('UserController@store') }} method="post" enctype="multipart/form-data">
+    <form class="form_upload" action={{ action('TeaController@storeImage', $tea->id) }} method="post" enctype="multipart/form-data">
         @csrf
         <input type="file" name="image">
         <button class="button button--confirm-save">Upload Image</button>
