@@ -19,8 +19,8 @@ class ReviewController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('text', __('Text'));
         $grid->column('rating', __('Rating'));
-        // $grid->column('tea_id', __('Tea_id'));
-        // $grid->column('user_id', __('User_id'));
+        $grid->column('tea_id', __('Tea_id'));
+        $grid->column('user_id', __('User_id'));
 
         return $grid;
     }
@@ -32,8 +32,8 @@ class ReviewController extends AdminController
         $show->field('id', __('Id'));
         $show->field('text', __('Text'));
         $show->field('rating', __('Rating'));
-        // $show->field('tea_id', __('Tea_id'));
-        // $show->field('user_id', __('User_id'));
+        $show->field('tea_id', __('Tea_id'));
+        $show->field('user_id', __('User_id'));
 
         return $show;
     }
@@ -50,8 +50,8 @@ class ReviewController extends AdminController
 
         $form->textarea('text', __('Text'));
         $form->textarea('rating', __('Rating'));
-        // $form->textarea('tea_id', __('Tea_id'));
-        // $form->textarea('user_id', __('User_id'));
+        $form->textarea('tea_id', __('Tea_id'));
+        $form->textarea('user_id', __('User_id'));
         return $form;
     }
 }

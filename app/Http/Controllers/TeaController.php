@@ -90,7 +90,8 @@ class TeaController extends Controller
                 'name' => $request->name,
                 'type_id' => $request->type_id,
                 'country_id' => $request->country_id,
-                'brand_id' => $brand->id
+                'brand_id' => $brand->id,
+                'description' => $request->description
                 ]);
 
 
@@ -99,6 +100,24 @@ class TeaController extends Controller
         
 
         return redirect(action('TeaController@show', $tea));
+    }
+
+    public function stores(Request $request)
+    {   dd($request);
+        if($request->file('image'))
+        {
+            $image_file = $request->file('image');  
+            $image_file->storeAs('',$image_file->getClientOriginalName(), 'uploads');
+            $tea = Teas::findOrFail();
+            $tea->image = 'teas/'.$image_file->getClientOriginalName();
+            $tea->save();
+        }
+
+        
+        
+        Session::flash('status', 'Thank you for uploading image');
+
+        return redirect(action('TeaController@index'));
     }
 
     /**
@@ -119,6 +138,11 @@ class TeaController extends Controller
         $number_of_votes = sizeof($reviews);
         
         $catalogues = Catalogue::all();
+
+        // if (  )
+        //     Session::flash('status', 'Thank you for honest review');
+        // else
+        //     Session::flash('status', 'Something is missing, give a try again');
 
         return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country', 'user_reviews', 'number_of_votes', 'type'));
     }
@@ -157,4 +181,6 @@ class TeaController extends Controller
     {
         //
     }
+
+
 }

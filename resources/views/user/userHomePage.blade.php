@@ -1,7 +1,7 @@
 
-<nav class="navi">
+{{-- <nav class="navi">
     @extends('layouts.main')
-</nav>
+</nav> --}}
 
 @extends('layouts.main')
 
@@ -69,8 +69,11 @@
 </form>
 
 </div>
-</main>
 
+
+
+</main>
+<a href="/lists"><h3>Lists</h3></a>
 <style>
       main {
 align-items: center;

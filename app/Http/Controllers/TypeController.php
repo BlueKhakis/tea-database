@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Type;
 use App\Models\Tea;
+use Illuminate\Support\Facades\Auth;
 
 class TypeController extends Controller
 {
@@ -16,6 +17,9 @@ class TypeController extends Controller
     public function index()
     {
 
+        $user = Auth::user();
+       
+        return view('teas.types');
     }
 
     /**

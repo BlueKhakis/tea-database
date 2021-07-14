@@ -50,7 +50,7 @@ export default function Review(props)
                     ? 
                         <>
                             {text}
-                            <button onClick={ handleClick }>Edit</button>
+                            <button className="animate__animated react__button" onClick={ handleClick }>Edit</button>
                             {console.log(clicked)}
                             {/* {console.log('/review/'${props.data.id}'/edit')} */}
                         </>
@@ -65,7 +65,7 @@ export default function Review(props)
                                     <label htmlFor="rating">Rating</label>
                                     <input name="rating" type="number" onChange={handleChange} defaultValue={rating}/>
                                 </div>
-                                <button>click</button>
+                                <button className="animate__animated">click</button>
                                 {/* <input type="submit" value="update pls"></input> */}
                             </form>
                         </>

@@ -18,9 +18,13 @@ class CatalogueController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+
         $teas = Tea::all();
 
-        return view('user.userHomePage', compact('teas'));
+        $lists = Catalogue::all();
+
+        return view('user.listpage', compact('teas', 'user', 'lists'));
         
     }
 
@@ -101,31 +105,46 @@ class CatalogueController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+        
 
-        if ($request->fromShow =1)
+
+
+        if ($request->fromShow === 'yes')
         {
-            $catalogue = Catalogue::findOrFail($request->catalogue_id);
-            $tea = Tea::findOrFail($id);
+           
+            $catalogue = Catalogue::findOrFail($id);
+            $catalogue->update(
+                [
+                    'name' => $request->name
+                    ]);
+            $tea = Tea::findOrFail($request->id);
             
             if($catalogue->tea->contains($tea)){
+                
                 Session::flash('status', "tea already there");
                 return redirect(action('TeaController@show', $tea->id));
             }
-            
+           
             Session::flash('status', 'you added '.$tea->name.' to '.$catalogue->name);
             $catalogue->tea()->attach($tea);
             return redirect(action('TeaController@show', $tea->id));
         }
         else
         {
+            
             $catalogue = Catalogue::findOrFail($id);
+            $catalogue->update(
+                [
+                    'name' => $request->name
+                    ]);
             $tea = Tea::findOrFail($request->tea_id);
             if($catalogue->tea->contains($tea)){
+              
+                
                 Session::flash('status', "tea already there");
                 return redirect(action('CatalogueController@edit', $catalogue->id));
             }
-
+           
             $catalogue->tea()->attach($tea);
             return redirect(action('CatalogueController@edit', $catalogue->id));
         }
@@ -156,6 +175,9 @@ class CatalogueController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $catalogue = Catalogue::findOrFail($id);
+        $catalogue->delete();
+
+        return redirect(action('UserController@index'));
     }
 }

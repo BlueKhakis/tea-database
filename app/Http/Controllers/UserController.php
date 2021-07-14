@@ -146,6 +146,7 @@ class UserController extends Controller
     {
                 $user = Auth::user();
 
+
                 $request->password ? $request->password : $user->password;
           
         

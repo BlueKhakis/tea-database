@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Models\Tea;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 
 class ReviewController extends Controller
@@ -37,12 +38,26 @@ class ReviewController extends Controller
         $tea->average_rating = $new_avg;
         $tea->save();
 
+        // if ( $request->rating )
+        //     Session::flash('status', 'Thank you for honest review');
+        // else
+        //     Session::flash('status', 'Rating is missing, give a try again');
+
+
+        // if ( $request->text )
+            Session::flash('status', 'Thank you for honest review');
+        // else
+        //     Session::flash('status', 'Review text is missing, give a try again');
+
         return redirect(action('TeaController@show', $tea->id));
     }
 
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'text' => 'required',
+            'rating' => 'required',
+        ]);
     }
 
     public function show($id)
