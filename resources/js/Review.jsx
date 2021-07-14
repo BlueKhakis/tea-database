@@ -73,7 +73,7 @@ console.log(props.data.votes);
                      }
                 }
             );
-            // window.location.reload();
+            window.location.reload();
         }
     // }
 
