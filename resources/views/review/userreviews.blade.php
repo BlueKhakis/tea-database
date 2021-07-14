@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+<a href='/'>Home</a>-><a href='/userpage'>User</a>->Reviews
     <h1>Reviews</h1>
 
     <?php
