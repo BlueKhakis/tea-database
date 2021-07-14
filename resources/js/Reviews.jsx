@@ -19,20 +19,16 @@ export default function Search(props) {
 
 
     return (
-            <ul>
-                <p>react start</p>
+            <ul className="react__reviews__ul">
                 { !reviews ? <p>loading reviews...</p> : 
                 reviews.map((element, i) => (
-                    <li key={i}>
+                    <li className="react__reviews__li" key={i}>
                         {/* {console.log(element)} */}
                         <Review  data={element} i={i}/> 
 
                     </li>
                 ))
                 }
-
-                <p>react end</p>
-
             </ul>
         )
 }
