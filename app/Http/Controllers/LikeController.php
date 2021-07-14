@@ -18,8 +18,8 @@ class LikeController extends Controller
 
         $review->review_user()->attach($user);
         $review->votes++;
-        $tea = Tea::where('id', $review->tea_id);
-dd ($tea);
+        $tea = Tea::findOrFail($review->tea_id);
+// dd ($tea);
         return redirect(action('TeaController@show', $tea->id));
     }
 }

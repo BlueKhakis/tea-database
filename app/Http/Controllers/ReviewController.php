@@ -18,17 +18,17 @@ class ReviewController extends Controller
         return view('react.react');
     }
 
-    public function like($id)
-    {
-        $review = Review::findOrFail($id);
+    // public function like($id)
+    // {
+    //     $review = Review::findOrFail($id);
 
-        $review->votes++;
+    //     $review->votes++;
 
-        $tea = Tea::where('id', $review->tea_id);
+    //     $tea = Tea::where('id', $review->tea_id);
 
 
-        return redirect(action('TeaController@show', $tea->id));
-    }
+    //     return redirect(action('TeaController@show', $tea->id));
+    // }
 
     public function userReviews()
     {
