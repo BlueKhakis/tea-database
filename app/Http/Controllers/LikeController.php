@@ -22,7 +22,10 @@ class LikeController extends Controller
 
         $likes = Review::find($id)->review_user()->get();
         dd(sizeof($likes));
+        $review->update([ 'votes' => sizeof($likes)]);
+        dd($review);
         $tea = Tea::findOrFail($review->tea_id);
+
 
         return redirect(action('TeaController@show', $tea->id));
     }

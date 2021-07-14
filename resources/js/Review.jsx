@@ -107,6 +107,7 @@ console.log(props.data.votes);
                                 <form onSubmit={ handleLike }  method="post">
                                     <button className={`animate__animated react__button`}> Like </button>
                                 </form>
+                                <p>{props.data.votes}</p>
                             </div>
 
                         </li>
