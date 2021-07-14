@@ -29,9 +29,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
             <form action={{ action('CatalogueController@update', $tea->id) }} method="post">
                 @method('PUT')
                 @csrf
-                
                 <input type="hidden" name="fromShow" value=1>
-
                 <select name = "catalogue_id">
                     @foreach ($catalogues as $catalogue)
                         <option value = {{$catalogue->id}}> {{$catalogue->name}}</option>

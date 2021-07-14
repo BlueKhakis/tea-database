@@ -31,6 +31,15 @@ class ReviewController extends Controller
 
     public function create(Request $request, $tea_id)
     {
+        
+        $this->validate($request, [
+                'text' => 'required|min: 10',
+                'rating' => 'required',
+            ], [
+                'text.required' => 'Comeon, we know you have more to tell.',
+                'rating.required' => 'Like Bob Marley would say: "No rating, no review."..',
+            ]);
+
         $tea = Tea::findOrFail($tea_id);
        
         $rating_count= Review::where('tea_id', $tea_id)->count();
