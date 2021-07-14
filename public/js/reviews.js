@@ -202,6 +202,9 @@ function Review(props) {
               });
 
             case 3:
+              window.location.reload();
+
+            case 4:
             case "end":
               return _context3.stop();
           }
