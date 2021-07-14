@@ -68,6 +68,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/browse', 'HomeController@browse');
 
 Route::get('/show/{id}', 'TeaController@show');
+Route::post('/show/{id}', 'TeaController@storeImage');
 // Route::get('/show/{id}', 'ReviewController@show');
 
 // Route::get('/userpage/userpassword', 'UserController@editUserPassword');

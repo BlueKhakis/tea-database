@@ -436,8 +436,8 @@ ul {
   text-transform: uppercase;
   font-weight: 300;
 }
-.tea__desc__list__description__catalogue {
-  width: 30%;
+.tea__desc__list__catalogue {
+  width: 20%;
   display: flex;
   flex-direction: column;
 }
@@ -481,9 +481,43 @@ ul {
 .react__button:hover {
   border: 3px solid #22007c;
 }
+.react__button__update {
+  width: 100%;
+}
+
+.react__reviews__li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.75em;
+}
+
+.react__reviews__li__p {
+  margin: auto 0;
+}
+
+.react__reviews__li__buttons {
+  display: flex;
+  height: 100%;
+}
 
 .react__reviews__ul {
   list-style: pen;
+}
+
+.react__reviews__edit {
+  display: flex;
+  flex-direction: column;
+}
+.react__reviews__edit__rating {
+  display: flex;
+  justify-content: center;
+}
+.react__reviews__edit__rating label {
+  margin: auto 0;
+}
+.react__reviews__edit__rating input {
+  margin: auto 0 auto 0.5em;
 }
 
 .recent__reviews {
@@ -494,6 +528,7 @@ ul {
   font-size: 1.25em;
   text-transform: uppercase;
   font-weight: 300;
+  text-align: center;
 }
 
 .margin-top {
@@ -503,6 +538,10 @@ ul {
 .session__message {
   background-color: #7180b9;
   color: #faf3dd;
+}
+
+.tea_pic {
+  width: auto;
 }
 
 .brand {

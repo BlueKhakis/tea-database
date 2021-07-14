@@ -2,6 +2,7 @@ let elems = document.querySelectorAll(".animate__animated");
 
 console.log(elems)
 
+
 for (let i = 0; i < elems.length; i++) {
     elems[i].addEventListener("mouseover", function( event ) {
       console.log(event.target.classList);

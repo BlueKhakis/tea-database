@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
 
-
 class TeaController extends Controller
 {
     public function index()
@@ -29,11 +28,8 @@ class TeaController extends Controller
         return view('teas.top', compact('teas'));
     }
 
-    
     public function create()
     {
-        
-
         $types = Type::orderBy('name')->get();
         $countries = Country::orderBy('name')->get();
         $brands = Brand::orderBy('name')->get();
@@ -41,12 +37,6 @@ class TeaController extends Controller
         return view('teas.create', compact('types', 'countries', 'brands'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -57,7 +47,6 @@ class TeaController extends Controller
         ]);
 
         $all_brands = Brand::all();
-        
         $test = 'no';
 
         foreach($all_brands as $brand)
@@ -72,19 +61,10 @@ class TeaController extends Controller
         {
             $brand = Brand::where('name', $request->brand)->get();
             $brand = $brand[0];
-        }
-        else
-        {
+        } else {
             $brand = Brand::create(
-                [
-                'name' => $request->brand,
-                ]);
-                
+                ['name' => $request->brand]);
         }
-
-
-        
-
             $tea = Tea::create(
                 [
                 'name' => $request->name,
@@ -94,20 +74,10 @@ class TeaController extends Controller
                 'description' => $request->description
                 ]);
 
-
         Session::flash('status', 'Thank you for enriching the database');
-
-        
-
         return redirect(action('TeaController@show', $tea));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $tea = Tea::findOrFail($id);
@@ -176,5 +146,19 @@ class TeaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function storeImage(Request $request, $id)
+    {
+        if($request->file('image'))
+        {
+            $image_file = $request->file('image');  
+            $image_file->storeAs('',$image_file->getClientOriginalName(), 'uploads');
+            $tea = Tea::findOrFail($id);
+            $tea->image = 'users/'.$image_file->getClientOriginalName();
+            $tea->save();
+        }
+        // return redirect()->back()->with('status', 'Thank you for uploading the image');
+        return redirect(action('TeaController@show', $id));
     }
 }

@@ -34,9 +34,11 @@ export default function Review(props)
             );
         }
 
-        const handleDelete = async (event) =>  {
+    const handleDelete = async (event) =>  {
         setDisp('hidden');
-        // console.log(rating, text);
+        if (props.refr === true) {
+            props.setRefr(false);
+        } else {props.setRefr(true)}
         event.preventDefault();
 
         await fetch(`/review/${props.data.id}/delete`, {
@@ -49,6 +51,7 @@ export default function Review(props)
                      }
                 }
             );
+            window.location.reload();
         }
 
      const handleChange = (event) => {
@@ -66,28 +69,33 @@ export default function Review(props)
     return( <>
                 { !clicked 
                     ? 
-                        <>
-                            <p className={disp}>{text}</p>
-                            <button className={`animate__animated react__button ${disp}`} onClick={ handleClick }> ✏️ Edit</button>
-                            {/* delete form */}
-                            <form onSubmit={ handleDelete }  method="post">
-                                <button className={`animate__animated react__button ${disp}`}> ⛔️ Delete</button>
-                            </form>
+                        <li className={`react__reviews__li  ${disp}`} key={props.i}>
+                            <p className="react__reviews__li__p" >{text}</p>
+                            <div className="react__reviews__li__buttons" >
+                                  {/* edit form/button */}
+                                <button className={`animate__animated react__button`} onClick={ handleClick }> ✏️ </button>
+                                  {/* delete form/button */}
+                                <form onSubmit={ handleDelete }  method="post">
+                                    <button className={`animate__animated react__button`}> ⛔️</button>
+                                </form>
+                            </div>
+                        </li>
 
-
-                        </>
                     :   <>
-                            <form onSubmit={ handleSubmission } method="post">
+                            <form onSubmit={ handleSubmission } className="react__reviews__edit" method="post">
                             {/* <form action={ action('ReviewController@update') } method="post"> */}
-                                <div>
-                                    <label htmlFor="text">Text</label>
-                                    <input name="text" type="text" onChange={handleChange} defaultValue={text}/>
+                                <div className="react__reviews__edit__text">
+                                    <textarea name="text" rows='5' cols='60'  onChange={handleChange} defaultValue={text}/>
                                 </div>
-                                <div>
-                                    <label htmlFor="rating">Rating</label>
-                                    <input name="rating" type="number" onChange={handleChange} defaultValue={rating}/>
+                                <div className="react__reviews__edit__rating">
+                                    <label htmlFor="rating">Changed your mind about rating? </label>
+                                    <input  name="rating" 
+                                            type="number" 
+                                            onChange={handleChange} 
+                                            defaultValue={rating}
+                                            className="review__form__fields__rating"/>
                                 </div>
-                                <button className="animate__animated">update</button>
+                                <button className="react__button__update animate__animated">update</button>
                                 {/* <input type="submit" value="update pls"></input> */}
                             </form>
                         </>
