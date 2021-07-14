@@ -26,7 +26,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
                 <span class="block">Add this tea </span>
                 <span class="block">to a list</span>
             </h3>
-            <form action={{ action('CatalogueController@update', $tea->id) }} method="post">
+            <form action={{ action('TeaController@teaToList', $tea->id)}} method="post">
                 @method('PUT')
                 @csrf
                 <input type="hidden" name="fromShow" value=1>
@@ -97,7 +97,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
                     @endif
 
                         
-                    <button><a href={{ action('ReviewController@like', $review->id) }}>liek dis</a></button></li>{{$review->votes}}
+                    <button><a href={{ action('ReviewController@like', $review->id) }}>lik pls</a></button></li>{{$review->votes}}
                 @endforeach
             </ul> --}}
         @endif

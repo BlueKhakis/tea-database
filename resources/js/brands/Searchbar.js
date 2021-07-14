@@ -1,0 +1,71 @@
+import React, { useEffect, useState } from 'react';
+import Results from "./Results";
+
+export default function Search(props) {
+    const [term, setTerm] = useState('');
+    const [results, setResults] = useState(null);
+
+    const onInputChange = (e) => {
+        setTerm(e.target.value);
+    }
+
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    const doSearch = async (term) => {
+        setResults(null);
+        if (term === '') return;
+        const response = await fetch('/brands/' + encodeURIComponent(term), {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            }
+        });
+
+        const data = await response.json();
+
+        console.log(data)
+        // console.log(data[0])
+        // console.log(data[0].name)
+        setResults(data);
+
+    }
+
+    useEffect(() => {
+        doSearch(term);
+    }, [term])
+
+    return (
+        <div>
+            <form className="search__form" onSubmit={onFormSubmit}>
+                
+                    <input
+                        type="text"
+                        name="s"
+                        className="brand__search__form__input"
+                        value={term}
+                        onChange={onInputChange}
+                        placeholder="Enter term"
+                        autoComplete="off"
+                    />
+                
+
+
+            </form>
+            <div className='results'>
+                {
+                    results !== null && (
+                        results.map((result, index) => (
+
+                            <Results key={index} term={term} setTerm={setTerm} result={result} />
+
+                        ))
+                    )
+
+                }
+            </div>
+        </div>
+    )
+}

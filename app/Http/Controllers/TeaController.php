@@ -135,6 +135,25 @@ class TeaController extends Controller
         //
     }
 
+    public function teaToList(Request $request, $id)
+        {
+            
+            
+            $catalogue = Catalogue::findOrFail($request->catalogue_id);
+           
+            $tea = Tea::findOrFail($request->id);
+           
+            if($catalogue->tea->contains($tea)){
+                // dd('B1');
+                Session::flash('status', "tea already there");
+                return redirect(action('TeaController@show', $tea->id));
+            }
+            // dd('B2');
+            $catalogue->tea()->attach($tea);
+            Session::flash('status', "Tea successfully added");
+            return redirect(action('TeaController@show', $tea->id));
+        }
+
     /**
      * Update the specified resource in storage.
      *

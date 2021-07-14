@@ -108,3 +108,7 @@ Route::delete('/deletelist/{id}', 'CatalogueController@destroy');
 Route::delete('/deletereview/{id}', 'ReviewController@destroy');
 
 Route::get('/reviews', 'ReviewController@userReviews');
+
+Route::put('/teas/{id}/addtolist', 'TeaController@teaToList');
+
+Route::get('/brands/{query}', 'SearchController@searchBrands');

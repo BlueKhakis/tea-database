@@ -103,39 +103,30 @@ class CatalogueController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        // dd('base');
         if ($request->fromShow === 'yes')
         {
+            // dd('A');
             $catalogue = Catalogue::findOrFail($id);
-            dd($request);
+            
             $catalogue->update( ['name' => $request->name] );
 
             $tea = Tea::findOrFail($request->id);
             
             if($catalogue->tea->contains($tea)){
+                // dd('A1');
                 Session::flash('status', "tea already there");
                 return redirect(action('TeaController@show', $tea->id));
             }
-           
+            // dd('A2');
             Session::flash('status', 'you added '.$tea->name.' to '.$catalogue->name);
             $catalogue->tea()->attach($tea);
             return redirect(action('TeaController@show', $tea->id));
         }
-        else
-        {
-            $catalogue = Catalogue::findOrFail($id);
-            $catalogue->update( ['name' => $request->name ]);
-            $tea = Tea::findOrFail($request->tea_id);
-            if($catalogue->tea->contains($tea)){
-                Session::flash('status', "tea already there");
-                return redirect(action('CatalogueController@edit', $catalogue->id));
-            }
-           
-            $catalogue->tea()->attach($tea);
-            return redirect(action('CatalogueController@edit', $catalogue->id));
-        }
     }
+    
 
     public function updateDelete($tea_id, $catalogue_id)
     {
