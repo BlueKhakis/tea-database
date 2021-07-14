@@ -1,3 +1,14 @@
+@charset "UTF-8";
+@counter-style leaf {
+  system: cyclic;
+  symbols: "🍃";
+  suffix: " ";
+}
+@counter-style pen {
+  system: cyclic;
+  symbols: "✏";
+  suffix: " ";
+}
 .document__body {
   display: flex;
   flex-direction: column;
@@ -17,6 +28,10 @@ button {
 
 .hidden {
   display: none;
+}
+
+ul {
+  list-style: leaf;
 }
 
 * {
@@ -383,6 +398,16 @@ button {
   color: #042122;
 }
 
+@counter-style leaf {
+  system: cyclic;
+  symbols: "🍃";
+  suffix: " ";
+}
+@counter-style pen {
+  system: cyclic;
+  symbols: "✏";
+  suffix: " ";
+}
 * {
   box-sizing: border-box;
 }
@@ -457,6 +482,10 @@ button {
   border: 3px solid #22007c;
 }
 
+.react__reviews__ul {
+  list-style: pen;
+}
+
 .recent__reviews {
   display: flex;
   flex-direction: column;
@@ -469,6 +498,11 @@ button {
 
 .margin-top {
   margin-top: 0.75em;
+}
+
+.session__message {
+  background-color: #7180b9;
+  color: #faf3dd;
 }
 
 /*# sourceMappingURL=main.css.map*/

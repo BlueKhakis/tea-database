@@ -181,13 +181,13 @@ function Review(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
         className: "animate__animated react__button ".concat(disp),
         onClick: handleClick,
-        children: "Edit"
+        children: " \u270F\uFE0F Edit"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
         onSubmit: handleDelete,
         method: "post",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           className: "animate__animated react__button ".concat(disp),
-          children: "Delete"
+          children: " \u26D4\uFE0F Delete"
         })
       })]
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {

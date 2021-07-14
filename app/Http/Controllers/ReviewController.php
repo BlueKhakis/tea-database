@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Models\Tea;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 
 class ReviewController extends Controller
@@ -47,6 +49,8 @@ class ReviewController extends Controller
         $new_avg = ($old_avg * $rating_count + $new_rating)/($rating_count + 1);
         $tea->average_rating = $new_avg;
         $tea->save();
+
+        Session::flash('status', 'House of Leaves appreciates your feedback.');
 
         return redirect(action('TeaController@show', $tea->id));
     }
@@ -108,19 +112,10 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
-<<<<<<< HEAD
         $review = Review::findOrFail($id);
         $tea = Tea::findOrFail($review->tea_id);
         $review->delete();
         Session::flash('status', 'Review removed');
         return redirect(action('TeaController@show', $tea->id));
-=======
-        
-        $review = Review::findOrFail($id);
-        $tea_id = $review->tea_id;
-        $review->delete();
-
-        return redirect(action('TeaController@show', $tea_id));
->>>>>>> 2396d6d60d8189139bc0d5fb6be590386356eff9
     }
 }

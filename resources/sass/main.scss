@@ -1,4 +1,5 @@
 @import "variables.scss";
+@import "counters.scss";
 
 .document__body {
     display: flex;
@@ -19,6 +20,10 @@ button {
 
 .hidden {
     display: none;
+}
+
+ul {
+    list-style: leaf;
 }
 
 @import "navigation.scss";

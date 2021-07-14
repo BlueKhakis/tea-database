@@ -1,0 +1,11 @@
+@counter-style leaf {
+    system: cyclic;
+    symbols: "\1F343";
+    suffix: " ";
+}
+
+@counter-style pen {
+    system: cyclic;
+    symbols: "\270F";
+    suffix: " ";
+}

@@ -68,10 +68,10 @@ export default function Review(props)
                     ? 
                         <>
                             <p className={disp}>{text}</p>
-                            <button className={`animate__animated react__button ${disp}`} onClick={ handleClick }>Edit</button>
+                            <button className={`animate__animated react__button ${disp}`} onClick={ handleClick }> ✏️ Edit</button>
                             {/* delete form */}
                             <form onSubmit={ handleDelete }  method="post">
-                                <button className={`animate__animated react__button ${disp}`}>Delete</button>
+                                <button className={`animate__animated react__button ${disp}`}> ⛔️ Delete</button>
                             </form>
 
 

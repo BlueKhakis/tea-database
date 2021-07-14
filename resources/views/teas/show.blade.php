@@ -45,9 +45,23 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
             @endif
         </div>
     </div>
-    
-    <h3 class="review">Add a review</h3 class="review">
-    
+
+        <h3 class="review">Add a review</h3 class="review">
+    {{-- success // error messages start  --}}
+        @if (session('status'))
+            <p className="session__message">{{session('status')}}</p>
+        @endif
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    {{-- success // error messages end  --}}
+
     @if (Auth::user())
 
     <form method='post' action="{{action('ReviewController@create', $tea)}}" name='review'>
