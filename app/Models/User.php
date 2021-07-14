@@ -51,6 +51,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Review::class, 'review_id');
     }
 
+    public function user_review()
+    {
+        // return $this->belongsToMany(User::class);
+        return $this->belongsToMany(Review::class, 'review_user', 'user_id', 'review_id');
+    }
+
     public function image()
     {
         return $this->belongsTo(Image::class);

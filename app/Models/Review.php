@@ -28,4 +28,9 @@ class Review extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function review_user()
+    {
+        return $this->belongsToMany(User::class, 'review_user', 'review_id', 'user_id');
+    }
 }

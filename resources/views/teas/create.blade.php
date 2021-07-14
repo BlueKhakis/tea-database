@@ -22,7 +22,12 @@
 </select>
 <br>
     Brands
-    <input type="text" name='brand'>
+    <input type="text" name="brand" list="cityname">
+    <datalist id="cityname">
+        @foreach ($brands as $brand)
+      <option value={{$brand->name}}>
+          @endforeach
+    </datalist>
 <br>
     Countries
 <select name = "country_id">
@@ -60,4 +65,7 @@ Description
     </div>
 @endif
 
+
+
 @endsection
+

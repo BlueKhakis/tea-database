@@ -21,12 +21,25 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 
             @endif
         </div>
+
+{{-- adding tea to a catalogue --}}
         <div class="tea__desc__list__catalogue text_align_right">
+            @if($tea->image)
+
+            <img class="tea_pic" src="{{ asset($tea->image) }}" alt="{{$tea->name}}">
+            @endif
+
+            <h3 class="tea__desc__list__description__headline">
+                <span class="block">Average</span>
+                <span class="block">rating</span> 
+            </h3>
+            <div>{{$tea->average_rating}}</div>
+            <br>
             <h3 class="tea__desc__list__description__headline">
                 <span class="block">Add this tea </span>
                 <span class="block">to a list</span>
             </h3>
-            <form action={{ action('CatalogueController@update', $tea->id) }} method="post">
+            <form action={{ action('TeaController@teaToList', $tea->id)}} method="post">
                 @method('PUT')
                 @csrf
                 <input type="hidden" name="fromShow" value=1>
@@ -45,7 +58,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
     </div>
 
         <h3 class="review">Add a review</h3 class="review">
-    {{-- success // error messages start  --}}
+{{-- success // error messages start  --}}
         @if (session('status'))
             <div className="session__message">{{session('status')}}</div>
         @endif
@@ -58,10 +71,10 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
                 </ul>
             </div>
         @endif
-    {{-- success // error messages end  --}}
+{{-- success // error messages end  --}}
 
     @if (Auth::user())
-
+{{-- create tea form --}}
     <form method='post' action="{{action('ReviewController@create', $tea)}}" name='review'>
     @csrf
         <div class="thanks">
@@ -90,7 +103,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 
       
     </form>
-{{-- {{dd($reviews)}} --}}
+
 
     @else <span class="message">Our sincerest apologies, fellow tea gourmet, in order to add a review, it is necessary to be logged in.</span>
 
@@ -110,9 +123,12 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
             {{-- <ul>
                 @foreach ($reviews as $review)
                     @if ($review->user_id === Auth::user()->id)
-                        <li>{{$review->text}} <button><a href={{ action('ReviewController@edit', $review->id) }}>edit</a></button></li>
-                        <li><button><a href={{ action('ReviewController@destroy', $review->id) }}>delete</a></button></li>
+                        <li>{{$review->text}} <button><a href={{ action('ReviewController@edit', $review->id) }}>edit</a></button>
+                        <button><a href={{ action('ReviewController@destroy', $review->id) }}>delete</a></button>
                     @endif
+
+                        
+                    <button><a href={{ action('LikeController@like', $review->id) }}>lik pls</a></button></li>{{$review->votes}}
                 @endforeach
             </ul> --}}
         @endif
@@ -127,7 +143,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
     @endif 
 
     {{-- Temporary Upload Files Form --}}
-    <form class="form_upload" action={{ action('TeaController@store') }} method="post" enctype="multipart/form-data">
+    <form class="form_upload" action={{ action('TeaController@storeImage', $tea->id) }} method="post" enctype="multipart/form-data">
         @csrf
         <input type="file" name="image">
         <button class="button button--confirm-save">Upload Image</button>

@@ -60,6 +60,8 @@ Route::middleware(['verified'])->group(function () {
     Route::post('/review/{id}/update', 'ReviewController@update');
     Route::post('/review/{id}/delete', 'ReviewController@destroy');
 
+    Route::post('/review/{id}/like', 'LikeController@like');
+
 
 });
 
@@ -67,6 +69,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/browse', 'HomeController@browse');
 
 Route::get('/show/{id}', 'TeaController@show');
+Route::post('/show/{id}', 'TeaController@storeImage');
 // Route::get('/show/{id}', 'ReviewController@show');
 
 // Route::get('/userpage/userpassword', 'UserController@editUserPassword');
@@ -110,3 +113,6 @@ Route::get('/reviews', 'ReviewController@userReviews');
 
 Route::get('/about', 'HomeController@about');
 Route::get('/history', 'HomeController@history');
+Route::put('/teas/{id}/addtolist', 'TeaController@teaToList');
+
+Route::get('/brands/{query}', 'SearchController@searchBrands');

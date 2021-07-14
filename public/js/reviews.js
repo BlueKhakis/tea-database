@@ -70,7 +70,8 @@ function Review(props) {
     text: [props.data.text],
     rating: [props.data.rating],
     id: [props.data.id],
-    tea: [props.data.tea_id]
+    tea: [props.data.tea_id],
+    votes: [props.data.votes]
   }),
       _useState6 = _slicedToArray(_useState5, 2),
       _useState6$ = _useState6[0],
@@ -79,6 +80,8 @@ function Review(props) {
       tea = _useState6$.tea,
       id = _useState6$.id,
       setValues = _useState6[1];
+
+  console.log(props.data.votes);
 
   function handleClick(event) {
     event.preventDefault();
@@ -129,10 +132,16 @@ function Review(props) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              setDisp('hidden'); // console.log(rating, text);
+              setDisp('hidden');
+
+              if (props.refr === true) {
+                props.setRefr(false);
+              } else {
+                props.setRefr(true);
+              }
 
               event.preventDefault();
-              _context2.next = 4;
+              _context2.next = 5;
               return fetch("/review/".concat(props.data.id, "/delete"), {
                 method: 'POST',
                 body: JSON.stringify({
@@ -148,7 +157,10 @@ function Review(props) {
                 }
               });
 
-            case 4:
+            case 5:
+              window.location.reload();
+
+            case 6:
             case "end":
               return _context2.stop();
           }
@@ -160,6 +172,51 @@ function Review(props) {
       return _ref2.apply(this, arguments);
     };
   }();
+
+  var handleLike = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(event) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              // setDisp('hidden');
+              // if (props.refr === true) {
+              //     props.setRefr(false);
+              // } else {props.setRefr(true)}
+              event.preventDefault(); // console.log(props.data.votes);
+
+              _context3.next = 3;
+              return fetch("/review/".concat(props.data.id, "/like"), {
+                method: 'POST',
+                body: JSON.stringify({
+                  rating: rating,
+                  text: text,
+                  id: id,
+                  tea: tea
+                }, props.data.votes),
+                headers: {
+                  Accept: 'application/json',
+                  'Content-type': 'application/json',
+                  'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+              });
+
+            case 3:
+              window.location.reload();
+
+            case 4:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function handleLike(_x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }(); // }
+
 
   var handleChange = function handleChange(event) {
     var new_values = ['text', 'rating'],
@@ -174,48 +231,66 @@ function Review(props) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: !clicked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: !clicked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+      className: "react__reviews__li  ".concat(disp),
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        className: disp,
+        className: "react__reviews__li__p",
         children: text
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        className: "animate__animated react__button ".concat(disp),
-        onClick: handleClick,
-        children: " \u270F\uFE0F Edit"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
-        onSubmit: handleDelete,
-        method: "post",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "animate__animated react__button ".concat(disp),
-          children: " \u26D4\uFE0F Delete"
-        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "react__reviews__li__buttons",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "animate__animated react__button",
+          onClick: handleClick,
+          children: " \u270F\uFE0F "
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+          onSubmit: handleDelete,
+          method: "post",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "animate__animated react__button",
+            children: " \u26D4\uFE0F"
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "react__reviews__likes",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+          onSubmit: handleLike,
+          method: "post",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "animate__animated react__button",
+            children: " Like "
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: props.data.votes
+        })]
       })]
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    }, props.i) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
         onSubmit: handleSubmission,
+        className: "react__reviews__edit",
         method: "post",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-            htmlFor: "text",
-            children: "Text"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "react__reviews__edit__text",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
             name: "text",
-            type: "text",
+            rows: "5",
+            cols: "60",
             onChange: handleChange,
             defaultValue: text
-          })]
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "react__reviews__edit__rating",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
             htmlFor: "rating",
-            children: "Rating"
+            children: "Changed your mind about rating? "
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
             name: "rating",
             type: "number",
             onChange: handleChange,
-            defaultValue: rating
+            defaultValue: rating,
+            className: "review__form__fields__rating"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "animate__animated",
+          className: "react__button__update animate__animated",
           children: "update"
         })]
       })
@@ -283,6 +358,11 @@ function Search(props) {
       reviews = _useState2[0],
       setReviews = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      refr = _useState4[0],
+      setRefr = _useState4[1];
+
   function getReviews() {
     return _getReviews.apply(this, arguments);
   }
@@ -294,16 +374,14 @@ function Search(props) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              console.log(window.user_reviews);
-              _context.next = 3;
+              _context.next = 2;
               return JSON.parse(window.user_reviews);
 
-            case 3:
+            case 2:
               user_reviews = _context.sent;
-              console.log(user_reviews);
               setReviews(user_reviews);
 
-            case 6:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -315,18 +393,17 @@ function Search(props) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getReviews();
-  }, []);
+  }, [refr]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
     className: "react__reviews__ul",
     children: !reviews ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: "loading reviews..."
     }) : reviews.map(function (element, i) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-        className: "react__reviews__li",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Review_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
-          data: element,
-          i: i
-        })
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Review_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
+        data: element,
+        i: i,
+        setRefr: setRefr,
+        refr: refr
       }, i);
     })
   });
