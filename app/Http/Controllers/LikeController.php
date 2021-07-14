@@ -17,11 +17,17 @@ class LikeController extends Controller
         $user = Auth::user();
 
         $review->review_user()->attach($user);
-        $review->votes++;
+
+        // $likes = Review::with('user')->get();
+
+        $likes = Review::find($id)->review_user()->get();
+        dd(sizeof($likes));
         $tea = Tea::findOrFail($review->tea_id);
-// dd ($tea);
+
         return redirect(action('TeaController@show', $tea->id));
     }
 }
+
+
 
 

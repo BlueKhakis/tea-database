@@ -31,7 +31,6 @@ class Review extends Model
 
     public function review_user()
     {
-        // return $this->belongsToMany(User::class);
         return $this->belongsToMany(User::class, 'review_user', 'review_id', 'user_id');
     }
 }
