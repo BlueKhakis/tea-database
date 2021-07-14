@@ -73,6 +73,9 @@
     &:hover {
         border: 3px solid $primary-blue;
     }
+    &__update {
+        width: 100%;
+    }
 }
 
 // .react__reviews__li {
@@ -83,8 +86,39 @@
 //     max-width: $body_width;
 // }
 
+.react__reviews__li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.75em;
+}
+
+.react__reviews__li__p {
+    margin: auto 0;
+}
+
+.react__reviews__li__buttons {
+    display: flex;
+    height: 100%;
+}
+
 .react__reviews__ul {
     list-style: pen;
+}
+
+.react__reviews__edit {
+    display: flex;
+    flex-direction: column;
+    &__rating {
+        display: flex;
+        justify-content: center;
+        & label {
+            margin: auto 0;
+        }
+        & input {
+            margin: auto 0 auto 0.5em;
+        }
+    }
 }
 
 .recent__reviews {
@@ -94,6 +128,7 @@
         font-size: 1.25em;
         text-transform: uppercase;
         font-weight: 300;
+        text-align: center;
     }
 }
 

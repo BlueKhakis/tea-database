@@ -21,6 +21,8 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 
             @endif
         </div>
+
+{{-- adding tea to a catalogue --}}
         <div class="tea__desc__list__catalogue text_align_right">
             <h3 class="tea__desc__list__description__headline">
                 <span class="block">Add this tea </span>
@@ -45,7 +47,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
     </div>
 
         <h3 class="review">Add a review</h3 class="review">
-    {{-- success // error messages start  --}}
+{{-- success // error messages start  --}}
         @if (session('status'))
             <p className="session__message">{{session('status')}}</p>
         @endif
@@ -58,10 +60,10 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
                 </ul>
             </div>
         @endif
-    {{-- success // error messages end  --}}
+{{-- success // error messages end  --}}
 
     @if (Auth::user())
-
+{{-- create tea form --}}
     <form method='post' action="{{action('ReviewController@create', $tea)}}" name='review'>
     @csrf
         <div class="review__form__fields">
@@ -72,7 +74,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
             <input type="submit" value="submit" class="animate__animated ">
         </div>
     </form>
-{{-- {{dd($reviews)}} --}}
+
 
     @else <span class="message">Our sincerest apologies, fellow tea gourmet, in order to add a review, it is necessary to be logged in.</span>
 
