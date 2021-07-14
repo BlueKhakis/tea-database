@@ -61,20 +61,24 @@ function Review(props) {
       clicked = _useState2[0],
       setClicked = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      disp = _useState4[0],
+      setDisp = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     text: [props.data.text],
     rating: [props.data.rating],
     id: [props.data.id],
     tea: [props.data.tea_id]
   }),
-      _useState4 = _slicedToArray(_useState3, 2),
-      _useState4$ = _useState4[0],
-      text = _useState4$.text,
-      rating = _useState4$.rating,
-      tea = _useState4$.tea,
-      id = _useState4$.id,
-      setValues = _useState4[1]; // console.log(props.data.id);
-
+      _useState6 = _slicedToArray(_useState5, 2),
+      _useState6$ = _useState6[0],
+      text = _useState6$.text,
+      rating = _useState6$.rating,
+      tea = _useState6$.tea,
+      id = _useState6$.id,
+      setValues = _useState6[1];
 
   function handleClick(event) {
     event.preventDefault();
@@ -119,6 +123,44 @@ function Review(props) {
     };
   }();
 
+  var handleDelete = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(event) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              setDisp('hidden'); // console.log(rating, text);
+
+              event.preventDefault();
+              _context2.next = 4;
+              return fetch("/review/".concat(props.data.id, "/delete"), {
+                method: 'POST',
+                body: JSON.stringify({
+                  rating: rating,
+                  text: text,
+                  id: id,
+                  tea: tea
+                }),
+                headers: {
+                  Accept: 'application/json',
+                  'Content-type': 'application/json',
+                  'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+              });
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function handleDelete(_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
   var handleChange = function handleChange(event) {
     var new_values = ['text', 'rating'],
         name = event.target.name,
@@ -133,15 +175,24 @@ function Review(props) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: !clicked ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-      children: [text, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        className: "animate__animated react__button",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        className: disp,
+        children: text
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        className: "animate__animated react__button ".concat(disp),
         onClick: handleClick,
-        children: "Edit"
-      }), console.log(clicked)]
+        children: " \u270F\uFE0F Edit"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+        onSubmit: handleDelete,
+        method: "post",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "animate__animated react__button ".concat(disp),
+          children: " \u26D4\uFE0F Delete"
+        })
+      })]
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
         onSubmit: handleSubmission,
-        action: "http://localhost:3000/review/".concat(props.data.id, "/update"),
         method: "post",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
@@ -165,7 +216,7 @@ function Review(props) {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           className: "animate__animated",
-          children: "click"
+          children: "update"
         })]
       })
     }) // (
@@ -226,7 +277,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 function Search(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
@@ -266,21 +316,19 @@ function Search(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getReviews();
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-      children: "react start"
-    }), !reviews ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+    className: "react__reviews__ul",
+    children: !reviews ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: "loading reviews..."
     }) : reviews.map(function (element, i) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+        className: "react__reviews__li",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Review_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
           data: element,
           i: i
         })
       }, i);
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-      children: "react end"
-    })]
+    })
   });
 }
 

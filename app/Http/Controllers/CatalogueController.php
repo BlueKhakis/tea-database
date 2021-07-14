@@ -105,22 +105,15 @@ class CatalogueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-
-
-
         if ($request->fromShow === 'yes')
         {
-           
             $catalogue = Catalogue::findOrFail($id);
-            $catalogue->update(
-                [
-                    'name' => $request->name
-                    ]);
+            dd($request);
+            $catalogue->update( ['name' => $request->name] );
+
             $tea = Tea::findOrFail($request->id);
             
             if($catalogue->tea->contains($tea)){
-                
                 Session::flash('status', "tea already there");
                 return redirect(action('TeaController@show', $tea->id));
             }
@@ -131,16 +124,10 @@ class CatalogueController extends Controller
         }
         else
         {
-            
             $catalogue = Catalogue::findOrFail($id);
-            $catalogue->update(
-                [
-                    'name' => $request->name
-                    ]);
+            $catalogue->update( ['name' => $request->name ]);
             $tea = Tea::findOrFail($request->tea_id);
             if($catalogue->tea->contains($tea)){
-              
-                
                 Session::flash('status', "tea already there");
                 return redirect(action('CatalogueController@edit', $catalogue->id));
             }
@@ -148,11 +135,6 @@ class CatalogueController extends Controller
             $catalogue->tea()->attach($tea);
             return redirect(action('CatalogueController@edit', $catalogue->id));
         }
-
-        
-
-
-        
     }
 
     public function updateDelete($tea_id, $catalogue_id)

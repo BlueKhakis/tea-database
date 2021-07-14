@@ -11,7 +11,9 @@
 
     <ul>
     @foreach ($lists as $list)
+    @if ($list->user_id === Auth::user()->id)
     <li><a href="/editlist/{{$list->id}}">{{$list->name}}</a></li>
+    @endif
     @endforeach
     </ul>
 </body>

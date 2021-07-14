@@ -58,6 +58,7 @@ Route::middleware(['verified'])->group(function () {
     Route::put('/review/{id}/edit', 'ReviewController@update');
     Route::post('/show/{id}', 'ReviewController@update');
     Route::post('/review/{id}/update', 'ReviewController@update');
+    Route::post('/review/{id}/delete', 'ReviewController@destroy');
 
 
 });
@@ -102,3 +103,10 @@ Route::get('/type/{id}', 'TypeController@show');
 Route::get('/types', 'TypeController@index');
 
 Route::delete('/deletelist/{id}', 'CatalogueController@destroy');
+
+Route::delete('/deletereview/{id}', 'ReviewController@destroy');
+
+Route::get('/reviews', 'ReviewController@userReviews');
+
+Route::get('/about', 'HomeController@about');
+Route::get('/history', 'HomeController@history');

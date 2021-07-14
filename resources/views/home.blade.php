@@ -63,7 +63,7 @@
 
         <div class="main__home__section main__home__section__history"> 
             <h2>History</h2>
-            <a href="#">
+            <a href="/history">
                 <div class="button"> Learn more </div>
             </a>
         </div>

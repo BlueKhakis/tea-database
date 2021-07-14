@@ -28,7 +28,7 @@
     </button>
 @else
     <button>
-        <a href="">Log in to add a tea</a>
+        <a href="{{ route('login') }}">Log in to add a tea</a>
     </button>
 @endif
 

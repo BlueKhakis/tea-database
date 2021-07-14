@@ -1,4 +1,5 @@
 @import "variables.scss";
+@import "counters.scss";
 
 * {
     box-sizing: border-box;
@@ -61,7 +62,6 @@
     font-size: 1.25em;
     text-transform: uppercase;
     font-weight: 300;
-    text-decoration: maroon;
 }
 
 .react__button {
@@ -73,4 +73,35 @@
     &:hover {
         border: 3px solid $primary-blue;
     }
+}
+
+// .react__reviews__li {
+//     display: flex;
+//     align-items: center;
+//     width: 100%;
+//     height: 3em;
+//     max-width: $body_width;
+// }
+
+.react__reviews__ul {
+    list-style: pen;
+}
+
+.recent__reviews {
+    display: flex;
+    flex-direction: column;
+    &__header {
+        font-size: 1.25em;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+}
+
+.margin-top {
+    margin-top: 0.75em;
+}
+
+.session__message {
+    background-color: $secondary-blue;
+    color: $primary-white;
 }

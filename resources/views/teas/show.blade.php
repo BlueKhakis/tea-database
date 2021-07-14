@@ -29,9 +29,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
             <form action={{ action('CatalogueController@update', $tea->id) }} method="post">
                 @method('PUT')
                 @csrf
-                
                 <input type="hidden" name="fromShow" value=1>
-
                 <select name = "catalogue_id">
                     @foreach ($catalogues as $catalogue)
                         <option value = {{$catalogue->id}}> {{$catalogue->name}}</option>
@@ -40,14 +38,28 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
                 
                 <input type="submit" value="submit">
             </form>
-            @if (session('status'))
+            {{-- @if (session('status'))
                 {{session('status')}}
-            @endif
+            @endif --}}
         </div>
     </div>
-    
-    <h3 class="review">Add a review</h3 class="review">
-    
+
+        <h3 class="review">Add a review</h3 class="review">
+    {{-- success // error messages start  --}}
+        @if (session('status'))
+            <div className="session__message">{{session('status')}}</div>
+        @endif
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    {{-- success // error messages end  --}}
+
     @if (Auth::user())
 
     <form method='post' action="{{action('ReviewController@create', $tea)}}" name='review'>
@@ -85,11 +97,11 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
     @endif
     
     @if(count($reviews) === 0)
-        <div>This tea has not been reviewed yet. <br/> Start a trend and review it now.</div>
+        <div class="recent__reviews__header">This tea has not been reviewed yet. <br/> Start a trend and review it now.</div>
     @else
         @if (Auth::user())
-            <div>Your words of wisdom:</div>
-            <div id="react__reviews"></div>
+            <div class="recent__reviews__header margin-top">Your words of wisdom:</div>
+            <div id="react__reviews" class="margin-top"></div>
             <script>
                 window.reactReviewsData = {tea_id: {{$tea->id}}}
             </script>
@@ -99,6 +111,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
                 @foreach ($reviews as $review)
                     @if ($review->user_id === Auth::user()->id)
                         <li>{{$review->text}} <button><a href={{ action('ReviewController@edit', $review->id) }}>edit</a></button></li>
+                        <li><button><a href={{ action('ReviewController@destroy', $review->id) }}>delete</a></button></li>
                     @endif
                 @endforeach
             </ul> --}}
@@ -125,25 +138,5 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 
     </form>
 
-    <div>Rating</div>
-    {{$tea->average_rating}}/10
-<br>
-<br>
-    Add this tea to a list
-    <form action={{ action('CatalogueController@update', $tea->id) }} method="post">
-    @method('PUT')
-    @csrf
-    <input type="hidden" name="fromShow" value='yes'>
-
-    <select name = "catalogue_id">
-@foreach ($catalogues as $catalogue)
-            <option value = {{$catalogue->id}}> {{$catalogue->name}}</option>
-            @endforeach
-</select>
-<input type="submit" value="submit">
-</form>
-@if (session('status'))
-    {{session('status')}}
-    @endif
 
 @endsection

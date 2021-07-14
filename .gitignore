@@ -14,3 +14,5 @@ phploy.ini
 yarn-error.log
 /.idea
 /.vscode
+phploy.ini
+tea.sql

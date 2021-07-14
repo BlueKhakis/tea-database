@@ -103,7 +103,7 @@ class TeaController extends Controller
     }
 
     public function stores(Request $request)
-    {   dd($request);
+    {   
         if($request->file('image'))
         {
             $image_file = $request->file('image');  

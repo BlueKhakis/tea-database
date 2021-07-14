@@ -11,6 +11,7 @@ use App\Models\Plantation;
 use App\Models\Type;
 use App\Models\Review;
 use App\Models\Catalogue;
+use App\Models\Image;
 
 
 class Tea extends Model
@@ -61,5 +62,10 @@ class Tea extends Model
     public function catalogue()
     {
         return $this->belongsToMany(Catalogue::class);
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
     }
 }

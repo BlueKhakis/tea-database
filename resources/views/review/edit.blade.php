@@ -13,6 +13,11 @@
         @csrf
         @method('PUT')
 {{-- {{dd($review->text)}} --}}
+
+        @if (session('status'))
+            {{session('status')}}
+        @endif
+        
             <p>Edit here:</p> 
             <div>
                 <label htmlFor="">Text</label>

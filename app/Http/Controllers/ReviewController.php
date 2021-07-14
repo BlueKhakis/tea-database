@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 
+
 class ReviewController extends Controller
 {
     
@@ -17,8 +18,28 @@ class ReviewController extends Controller
         return view('react.react');
     }
 
+    public function userReviews()
+    {
+        $user = Auth::user();
+
+        $teas = Tea::all();
+
+        $reviews = Review::all();
+
+        return view('review.userreviews', compact('teas', 'user', 'reviews'));
+    }
+
     public function create(Request $request, $tea_id)
     {
+        
+        $this->validate($request, [
+                'text' => 'required|min: 10',
+                'rating' => 'required',
+            ], [
+                'text.required' => 'Comeon, we know you have more to tell.',
+                'rating.required' => 'Like Bob Marley would say: "No rating, no review."..',
+            ]);
+
         $tea = Tea::findOrFail($tea_id);
        
         $rating_count= Review::where('tea_id', $tea_id)->count();
@@ -38,26 +59,14 @@ class ReviewController extends Controller
         $tea->average_rating = $new_avg;
         $tea->save();
 
-        // if ( $request->rating )
-        //     Session::flash('status', 'Thank you for honest review');
-        // else
-        //     Session::flash('status', 'Rating is missing, give a try again');
-
-
-        // if ( $request->text )
-            Session::flash('status', 'Thank you for honest review');
-        // else
-        //     Session::flash('status', 'Review text is missing, give a try again');
+        Session::flash('status', 'House of Leaves appreciates your feedback.');
 
         return redirect(action('TeaController@show', $tea->id));
     }
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'text' => 'required',
-            'rating' => 'required',
-        ]);
+        //
     }
 
     public function show($id)
@@ -103,6 +112,8 @@ class ReviewController extends Controller
         $rating_count= Review::where('tea_id', $review->tea_id)->count();
         $tea->average_rating = ($tea->average_rating * $rating_count - $old_rating + $request->rating)/($rating_count);
         $tea->save();
+        
+        Session::flash('status', 'Review updated');
 
         return redirect(action('TeaController@show', $tea->id));
 
@@ -111,6 +122,10 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
-        //
+        $review = Review::findOrFail($id);
+        $tea = Tea::findOrFail($review->tea_id);
+        $review->delete();
+        Session::flash('status', 'Review removed');
+        return redirect(action('TeaController@show', $tea->id));
     }
 }
