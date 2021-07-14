@@ -21,7 +21,9 @@ export default function Search(props) {
             <ul className="react__reviews__ul">
                 { !reviews ? <p>loading reviews...</p> : 
                 reviews.map((element, i) => (
+                    
                         <Review key={i} data={element} i={i} setRefr={setRefr} refr={refr} />   
+                
                 ))
                 }
             </ul>

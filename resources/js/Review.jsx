@@ -9,9 +9,10 @@ export default function Review(props)
     text: [props.data.text],
     rating: [props.data.rating],
     id: [props.data.id],
-    tea: [props.data.tea_id] 
+    tea: [props.data.tea_id],
+    votes: [props.data.votes]
     });
-
+console.log(props.data.votes);
     function handleClick(event){
         event.preventDefault();
         setClicked(true);
@@ -54,6 +55,28 @@ export default function Review(props)
             window.location.reload();
         }
 
+    const handleLike = async (event) =>  {
+        // setDisp('hidden');
+        // if (props.refr === true) {
+        //     props.setRefr(false);
+        // } else {props.setRefr(true)}
+        event.preventDefault();
+// console.log(props.data.votes);
+        await fetch(`/review/${props.data.id}/like`, {
+            
+            method: 'POST',
+            body: JSON.stringify({ rating, text, id, tea }, props.data.votes),
+            headers: {
+                        Accept: 'application/json',
+                            'Content-type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                     }
+                }
+            );
+            // window.location.reload();
+        }
+    // }
+
      const handleChange = (event) => {
         const new_values = ['text', 'rating'],
         name = event.target.name,
@@ -79,6 +102,13 @@ export default function Review(props)
                                     <button className={`animate__animated react__button`}> ⛔️</button>
                                 </form>
                             </div>
+
+                            <div className="react__reviews__likes">
+                                <form onSubmit={ handleLike }  method="post">
+                                    <button className={`animate__animated react__button`}> Like </button>
+                                </form>
+                            </div>
+
                         </li>
 
                     :   <>

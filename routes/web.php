@@ -61,6 +61,8 @@ Route::middleware(['verified'])->group(function () {
     Route::post('/review/{id}/update', 'ReviewController@update');
     Route::post('/review/{id}/delete', 'ReviewController@destroy');
 
+    Route::post('/review/{id}/like', 'LikeController@like');
+
 
 });
 

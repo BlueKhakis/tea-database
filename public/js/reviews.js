@@ -70,7 +70,8 @@ function Review(props) {
     text: [props.data.text],
     rating: [props.data.rating],
     id: [props.data.id],
-    tea: [props.data.tea_id]
+    tea: [props.data.tea_id],
+    votes: [props.data.votes]
   }),
       _useState6 = _slicedToArray(_useState5, 2),
       _useState6$ = _useState6[0],
@@ -79,6 +80,8 @@ function Review(props) {
       tea = _useState6$.tea,
       id = _useState6$.id,
       setValues = _useState6[1];
+
+  console.log(props.data.votes);
 
   function handleClick(event) {
     event.preventDefault();
@@ -170,6 +173,48 @@ function Review(props) {
     };
   }();
 
+  var handleLike = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(event) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              // setDisp('hidden');
+              // if (props.refr === true) {
+              //     props.setRefr(false);
+              // } else {props.setRefr(true)}
+              event.preventDefault(); // console.log(props.data.votes);
+
+              _context3.next = 3;
+              return fetch("/review/".concat(props.data.id, "/like"), {
+                method: 'POST',
+                body: JSON.stringify({
+                  rating: rating,
+                  text: text,
+                  id: id,
+                  tea: tea
+                }, props.data.votes),
+                headers: {
+                  Accept: 'application/json',
+                  'Content-type': 'application/json',
+                  'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+              });
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function handleLike(_x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }(); // }
+
+
   var handleChange = function handleChange(event) {
     var new_values = ['text', 'rating'],
         name = event.target.name,
@@ -202,6 +247,16 @@ function Review(props) {
             children: " \u26D4\uFE0F"
           })
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "react__reviews__likes",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+          onSubmit: handleLike,
+          method: "post",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "animate__animated react__button",
+            children: " Like "
+          })
+        })
       })]
     }, props.i) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
