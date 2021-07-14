@@ -110,7 +110,7 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
                     @endif
 
                         
-                    <button><a href={{ action('ReviewController@like', $review->id) }}>lik pls</a></button></li>{{$review->votes}}
+                    <button><a href={{ action('LikeController@like', $review->id) }}>lik pls</a></button></li>{{$review->votes}}
                 @endforeach
             </ul> --}}
         @endif
