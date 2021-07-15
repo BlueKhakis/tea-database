@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div>
+<div className="route">
     @if(isset($country))
         <a href='/'>Home</a> -> <a href='/countries'>Countries</a>->{{$country[0]->name}}
     @else

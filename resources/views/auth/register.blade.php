@@ -2,6 +2,11 @@
 
 
 
+@extends('layouts.main')
+
+@section('content')
+    
+
 <form class="form" action="{{ route('register') }}" method="post">
   @csrf
   <div class="title">Welcome</div>
@@ -46,16 +51,10 @@ body {
 align-items: center;
 background-color: #000;
 /* background-image: url('./img/30993.jpg'); */
-background: url('./img/30993.jpg') no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-background-repeat: no-repeat; 
+
 display: flex;
 justify-content: center;
-height: 100vh;
-box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+/* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
 }
 
 </style>
@@ -143,14 +142,16 @@ height: 100vh;
 
 
 .form {
-/* background-color: #15172b; */
+background-color: rgba(54, 142, 102, 0.274);
 border-radius: 20px;
 box-sizing: border-box;
-height: 70  0px;
+
 padding: 20px;
 width: 320px;
+text-align: center;
 
-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
+/* background-color: rgba(172, 172, 172, 0.226); */
+    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
     color: rgb(255, 255, 255);
     margin: 1em;
     padding: 1em;
@@ -275,10 +276,15 @@ margin-top: 50px;
 // outline: 0;
 text-align: center;
 width: 100%;
+transition: all 0.3s ease-in-out;
+
 }
 
-.submit:active {
+.submit:hover {
 background-color: #06b;
 }
 
 </style> 
+
+
+@endsection
