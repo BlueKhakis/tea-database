@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/login', 'LoginController@create')
+            ->middleware(['guest:'.config('fortify.guard')])
+            ->name('login');
+
 //Route::('/register', 'RegisterController@');
 
 //Route::get('/', 'HomeController@index');

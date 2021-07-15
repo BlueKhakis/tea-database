@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\User;
+use App\Models\Tea;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -10,11 +10,11 @@ use Encore\Admin\Show;
 
 class UserController extends AdminController
 {
-    protected $title ='Users';
+    protected $title ='Tea';
 
     protected function grid()
     {
-        $grid = new Grid(new User());
+        $grid = new Grid(new Tea());
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
@@ -29,7 +29,7 @@ class UserController extends AdminController
 
     protected function detail($id)
     {
-        $show = new Show(User::findOrFail($id));
+        $show = new Show(Tea::findOrFail($id));
 
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
@@ -44,7 +44,7 @@ class UserController extends AdminController
 
     protected function form()
     {
-        $form = new Form(new User());
+        $form = new Form(new Tea());
 
         $form->saving(function (Form $form) {
             if ($form->password && $form->model()->password != $form->password) {

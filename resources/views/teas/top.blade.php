@@ -2,7 +2,7 @@
 @section('content')
     
 
-<div>
+<div className="route">
     <a href='/'>Home</a>->Top-rated<br><br>
 </div>
 

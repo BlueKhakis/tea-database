@@ -1,6 +1,7 @@
 
-<a href='/'>Home</a> -> <a href='/countries'>Countries</a>->{{$region[0]->name}}
-
+<div className="route">
+    <a href='/'>Home</a> -> <a href='/countries'>Countries</a>->{{$region[0]->name}}
+<div>
 <h1>{{$region[0]->name}}</h1>
 
 
