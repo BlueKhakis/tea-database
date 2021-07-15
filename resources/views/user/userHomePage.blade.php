@@ -16,11 +16,11 @@
 
 <img class="user_profile_pic" src="{{$user->image}}">
 
-<div class="thanks">
+{{-- <div class="thanks">
 @if (session('status'))
 {{session('status')}}
 @endif
-</div>
+</div> --}}
 
 {{-- User can change UserName --}}
 <div class="input-container ic2">

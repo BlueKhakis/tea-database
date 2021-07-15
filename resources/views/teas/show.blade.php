@@ -77,15 +77,11 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 {{-- create tea form --}}
     <form method='post' action="{{action('ReviewController@create', $tea)}}" name='review'>
     @csrf
-        <div class="thanks">
-            @if (session('status'))
-                {{session('status')}}
-            @endif
-        </div>
        
          {{-- @foreach ($errors->all() as $error)
         <div class="error">{{ $error }}</div>
       @endforeach  --}}
+
         <div class="review__form__fields">
             <textarea rows=5 cols=60 name="text" placeholder="e.g. This tea has changed my life.."></textarea>
             <label htmlFor="rating">Rate this bad boy
@@ -93,15 +89,6 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
             </label>
             <input type="submit" value="submit" class="animate__animated ">
         </div>
-
-        {{-- <div class="thanks">
-            @if (session('status'))
-                {{session('status')}}
-            @endif
-        </div> --}}
-      
-
-      
     </form>
 
 
