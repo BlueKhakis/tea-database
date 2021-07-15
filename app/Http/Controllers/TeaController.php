@@ -18,13 +18,13 @@ class TeaController extends Controller
 {
     public function index()
     {
-        $teas = Tea::all();
+        $teas = Tea::paginate(15);
         return view('teas.all', compact('teas'));
     }
 
     public function top()
     {
-        $teas = Tea::orderBy('average_rating', 'desc')->get();
+        $teas = Tea::orderBy('average_rating', 'desc')->paginate(15);
         return view('teas.top', compact('teas'));
     }
 
@@ -56,7 +56,7 @@ class TeaController extends Controller
                 $test = 'yes';
             }
         }
-
+// dd($request->description);
         if ($test==='yes')
         {
             $brand = Brand::where('name', $request->brand)->get();
@@ -65,14 +65,17 @@ class TeaController extends Controller
             $brand = Brand::create(
                 ['name' => $request->brand]);
         }
+    
             $tea = Tea::create(
                 [
                 'name' => $request->name,
                 'type_id' => $request->type_id,
                 'country_id' => $request->country_id,
+                'description' => $request->description,
                 'brand_id' => $brand->id,
-                'description' => $request->description
                 ]);
+
+
 
         Session::flash('status', 'Thank you for enriching the database');
         return redirect(action('TeaController@show', $tea));
@@ -99,55 +102,35 @@ class TeaController extends Controller
         return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country', 'user_reviews', 'number_of_votes', 'type'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
     public function teaToList(Request $request, $id)
-        {
-            
-            
-            $catalogue = Catalogue::findOrFail($request->catalogue_id);
-           
-            $tea = Tea::findOrFail($request->id);
-           
-            if($catalogue->tea->contains($tea)){
-                // dd('B1');
-                Session::flash('status', "tea already there");
-                return redirect(action('TeaController@show', $tea->id));
-            }
-            // dd('B2');
-            $catalogue->tea()->attach($tea);
-            Session::flash('status', "Tea successfully added");
+    {
+        $catalogue = Catalogue::findOrFail($request->catalogue_id);
+        
+        $tea = Tea::findOrFail($request->id);
+        
+        if($catalogue->tea->contains($tea)){
+            // dd('B1');
+            Session::flash('status', "tea already there");
             return redirect(action('TeaController@show', $tea->id));
         }
+        // dd('B2');
+        $catalogue->tea()->attach($tea);
+        Session::flash('status', "Tea successfully added");
+        return redirect(action('TeaController@show', $tea->id));
+    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         $catalogue = Catalogue::findOrFail($id);
         $catalogue->update($request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

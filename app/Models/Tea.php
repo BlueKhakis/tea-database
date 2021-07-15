@@ -24,6 +24,7 @@ class Tea extends Model
         'type_id',
         'country_id',
         'brand_id',
+        'description',
         'plantation_id',
         'average_rating',
     ];

@@ -1,6 +1,9 @@
 /node_modules
 /public/hot
 /public/storage
+/public/mix-manifest.json
+/public/js
+/public/css
 /storage/*.key
 /vendor
 .env
@@ -16,3 +19,6 @@ yarn-error.log
 /.vscode
 phploy.ini
 tea.sql
+public/css
+public/js
+public/mix-manifest.json

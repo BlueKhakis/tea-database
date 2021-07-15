@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 {{-- @extends('layouts.main') --}}
+=======
+    
+@extends('layouts.main')
+@section('content')
+
+{{-- @include('navigation.navigation') --}}
+<h1>History of a TEA</h1>
+>>>>>>> 51614a10478345359258591c7cae4f35a0ba2db7
 
 @include('navigation.navigation')
 <div class="history-header">
@@ -369,3 +378,5 @@ ol, li {
 }
 
 </style>
+
+@endsection
