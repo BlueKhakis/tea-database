@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -112,6 +111,8 @@ Route::delete('/deletereview/{id}', 'ReviewController@destroy');
 
 Route::get('/reviews', 'ReviewController@userReviews');
 
+Route::get('/about', 'HomeController@about');
+Route::get('/history', 'HomeController@history');
 Route::put('/teas/{id}/addtolist', 'TeaController@teaToList');
 
 Route::get('/brands/{query}', 'SearchController@searchBrands');

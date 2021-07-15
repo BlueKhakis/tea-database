@@ -1,4 +1,7 @@
 
+{{-- <nav class="navi">
+    @extends('layouts.main')
+</nav> --}}
 
 @extends('layouts.main')
 
@@ -83,8 +86,9 @@ background-size: cover;
 background-repeat: no-repeat; 
 display: flex;
 justify-content: center;
-
+flex-flow: column;
 height: 100vh;
+width: 100vw;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 

@@ -34,4 +34,14 @@ class HomeController extends Controller
         Auth::user() ? $user = Auth::user() : $user = [];
         return view('main.layout', compact('user'));
     }
+
+    public function about()
+    {
+        return view('footer.about');
+    }
+
+    public function history()
+    {
+        return view('history.history');
+    }
 }

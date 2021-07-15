@@ -91,6 +91,11 @@ class TeaController extends Controller
         
         $catalogues = Catalogue::all();
 
+        // if (  )
+        //     Session::flash('status', 'Thank you for honest review');
+        // else
+        //     Session::flash('status', 'Something is missing, give a try again');
+
         return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country', 'user_reviews', 'number_of_votes', 'type'));
     }
 
@@ -148,6 +153,10 @@ class TeaController extends Controller
         //
     }
 
+<<<<<<< HEAD
+
+}
+=======
     public function storeImage(Request $request, $id)
     {
         if($request->file('image'))
@@ -162,3 +171,4 @@ class TeaController extends Controller
         return redirect(action('TeaController@show', $id));
     }
 }
+>>>>>>> 1c6546a2757e5ee912d6359bddfcc6e720731e98
