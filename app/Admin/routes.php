@@ -17,7 +17,7 @@ Route::group([
 
     $router->resource('/users', UserController::class);
 
-    $router->resource('/reviews', ReviewController::class);
+    $router->resource('/review', ReviewController::class);
 
     // $router->resource('demo/image', ImageController::class);
 
