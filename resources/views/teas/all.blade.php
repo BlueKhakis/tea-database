@@ -14,14 +14,16 @@
 <h1>{{$country[0]->name}}</h1>
 @endif
     
-    <ul>
-@foreach ($teas as $tea)
-    <li> 
-        <a href={{action('TeaController@show', $tea->id)}}>{{$tea->name}}</a>
-    </li>
-@endforeach
-    </ul>
-
+<div className="teas__all basic_styling_for_links ">
+        <ul className="teas__all__ul">
+            @foreach ($teas as $tea)
+                <li> 
+                    <a href={{action('TeaController@show', $tea->id)}}>{{$tea->name}}</a>
+                </li>
+            @endforeach
+        </ul>
+        <div className="teas__all__content"></div>
+</div>
     {{$teas->links()}}
 
 @if (Auth::user())
