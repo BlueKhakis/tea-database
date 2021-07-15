@@ -102,55 +102,35 @@ class TeaController extends Controller
         return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country', 'user_reviews', 'number_of_votes', 'type'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
     public function teaToList(Request $request, $id)
-        {
-            
-            
-            $catalogue = Catalogue::findOrFail($request->catalogue_id);
-           
-            $tea = Tea::findOrFail($request->id);
-           
-            if($catalogue->tea->contains($tea)){
-                // dd('B1');
-                Session::flash('status', "tea already there");
-                return redirect(action('TeaController@show', $tea->id));
-            }
-            // dd('B2');
-            $catalogue->tea()->attach($tea);
-            Session::flash('status', "Tea successfully added");
+    {
+        $catalogue = Catalogue::findOrFail($request->catalogue_id);
+        
+        $tea = Tea::findOrFail($request->id);
+        
+        if($catalogue->tea->contains($tea)){
+            // dd('B1');
+            Session::flash('status', "tea already there");
             return redirect(action('TeaController@show', $tea->id));
         }
+        // dd('B2');
+        $catalogue->tea()->attach($tea);
+        Session::flash('status', "Tea successfully added");
+        return redirect(action('TeaController@show', $tea->id));
+    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         $catalogue = Catalogue::findOrFail($id);
         $catalogue->update($request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
