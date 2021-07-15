@@ -40,8 +40,8 @@ class HomeController extends Controller
         return view('footer.about');
     }
 
-    public function history()
+    public function historytea()
     {
-        return view('history.history');
+        return view('history.historytea');
     }
 }
