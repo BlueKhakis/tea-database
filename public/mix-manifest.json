@@ -1,15 +1,10 @@
 {
-    "/js/search.js": "/js/search.js?id=e97fd23835a5d08b4f13",
+    "/js/search.js": "/js/search.js?id=8fb57388f5ddbdf6a1e4",
     "/js/brands/search.js": "/js/brands/search.js?id=a1fc6eaecc83f9d7c850",
     "/js/reviews.js": "/js/reviews.js?id=75a64823535bf60bad14",
     "/js/map.js": "/js/map.js?id=a19bce2af7de32163b1a",
     "/js/continent.js": "/js/continent.js?id=a250d1df0f3613d6b78f",
     "/js/search/pdfmake.js": "/js/search/pdfmake.js?id=faeb073fc5be4f159875",
     "/js/search/canvg.js": "/js/search/canvg.js?id=41906d3eea6ce2e302da",
-    "/js/search/xlsx.js": "/js/search/xlsx.js?id=7f9865bd5a098b07ddef",
-<<<<<<< HEAD
-    "/css/main.css": "/css/main.css?id=978b5f071747b5f9d9fb"
-=======
-    "/css/main.css": "/css/main.css?id=7251e1a02d5f32b258a1"
->>>>>>> 02ab65767580728d2d898c226de933043fe5b497
+    "/js/search/xlsx.js": "/js/search/xlsx.js?id=7f9865bd5a098b07ddef"
 }
