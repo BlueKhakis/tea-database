@@ -1,11 +1,12 @@
 @counter-style leaf {
     system: cyclic;
     symbols: "\1F343";
+    // symbols: url("img/slavo.png");
     suffix: " ";
 }
 
-@counter-style pen {
+@counter-style slavo {
     system: cyclic;
-    symbols: "\270F";
+    symbols: url("/img/slavo.png");
     suffix: " ";
 }

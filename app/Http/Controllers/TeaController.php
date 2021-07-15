@@ -56,7 +56,7 @@ class TeaController extends Controller
                 $test = 'yes';
             }
         }
-
+// dd($request->description);
         if ($test==='yes')
         {
             $brand = Brand::where('name', $request->brand)->get();
@@ -65,15 +65,17 @@ class TeaController extends Controller
             $brand = Brand::create(
                 ['name' => $request->brand]);
         }
-        dd($request);
+    
             $tea = Tea::create(
                 [
                 'name' => $request->name,
                 'type_id' => $request->type_id,
                 'country_id' => $request->country_id,
+                'description' => $request->description,
                 'brand_id' => $brand->id,
-                'description' => $request->description
                 ]);
+
+
 
         Session::flash('status', 'Thank you for enriching the database');
         return redirect(action('TeaController@show', $tea));
@@ -91,6 +93,11 @@ class TeaController extends Controller
         $number_of_votes = sizeof($reviews);
         
         $catalogues = Catalogue::all();
+
+        // if (  )
+        //     Session::flash('status', 'Thank you for honest review');
+        // else
+        //     Session::flash('status', 'Something is missing, give a try again');
 
         return view('teas.show', compact('tea', 'reviews', 'catalogues', 'country', 'user_reviews', 'number_of_votes', 'type'));
     }

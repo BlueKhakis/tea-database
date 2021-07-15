@@ -30,6 +30,8 @@ return [
 
     'disks' => [
 
+        'admin' => [ 'driver' => 'local', 'root' => storage_path('app'), ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
@@ -58,6 +60,15 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+        ],
+
+        'production' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USER'),
+            'password' => env('FTP_PASS'),
+            'port' => env('FTP_PORT'),
+            'root' => env('FTP_ROOT')
         ],
 
     ],

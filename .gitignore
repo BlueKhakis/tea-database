@@ -13,8 +13,12 @@ docker-compose.override.yml
 Homestead.json
 Homestead.yaml
 npm-debug.log
+phploy.ini
 yarn-error.log
 /.idea
 /.vscode
 phploy.ini
 tea.sql
+public/css
+public/js
+public/mix-manifest.json

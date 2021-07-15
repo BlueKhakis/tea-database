@@ -11,6 +11,7 @@ use App\Models\Plantation;
 use App\Models\Type;
 use App\Models\Review;
 use App\Models\Catalogue;
+use App\Models\Image;
 
 
 class Tea extends Model
@@ -23,6 +24,7 @@ class Tea extends Model
         'type_id',
         'country_id',
         'brand_id',
+        'description',
         'plantation_id',
         'average_rating',
     ];
@@ -61,5 +63,10 @@ class Tea extends Model
     public function catalogue()
     {
         return $this->belongsToMany(Catalogue::class);
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
     }
 }

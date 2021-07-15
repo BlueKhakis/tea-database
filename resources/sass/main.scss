@@ -12,6 +12,7 @@
     margin: auto;
     text-transform: uppercase;
     font-weight: 300;
+    min-height: 100vh;
 }
 
 button {
@@ -26,8 +27,20 @@ ul {
     list-style: leaf;
 }
 
+header {
+    justify-self: flex-end;
+}
+
+// footer {
+//     position: absolute;
+//     // bottom: 0;
+//     // height: 25em;
+//     width: 100vw;
+// }
+
 @import "navigation.scss";
+// @import "login.scss";
 @import "home_page_body.scss";
 @import "tea_page_body.scss";
 @import "list_search_bar.scss";
-// @import "footer.scss";
+@import "footer.scss";
