@@ -24,7 +24,7 @@
         </ul>
         <div class="teas__all__content"></div>
 </div>
-    {{$teas->links()}}
+    {{$teas->onEachSide(3)->links()}}
 
 @if (Auth::user())
    <button>

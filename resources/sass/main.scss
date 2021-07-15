@@ -69,10 +69,24 @@ footer {
     background-color: blue;
 }
 
+.pagination {
+    display: flex;
+    &__link {
+        background-color: white;
+        padding: 5px;
+        margin: 0 5px;
+
+        svg {
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
+
 @import "navigation.scss";
 // @import "login.scss";
 @import "home_page_body.scss";
 @import "tea_page_body.scss";
 @import "list_search_bar.scss";
 @import "footer.scss";
-@import "history.scss";
+// @import "history.scss";
