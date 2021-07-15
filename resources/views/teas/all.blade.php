@@ -17,7 +17,7 @@
 <div class="teas__all basic_styling_for_links ">
         <ul class="teas__all__ul">
             @foreach ($teas as $tea)
-                <li> 
+                <li class="teas__all__ul__li"> 
                     <a href={{action('TeaController@show', $tea->id)}}>{{$tea->name}}</a>
                 </li>
             @endforeach
