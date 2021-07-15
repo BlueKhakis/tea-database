@@ -13,4 +13,6 @@ Teas by rating
 @endforeach
 </ul>
 
+{{$teas->links()}}
+
 @endsection
