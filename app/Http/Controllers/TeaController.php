@@ -56,7 +56,7 @@ class TeaController extends Controller
                 $test = 'yes';
             }
         }
-
+// dd($request->description);
         if ($test==='yes')
         {
             $brand = Brand::where('name', $request->brand)->get();
@@ -65,14 +65,17 @@ class TeaController extends Controller
             $brand = Brand::create(
                 ['name' => $request->brand]);
         }
+    
             $tea = Tea::create(
                 [
                 'name' => $request->name,
                 'type_id' => $request->type_id,
                 'country_id' => $request->country_id,
+                'description' => $request->description,
                 'brand_id' => $brand->id,
-                'description' => $request->description
                 ]);
+
+
 
         Session::flash('status', 'Thank you for enriching the database');
         return redirect(action('TeaController@show', $tea));
@@ -153,10 +156,6 @@ class TeaController extends Controller
         //
     }
 
-<<<<<<< HEAD
-
-}
-=======
     public function storeImage(Request $request, $id)
     {
         if($request->file('image'))
@@ -171,4 +170,3 @@ class TeaController extends Controller
         return redirect(action('TeaController@show', $id));
     }
 }
->>>>>>> 1c6546a2757e5ee912d6359bddfcc6e720731e98
