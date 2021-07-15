@@ -43,6 +43,14 @@ footer {
     margin-top: 0.75em;
 }
 
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
 @import "navigation.scss";
 // @import "login.scss";
 @import "home_page_body.scss";

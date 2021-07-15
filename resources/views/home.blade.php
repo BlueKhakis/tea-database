@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <main class="main__home">
+    <main class="main__home" style='z-index: 0;'>
     {{-- @if (Auth::user())
         <h1>Welcome {{Auth::user()->name}}</h1>
     @else

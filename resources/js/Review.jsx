@@ -5,13 +5,16 @@ export default function Review(props)
 {
     const [clicked, setClicked] = useState(false);
     const [disp, setDisp] = useState('');
-    const [{ text, rating, tea, id, votes }, setValues] = useState({
+    const [{ text, rating, tea, id, votes, likeStatus }, setValues] = useState({
     text: [props.data.text],
     rating: [props.data.rating],
     id: [props.data.id],
     tea: [props.data.tea_id],
-    votes: [props.data.votes]
+        votes: [props.data.votes],
+        likeStatus: [props.data.review_user.length ? 1 : 0]
+        
     });
+    console.log(props.data.review_user)
 
     function handleClick(event){
         event.preventDefault();
@@ -60,7 +63,6 @@ export default function Review(props)
         // if (props.refr === true) {
         //     props.setRefr(false);
         // } else {props.setRefr(true)}
-        console.log('hello, spiros');
         event.preventDefault();
 // console.log(props.data.votes);
         const response = await fetch(`/review/${props.data.id}/like`, {
@@ -75,6 +77,7 @@ export default function Review(props)
         }
         );
         const data = await response.json();
+        setValues({ rating, text, id, tea, votes:data.likes, likeStatus:data.status })
             // window.location.reload();
     }
     
@@ -98,7 +101,7 @@ export default function Review(props)
                         <li className={`react__reviews__li  ${disp}`} key={props.i}>
                             <div className="react__reviews__likes">
                                 
-                                <p className="react__reviews__li__p" >{props.data.votes} likes</p>
+                                <p className="react__reviews__li__p" >{votes} likes</p>
                             </div>
                             <p className="react__reviews__li__p" >{text}</p>
                             <div className="react__reviews__li__buttons" >
@@ -109,7 +112,7 @@ export default function Review(props)
                                     <button className={`animate__animated react__button`}> ⛔️</button>
                                 </form>
                                 <form onSubmit={ handleLike }  method="post">
-                                    <button className={`animate__animated react__button`}>👍</button>
+                                    <button className={likeStatus == 0 ? `blue` : `red`}>👍</button>
                                 </form>
                             </div>
 

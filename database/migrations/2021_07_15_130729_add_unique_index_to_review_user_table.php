@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageColumnToTeasTable extends Migration
+class AddUniqueIndexToReviewUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddImageColumnToTeasTable extends Migration
      */
     public function up()
     {
-        Schema::table('teas', function (Blueprint $table) {
-            $table->text('image')->after('description')->nullable();
+        Schema::table('review_user', function (Blueprint $table) {
+            $table->unique(['user_id', 'review_id']);
         });
     }
 
@@ -25,8 +25,8 @@ class AddImageColumnToTeasTable extends Migration
      */
     public function down()
     {
-        Schema::table('teas', function (Blueprint $table) {
-            $table->dropColumn('image');
+        Schema::table('review_user', function (Blueprint $table) {
+            $table->dropIndex('review_user_user_id_review_id_unique');
         });
     }
 }

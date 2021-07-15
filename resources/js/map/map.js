@@ -13,8 +13,6 @@ let valid_countries = countries.map((country) => ({
     'url': `/countries/${country.id}`,
 }))
 
-console.log(countries)
-
 // let valid_countries = [{
 //     'id': 'US',
 //     'fill': am4core.color('black'),
