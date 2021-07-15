@@ -12,7 +12,7 @@ export default function Review(props)
     tea: [props.data.tea_id],
     votes: [props.data.votes]
     });
-console.log(props.data.votes);
+
     function handleClick(event){
         event.preventDefault();
         setClicked(true);
@@ -54,12 +54,13 @@ console.log(props.data.votes);
             );
             window.location.reload();
         }
-
+// 
     const handleLike = async (event) =>  {
         // setDisp('hidden');
         // if (props.refr === true) {
         //     props.setRefr(false);
         // } else {props.setRefr(true)}
+        console.log('hello, spiros');
         event.preventDefault();
 // console.log(props.data.votes);
         await fetch(`/review/${props.data.id}/like`, {
@@ -73,10 +74,10 @@ console.log(props.data.votes);
                      }
                 }
             );
-            window.location.reload();
+            // window.location.reload();
         }
     // }
-
+// 
      const handleChange = (event) => {
         const new_values = ['text', 'rating'],
         name = event.target.name,
@@ -93,6 +94,10 @@ console.log(props.data.votes);
                 { !clicked 
                     ? 
                         <li className={`react__reviews__li  ${disp}`} key={props.i}>
+                            <div className="react__reviews__likes">
+                                
+                                <p className="react__reviews__li__p" >{props.data.votes} likes</p>
+                            </div>
                             <p className="react__reviews__li__p" >{text}</p>
                             <div className="react__reviews__li__buttons" >
                                   {/* edit form/button */}
@@ -101,15 +106,12 @@ console.log(props.data.votes);
                                 <form onSubmit={ handleDelete }  method="post">
                                     <button className={`animate__animated react__button`}> ⛔️</button>
                                 </form>
-                            </div>
-
-                            <div className="react__reviews__likes">
                                 <form onSubmit={ handleLike }  method="post">
-                                    <button className={`animate__animated react__button`}> Like </button>
+                                    <button className={`animate__animated react__button`}>👍</button>
                                 </form>
-                                <p>{props.data.votes}</p>
                             </div>
 
+                            
                         </li>
 
                     :   <>

@@ -15,3 +15,6 @@ yarn-error.log
 /.vscode
 phploy.ini
 tea.sql
+public/css
+public/js
+public/mix-manifest.json
