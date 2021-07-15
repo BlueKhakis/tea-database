@@ -22,6 +22,8 @@
 @endforeach
     </ul>
 
+    {{$teas->links()}}
+
 @if (Auth::user())
    <button>
        <a href={{action('TeaController@create')}}>Extend our database, add a new tea</a>
