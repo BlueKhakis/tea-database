@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<div>
+<div className="route">
     <a href='/'>Home</a> -> Countries
 </div>
 {{-- <ul> --}}

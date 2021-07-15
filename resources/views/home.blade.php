@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <main class="main__home">
+    <main class="main__home" style='z-index: 0;'>
     {{-- @if (Auth::user())
         <h1>Welcome {{Auth::user()->name}}</h1>
     @else
@@ -16,8 +16,8 @@
         </div>
 
     {{-- commented out for faster styling develop--}}
-        {{-- <script src="{{mix('js/map.js')}}">
-        </script> --}}
+        <script src="{{mix('js/map.js')}}">
+        </script>
         
         <div class="main__home__section main__home__section__start"> 
             <h2>Get Started</h2>

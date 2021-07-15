@@ -16,18 +16,24 @@ class LikeController extends Controller
 
         $user = Auth::user();
 
+        $review_user = $review->review_user()->wherePivot('user_id', $user->id)->first();
+
+        if (!$review_user)
+        {
+
         $review->review_user()->attach($user);
+            $status = 1;
+        }
+        else{
+            $status = 0;
+            $review->review_user()->detach($user);
+        }
+        $likes = $review->review_user()->count();
+        Review::where('id', $id)->update([ 'votes' => $likes]);
+        return ['likes' => $likes, 'status' => $status];
+        
 
-        // $likes = Review::with('user')->get();
 
-        $likes = Review::find($id)->review_user()->get();
-        // dd(sizeof($likes));
-        Review::where('id', $id)->update([ 'votes' => sizeof($likes)-1]);
-        // dd($review);
-        $tea = Tea::findOrFail($review->tea_id);
-
-
-        return redirect(action('TeaController@show', $tea->id));
     }
 }
 

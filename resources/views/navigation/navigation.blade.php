@@ -1,6 +1,6 @@
 
 
-<nav class="nav">
+<nav class="nav" style='z-index: 1; position: relative;'>
     <div class="nav__navigation nav__navigation">
        <a  href="/"><img class="nav__navigation__image" src={{asset('img/teapot.png')}} alt="logo" width="150" height="100"></a>
       
