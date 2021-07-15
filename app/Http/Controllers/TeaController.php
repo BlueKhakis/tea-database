@@ -24,7 +24,7 @@ class TeaController extends Controller
 
     public function top()
     {
-        $teas = Tea::orderBy('average_rating', 'desc')->paginate(5);
+        $teas = Tea::orderBy('average_rating', 'desc')->paginate(15);
         return view('teas.top', compact('teas'));
     }
 

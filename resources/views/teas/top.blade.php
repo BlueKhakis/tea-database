@@ -2,10 +2,11 @@
 @section('content')
     
 
+<div>
+    <a href='/'>Home</a>->Top-rated<br><br>
+</div>
 
-<a href='/'>Home</a>->Top-rated<br><br>
-
-Teas by rating
+<h2>Teas by rating</h2>
 
 <ul>
 @foreach ($teas as $tea)
