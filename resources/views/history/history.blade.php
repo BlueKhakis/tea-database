@@ -1,12 +1,21 @@
+<<<<<<< HEAD
+{{-- @extends('layouts.main') --}}
+=======
     
 @extends('layouts.main')
 @section('content')
 
 {{-- @include('navigation.navigation') --}}
 <h1>History of a TEA</h1>
+>>>>>>> 51614a10478345359258591c7cae4f35a0ba2db7
 
-<p>Milestones of journey of the tea.</p>
+@include('navigation.navigation')
+<div class="history-header">
+  <h1>History of a TEA</h1>
 
+  <p>Milestones of journey of the tea.</p>
+</div>
+<div class="main__home__section">
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
     <li id="carousel__slide1"
@@ -68,8 +77,43 @@
     </ol>
   </aside>
 </section>
+<div class="teaparty">
+  <span>The Boston Tea Party was an American political and mercantile protest by the Sons of Liberty in Boston, Massachusetts, on December 16, 1773.[1] The target was the Tea Act of May 10, 1773, which allowed the British East India Company to sell tea from China in American colonies without paying taxes apart from those imposed by the Townshend Acts. The Sons of Liberty strongly opposed the taxes in the Townshend Act as a violation of their rights. Protesters, some disguised as American Indians, destroyed an entire shipment of tea sent by the East India Company.
+
+    The demonstrators boarded the ships and threw the chests of tea into the Boston Harbor. The British government responded harshly, and the episode escalated into the American Revolution. The Tea Party became an iconic event of American history, and since then other political protests such as the Tea Party movement have referred to themselves as historical successors to the Boston protest of 1773.
+    
+    The Tea Party was the culmination of a resistance movement throughout British America against the Tea Act, which had been passed by the British Parliament in 1773. Colonists objected to the Tea Act because they believed that it violated their rights as Englishmen to "no taxation without representation", that is, to be taxed only by their own elected representatives and not by a British parliament in which they were not represented. In addition, the well-connected East India Company had been granted competitive advantages over colonial tea importers, who resented the move and feared additional infringement on their business. Protesters had successfully prevented the unloading of tea in three other colonies, but in Boston, embattled Royal Governor Thomas Hutchinson refused to allow the tea to be returned to Britain.[2]
+    
+    The Boston Tea Party was a significant event in the growth of the American Revolution. Parliament responded in 1774 with the Intolerable Acts, or Coercive Acts, which, among other provisions, ended local self-government in Massachusetts and closed Boston's commerce. Colonists up and down the Thirteen Colonies in turn responded to the Intolerable Acts with additional acts of protest, and by convening the First Continental Congress, which petitioned the British monarch for repeal of the acts and coordinated colonial resistance to them. The crisis escalated, and the American Revolutionary War began near Boston in 1775.</span>
+  </span>
+  </div>
+</div>
 
 <style>
+.history-header {
+  text-align: center;
+}
+
+.teaparty {
+  color: black;
+}
+.main__home__section {
+    width: 50vw;
+    height: 50vh;
+    background-color: rgba(172, 172, 172, 0.226);
+    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
+    color: rgb(255, 255, 255);
+    margin: 1em;
+    padding: 1em;
+    transition: all 0.2s ease-out;
+}
+
+.main__home__section:hover {
+    width: 51vw;
+    height: 51vh;
+    box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
+}
+
 keyframes tonext {
   75% {
     left: 0;
