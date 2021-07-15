@@ -153,10 +153,6 @@ class TeaController extends Controller
         //
     }
 
-<<<<<<< HEAD
-
-}
-=======
     public function storeImage(Request $request, $id)
     {
         if($request->file('image'))
@@ -171,4 +167,3 @@ class TeaController extends Controller
         return redirect(action('TeaController@show', $id));
     }
 }
->>>>>>> 1c6546a2757e5ee912d6359bddfcc6e720731e98

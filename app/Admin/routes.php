@@ -17,7 +17,15 @@ Route::group([
 
     $router->resource('/users', UserController::class);
 
-    $router->resource('/review', ReviewController::class);
+    $router->resource('/reviews', ReviewController::class);
+
+    // $router->resource('demo/image', ImageController::class);
+
+    $router->resource('/images', ImageController::class);
+
+    $router->resource('demo/teas', TeaController::class);
+
+    $router->resource('/teas', TeaController::class);
 
 
 });
