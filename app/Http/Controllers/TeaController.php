@@ -18,7 +18,7 @@ class TeaController extends Controller
 {
     public function index()
     {
-        $teas = Tea::all();
+        $teas = Tea::paginate(6);
         return view('teas.all', compact('teas'));
     }
 
@@ -65,6 +65,7 @@ class TeaController extends Controller
             $brand = Brand::create(
                 ['name' => $request->brand]);
         }
+        dd($request);
             $tea = Tea::create(
                 [
                 'name' => $request->name,
