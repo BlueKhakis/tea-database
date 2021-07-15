@@ -12,7 +12,7 @@
             window.mapData = '{!! json_encode($countries) !!}';
         </script>
 
-        <div class="main__home__section main__home__section__map"> 
+        <div style="background-color: rgba(113, 128, 185, 1);" class="main__home__section main__home__section__map"> 
         </div>
 
     {{-- commented out for faster styling develop--}}

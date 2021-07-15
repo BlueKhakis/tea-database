@@ -52,7 +52,7 @@ activeSeries.data = valid_countries;
 
 let activePolygonTemplate = activeSeries.mapPolygons.template;
 activePolygonTemplate.tooltipText = "{name}";
-activePolygonTemplate.fill = chart.colors.getIndex(0);
+activePolygonTemplate.fill = am4core.color('#ff0000');
 activePolygonTemplate.nonScalingStroke = true;
 
 activePolygonTemplate.propertyFields.fill = 'fill';

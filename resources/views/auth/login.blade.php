@@ -77,7 +77,8 @@ justify-content: center;
 
 
 .form {
-background-color: rgba(54, 142, 102, 0.274);
+background-color: rgba(113, 128, 185, 0.8);
+/* background-color: rgba(54, 142, 102, 0.8); */
 border-radius: 20px;
 box-sizing: border-box;
 height: 450px;

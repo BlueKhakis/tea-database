@@ -78,34 +78,27 @@
 <style>
       main {
 align-items: center;
-background: url('./img/30993.jpg') no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-background-repeat: no-repeat; 
+background-color: #000;
+
 display: flex;
 justify-content: center;
-flex-flow: column;
-height: 100vh;
-width: 100vw;
-box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
 }
 
 
+
+
+
+
 .form {
-/* background-color: #15172bb2; */
+background-color: rgba(113, 128, 185, 0.8);
+/* background-color: rgba(54, 142, 102, 0.8); */
 border-radius: 20px;
 box-sizing: border-box;
-height: auto;
+height: 450px;
 padding: 20px;
 width: 320px;
 text-align: center;
-display: flex;
-justify-content: center;
-flex-direction: column;
-gap: 35px; 
-
 
 /* background-color: rgba(172, 172, 172, 0.226); */
     box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
@@ -118,6 +111,7 @@ gap: 35px;
 .form:hover {
     box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
 }
+
 
 .user_profile_pic {
     border-radius: 50%;
