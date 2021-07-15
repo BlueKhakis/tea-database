@@ -5,7 +5,7 @@ export default function Review(props)
 {
     const [clicked, setClicked] = useState(false);
     const [disp, setDisp] = useState('');
-    const [{ text, rating, tea, id }, setValues] = useState({
+    const [{ text, rating, tea, id, votes }, setValues] = useState({
     text: [props.data.text],
     rating: [props.data.rating],
     id: [props.data.id],
@@ -63,19 +63,21 @@ export default function Review(props)
         console.log('hello, spiros');
         event.preventDefault();
 // console.log(props.data.votes);
-        await fetch(`/review/${props.data.id}/like`, {
+        const response = await fetch(`/review/${props.data.id}/like`, {
             
             method: 'POST',
-            body: JSON.stringify({ rating, text, id, tea }, props.data.votes),
+            body: JSON.stringify({ id }),
             headers: {
-                        Accept: 'application/json',
-                            'Content-type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                     }
-                }
-            );
-            // window.location.reload();
+                Accept: 'application/json',
+                'Content-type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
         }
+        );
+        const data = await response.json();
+            // window.location.reload();
+    }
+    
     // }
 // 
      const handleChange = (event) => {
