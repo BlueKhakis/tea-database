@@ -16,8 +16,8 @@
         </div>
 
     {{-- commented out for faster styling develop--}}
-        {{-- <script src="{{mix('js/map.js')}}">
-        </script> --}}
+        <script src="{{mix('js/map.js')}}">
+        </script>
         
         <div class="main__home__section main__home__section__start"> 
             <h2>Get Started</h2>

@@ -6,13 +6,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    // background: url("img/30993.jpg") no-repeat center center fixed;
     font-family: "Roboto", sans-serif;
     width: $body_width;
     margin: auto;
     text-transform: uppercase;
     font-weight: 300;
     min-height: 100vh;
+    background-image: url("/img/30993.jpg") no-repeat center center fixed;
 }
 
 button {
@@ -33,6 +33,12 @@ header {
 
 footer {
     margin-top: 2em;
+}
+
+.route {
+    align-items: left;
+    align-self: flex-start;
+    margin-top: 0.75em;
 }
 
 @import "navigation.scss";
