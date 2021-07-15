@@ -5,7 +5,7 @@
 <script>
 window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 </script>
-
+<div class="main__content basic_styling_for_links__detail">
     <div class="route">
         <div><a href='/'>Home</a> -> <a href='/countries'>Countries</a>-><a href='/countries/{{$country[0]->id}}'>{{$country[0]->name}}</a>->{{$tea->name}}</div>
         <div><a href='/'>Home</a> -> <a href='/types'>Types</a>-><a href='/type/{{$type[0]->id}}'>{{$type[0]->name}}</a>->{{$tea->name}}</div>
@@ -77,15 +77,11 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 {{-- create tea form --}}
     <form method='post' action="{{action('ReviewController@create', $tea)}}" name='review'>
     @csrf
-        <div class="thanks">
-            @if (session('status'))
-                {{session('status')}}
-            @endif
-        </div>
        
          {{-- @foreach ($errors->all() as $error)
         <div class="error">{{ $error }}</div>
       @endforeach  --}}
+
         <div class="review__form__fields">
             <textarea rows=5 cols=60 name="text" placeholder="e.g. This tea has changed my life.."></textarea>
             <label htmlFor="rating">Rate this bad boy
@@ -93,15 +89,6 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
             </label>
             <input type="submit" value="submit" class="animate__animated ">
         </div>
-
-        {{-- <div class="thanks">
-            @if (session('status'))
-                {{session('status')}}
-            @endif
-        </div> --}}
-      
-
-      
     </form>
 
 
@@ -154,5 +141,5 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
 
     </form>
 
-
+</div>
 @endsection
