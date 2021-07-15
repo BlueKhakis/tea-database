@@ -2,13 +2,13 @@
 @section('content')
 
 
-
-@if(isset($country))
-<a href='/'>Home</a> -> <a href='/countries'>Countries</a>->{{$country[0]->name}}
-@else
-<a href='/'>Home</a> -> Teas
-@endif
-
+<div>
+    @if(isset($country))
+        <a href='/'>Home</a> -> <a href='/countries'>Countries</a>->{{$country[0]->name}}
+    @else
+        <a href='/'>Home</a> -> Teas
+    @endif
+</div>
 
 @if(isset($country))
 <h1>{{$country[0]->name}}</h1>

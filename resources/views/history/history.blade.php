@@ -1,4 +1,6 @@
     
+@extends('layouts.main')
+@section('content')
 
 {{-- @include('navigation.navigation') --}}
 <h1>History of a TEA</h1>
@@ -332,3 +334,5 @@ ol, li {
 }
 
 </style>
+
+@endsection

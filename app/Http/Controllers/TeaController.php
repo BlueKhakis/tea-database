@@ -18,7 +18,7 @@ class TeaController extends Controller
 {
     public function index()
     {
-        $teas = Tea::paginate(6);
+        $teas = Tea::paginate(15);
         return view('teas.all', compact('teas'));
     }
 

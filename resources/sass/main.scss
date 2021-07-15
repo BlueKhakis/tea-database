@@ -31,12 +31,9 @@ header {
     justify-self: flex-end;
 }
 
-// footer {
-//     position: absolute;
-//     // bottom: 0;
-//     // height: 25em;
-//     width: 100vw;
-// }
+footer {
+    margin-top: 2em;
+}
 
 @import "navigation.scss";
 // @import "login.scss";
