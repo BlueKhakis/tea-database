@@ -1,8 +1,10 @@
 @extends('layouts.main')
 
-@include('navigation.navigation')
+{{-- @include('navigation.navigation') --}}
 
- 
+ @section('content')
+     
+
     {{-- <div class="title-of-team">
             <h1>Let's introduce team members</h1>
         </div> --}}
@@ -52,7 +54,7 @@
         </div>
     </div>
 </div>
-
+@endsection
 <style>
 
 * {

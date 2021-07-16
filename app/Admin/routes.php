@@ -21,9 +21,9 @@ Route::group([
 
     // $router->resource('demo/image', ImageController::class);
 
-    $router->resource('/images', ImageController::class);
+    $router->resource('/image', ImageController::class);
 
-    $router->resource('demo/teas', TeaController::class);
+    // $router->resource('demo/teas', TeaController::class);
 
     $router->resource('/teas', TeaController::class);
 

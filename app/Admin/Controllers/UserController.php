@@ -55,7 +55,8 @@ class UserController extends AdminController
         $form->textarea('name', __('Name'));
         $form->textarea('email', __('Email'));
         $form->textarea('password', __('Password'));
-        $form->textarea('image', __('Image'));
+        
+        // $form->textarea('image', __('Image'));
         $form->image('image', __('Image'));
 
         return $form;

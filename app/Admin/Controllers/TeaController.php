@@ -17,10 +17,10 @@ class UserController extends AdminController
         $grid = new Grid(new Tea());
 
         $grid->column('id', __('Id'));
-        $grid->column('name', __('Name'));
-        $grid->column('email', __('Email'));
+        // $grid->column('name', __('Name'));
+        // $grid->column('email', __('Email'));
         $grid->column('image', __('Image'));
-        $grid->column('password', __('Password'));
+        // $grid->column('password', __('Password'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -32,10 +32,10 @@ class UserController extends AdminController
         $show = new Show(Tea::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('name', __('Name'));
-        $show->field('email', __('Email'));
+        // $show->field('name', __('Name'));
+        // $show->field('email', __('Email'));
         $show->field('image', __('Image'));
-        $show->field('password', __('Password'));
+        // $show->field('password', __('Password'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -53,9 +53,9 @@ class UserController extends AdminController
          });
 
         $form->textarea('name', __('Name'));
-        $form->textarea('email', __('Email'));
-        $form->textarea('password', __('Password'));
-        $form->textarea('image', __('Image'));
+        // $form->textarea('email', __('Email'));
+        // $form->textarea('password', __('Password'));
+        // $form->textarea('image', __('Image'));
         $form->image('image', __('Image'));
 
         return $form;
