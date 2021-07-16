@@ -25,7 +25,7 @@ Route::group([
 
     // $router->resource('demo/teas', TeaController::class);
 
-    $router->resource('/teas', TeaController::class);
+    $router->resource('/tea', TeaController::class);
 
 
 });
