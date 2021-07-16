@@ -72,7 +72,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-image: url("/img/811964.jpg");
+        /* background-image: url("/img/811964.jpg"); */
         background-size: cover;
        text-align: center;
     }
