@@ -27,7 +27,7 @@
 
 @if (Auth::user())
    <button class="button white">
-       <a  class="white" href={{action('TeaController@create')}}>Extend our database, add a new tea</a>
+       <a  class="white" href={{action('TeaController@create')}}>Extend our database, add tea</a>
     </button>
 @else
     <button class="button white">
