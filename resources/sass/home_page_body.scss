@@ -45,14 +45,16 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     height: 100%;
-    
 }
 
 .main__home__section__box__types__type {
     width: 33%;
     background-color: rgba(255, 255, 255, 0.295);
-    border: 1px solid black;
-    
+    margin-bottom: 5px;
+    border-radius: 5px;
+    &__header a {
+        color: white;
+    }
 }
 
 .main__home__section__start {
@@ -66,7 +68,6 @@
     background-size: auto;
     background-position: center;
 }
-    
 
 .main__home__section__countries {
     background-image: url("/img/tea4.jpg");
