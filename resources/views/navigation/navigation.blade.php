@@ -17,7 +17,7 @@
           
             @auth
           <a class="nav__navigation__link__user" href="#">Favorites</a>
-          <a class="nav__navigation__link__user" href="#">Something</a>
+          <a class="nav__navigation__link__user" href="#">Top secret</a>
           
         <div>
           <a class="nav__navigation__link__user" href="/userpage">
