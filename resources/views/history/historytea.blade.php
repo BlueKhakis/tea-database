@@ -46,7 +46,7 @@
         width: 100%;
         max-width: $body_width;
         height: auto;
-        background-color: rgba(172, 172, 172, 0.226);
+        background-color: rgba(113, 128, 185, 0.8);
         box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
         color: rgb(255, 255, 255);
         margin: 1em;
@@ -78,14 +78,14 @@
     .milestone__one__text {
         max-width: 40rem;
         color: black;
-        text-shadow: 1px 1px #ffffff;
+        text-shadow: 1px 1px rgb(85, 85, 85);
     }
 
     .milestone__two {
         width: 100%;
         max-width: $body_width;
         height: auto;
-        background-color: rgba(172, 172, 172, 0.226);
+        background-color: rgba(113, 128, 185, 0.8);
         box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
         color: rgb(255, 255, 255);
         margin: 1em;
@@ -116,14 +116,14 @@
     .milestone__two__text {
         max-width: 40rem;
         color: black;
-        text-shadow: 1px 1px white;
+        text-shadow: 1px 1px rgb(85, 85, 85);
     }
 
     .milestone__three {
         width: 100%;
         max-width: $body_width;
         height: auto;
-        background-color: rgba(172, 172, 172, 0.226);
+        background-color: rgba(113, 128, 185, 0.8);
         box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
         color: rgb(255, 255, 255);
         margin: 1em;
@@ -155,6 +155,6 @@
     .milestone__three__text {
         max-width: 40rem;
         color: black;
-        text-shadow: 1px 1px white;
+        text-shadow: 1px 1px rgb(85, 85, 85);
     }
  </style>

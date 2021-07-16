@@ -8,7 +8,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class UserController extends AdminController
+class TeaController extends AdminController
 {
     protected $title ='Tea';
 
@@ -17,7 +17,7 @@ class UserController extends AdminController
         $grid = new Grid(new Tea());
 
         $grid->column('id', __('Id'));
-        // $grid->column('name', __('Name'));
+        $grid->column('name', __('Name'));
         // $grid->column('email', __('Email'));
         $grid->column('image', __('Image'));
         // $grid->column('password', __('Password'));
@@ -32,7 +32,7 @@ class UserController extends AdminController
         $show = new Show(Tea::findOrFail($id));
 
         $show->field('id', __('Id'));
-        // $show->field('name', __('Name'));
+        $show->field('name', __('Name'));
         // $show->field('email', __('Email'));
         $show->field('image', __('Image'));
         // $show->field('password', __('Password'));
@@ -55,7 +55,7 @@ class UserController extends AdminController
         $form->textarea('name', __('Name'));
         // $form->textarea('email', __('Email'));
         // $form->textarea('password', __('Password'));
-        // $form->textarea('image', __('Image'));
+        $form->textarea('image', __('Image'));
         $form->image('image', __('Image'));
 
         return $form;
