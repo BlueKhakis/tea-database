@@ -7,65 +7,65 @@
     
 
     
+<div class="basic_styling_for_links">
 
-
-<form method='post' action="{{action('TeaController@store')}}">
-    @csrf
-        Name
-    <input type="text" name='name'>
-<br>
-    Type
-<select name = "type_id">
-@foreach ($types as $type)
-            <option value = {{$type->id}}> {{$type->name}}</option>
+    <form method='post' action="{{action('TeaController@store')}}">
+        @csrf
+            Name
+        <input type="text" name='name'>
+    <br>
+        Type
+    <select name = "type_id">
+    @foreach ($types as $type)
+                <option value = {{$type->id}}> {{$type->name}}</option>
+                @endforeach
+    </select>
+    <br>
+        Brands
+        <input type="text" name="brand" list="cityname">
+        <datalist id="cityname">
+            @foreach ($brands as $brand)
+        <option value={{$brand->name}}>
             @endforeach
-</select>
-<br>
-    Brands
-    <input type="text" name="brand" list="cityname">
-    <datalist id="cityname">
-        @foreach ($brands as $brand)
-      <option value={{$brand->name}}>
-          @endforeach
-    </datalist>
-<br>
-    Countries
-<select name = "country_id">
-@foreach ($countries as $countries)
-            <option value = {{$countries->id}}> {{$countries->name}}</option>
-            @endforeach
-</select>
-<br>
-Description
-<textarea rows=5 cols=30 name="description"></textarea>
-<br>
+        </datalist>
+    <br>
+        Countries
+    <select name = "country_id">
+    @foreach ($countries as $countries)
+                <option value = {{$countries->id}}> {{$countries->name}}</option>
+                @endforeach
+    </select>
+    <br>
+    Description
+    <textarea rows=5 cols=30 name="description"></textarea>
+    <br>
 
-<input type="hidden" name="average_rating" value=0>
+    <input type="hidden" name="average_rating" value=0>
 
 
-<input type="submit">
+    <input type="submit">
 
-</form>
+    </form>
 
-@else <span>Need to be login</span>
+    @else <span>Need to be login</span>
 
-@endif
+    @endif
 
-@if (session('status'))
-{{session('status')}}
-@endif
+    @if (session('status'))
+    {{session('status')}}
+    @endif
 
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-
+</div>
 
 @endsection
 
