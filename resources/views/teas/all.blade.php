@@ -27,12 +27,12 @@
     {{$teas->onEachSide(3)->links()}}
 
 @if (Auth::user())
-   <button>
-       <a href={{action('TeaController@create')}}>Extend our database, add a new tea</a>
+   <button class="button white">
+       <a  class="white" href={{action('TeaController@create')}}>Extend our database, add a new tea</a>
     </button>
 @else
-    <button>
-        <a href="{{ route('login') }}">Log in to add a tea</a>
+    <button class="button white">
+        <a class="white" href="{{ route('login') }}">Log in to add a tea</a>
     </button>
 @endif
 

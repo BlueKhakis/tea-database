@@ -74,6 +74,27 @@ footer {
     font-size: 2em;
 }
 
+.pagination {
+    display: flex;
+    &__link {
+        background-color: $secondary-blue;
+        color: white;
+        padding: 5px;
+        margin: 0 5px 15px 5px;
+        border-radius: 5px;
+        svg {
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
+
+.white {
+    color: white;
+    font-size: 20px;
+    width: auto;
+}
+
 @import "navigation.scss";
 // @import "login.scss";
 @import "home_page_body.scss";
