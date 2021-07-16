@@ -13,6 +13,8 @@ class AddUniqueIndexToReviewUserTable extends Migration
      */
     public function up()
     {
+        DB::table('review_user')->truncate();
+
         Schema::table('review_user', function (Blueprint $table) {
             $table->unique(['user_id', 'review_id']);
         });
