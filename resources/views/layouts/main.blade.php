@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>House of Leaves</title>
 
-        <link rel="stylesheet" href="{{asset('css/main.css')}}">
+        <link rel="stylesheet" href="{{mix('css/main.css')}}">
         {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
         {{-- <link rel="stylesheet" href="{{asset('css/homepage.css')}}"> --}}
         <link rel="preconnect" href="https://fonts.googleapis.com">
