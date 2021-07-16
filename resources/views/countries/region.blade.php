@@ -1,7 +1,10 @@
+@extends('layouts.main')
 
+@section('content')
 <div className="route">
     <a href='/'>Home</a> -> <a href='/countries'>Countries</a>->{{$region[0]->name}}
 <div>
+    <div class="teas__all basic_styling_for_links ">
 <h1>{{$region[0]->name}}</h1>
 
 
@@ -34,3 +37,5 @@ window.mapData = '{!! json_encode([$countries, $region]) !!}';
 
 </script>
 <script src="{{mix('js/continent.js')}}"></script>
+</div>
+@endsection

@@ -77,7 +77,7 @@
 
     .milestone__one__text {
         max-width: 40rem;
-        color: black;
+        color: rgb(255, 255, 255);
         text-shadow: 1px 1px rgb(85, 85, 85);
     }
 
@@ -115,7 +115,7 @@
 
     .milestone__two__text {
         max-width: 40rem;
-        color: black;
+        color: rgb(255, 255, 255);
         text-shadow: 1px 1px rgb(85, 85, 85);
     }
 
@@ -154,7 +154,7 @@
 
     .milestone__three__text {
         max-width: 40rem;
-        color: black;
+        color: rgb(255, 255, 255);
         text-shadow: 1px 1px rgb(85, 85, 85);
     }
  </style>
