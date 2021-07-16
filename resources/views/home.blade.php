@@ -31,23 +31,35 @@
             <div class="main__home__section__box">
                 <h2 class="main__home__section__box__h2">types of tea</h2>
                 <div class="main__home__section__box__types">
-                        <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header"><a href='/type/1'>Black</a></h3>
+                        <div class="main__home__section__box__types__type type_bg__black">
+                            <h3 class="main__home__section__box__types__type__header">
+                                <a href='/type/1'>Black</a>
+                            </h3>
                         </div>
-                        <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header"><a href='/type/2'>Dark</a></h3>
+                        <div class="main__home__section__box__types__type type_bg__dark">
+                            <h3 class="main__home__section__box__types__type__header">
+                                <a  href='/type/2'>Dark</a>
+                            </h3>
                         </div>
-                        <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header"><a href='/type/3'>Green</a></h3>
+                        <div class="main__home__section__box__types__type type_bg__green">
+                            <h3 class="main__home__section__box__types__type__header">
+                                <a href='/type/3'>Green</a>
+                            </h3>
                         </div>
-                        <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header"><a href='/type/4'>Oolong</a></h3>
+                        <div class="main__home__section__box__types__type type_bg__oolong">
+                            <h3 class="main__home__section__box__types__type__header">
+                                <a href='/type/4'>Oolong</a>
+                            </h3>
                         </div>
-                        <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header"><a href='/type/5'>White</a></h3>
+                        <div class="main__home__section__box__types__type type_bg__white">
+                            <h3 class="main__home__section__box__types__type__header">
+                                <a href='/type/5'>White</a>
+                            </h3>
                         </div>
-                        <div class="main__home__section__box__types__type">
-                            <h3 class="main__home__section__box__types__type__header"><a href='/type/6'>Yellow</a></h3>
+                        <div class="main__home__section__box__types__type type_bg__yellow">
+                            <h3 class="main__home__section__box__types__type__header">
+                                <a href='/type/6'>Yellow</a>
+                            </h3>
                         </div>
                     </div> 
                 </div>

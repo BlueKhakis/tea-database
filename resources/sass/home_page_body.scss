@@ -99,3 +99,43 @@
     background-color: rgba(255, 255, 255, 0.322);
     color: #042122;
 }
+
+.type_bg {
+    background-position: center;
+    background-size: cover;
+    text-decoration: none;
+    &__black {
+        background-image: url("/img/black.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+    &__dark {
+        background-image: url("/img/dark.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+    &__green {
+        background-image: url("/img/green.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+    &__white {
+        background-image: url("/img/white.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+    &__yellow {
+        background-image: url("/img/yellow.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+    &__oolong {
+        background-image: url("/img/oolong.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+.type_bg:hover {
+    text-decoration: none;
+}
