@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
 {{-- @include('navigation.navigation') --}}
+@section('content')
+    
 
  <div class="">
      <div class="milestone">
@@ -37,7 +39,7 @@
         </div>
      </div>
  </div>
-
+ @endsection
  <style>
 
     .milestone__one {
