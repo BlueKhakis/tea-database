@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div className="route">
+<div class="route">
     @if(isset($country))
         <a href='/'>Home</a> -> <a href='/countries'>Countries</a>->{{$country[0]->name}}
     @else
@@ -18,7 +18,7 @@
         <ul class="teas__all__ul">
             @foreach ($teas as $tea)
                 <li class="teas__all__ul__li"> 
-                    <a href={{action('TeaController@show', $tea->id)}}>{{$tea->name}}</a>
+                    <a class="teas__all__ul__li__a" href={{action('TeaController@show', $tea->id)}}>{{$tea->name}}</a>
                 </li>
             @endforeach
         </ul>

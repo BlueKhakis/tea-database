@@ -130,16 +130,19 @@ window.user_reviews = '{!! addslashes(json_encode($user_reviews)) !!}';
     @endif 
 
     {{-- Temporary Upload Files Form --}}
-    <form class="form_upload" action={{ action('TeaController@storeImage', $tea->id) }} method="post" enctype="multipart/form-data">
-        @csrf
-        <input type="file" name="image">
-        <button class="button button--confirm-save">Upload Image</button>
 
-        @if (session('status'))
-            {{session('status')}}
-        @endif
 
-    </form>
+    <div class="">
+        <form class="reviews__image__upload__form" action={{ action('TeaController@storeImage', $tea->id) }} method="post" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="image">
+            <button class="reviews__image__upload__form__button button button--confirm-save">Upload Image</button>
 
+            @if (session('status'))
+                {{session('status')}}
+            @endif
+
+        </form>
+    </div>
 </div>
 @endsection

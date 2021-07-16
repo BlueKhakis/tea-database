@@ -174,3 +174,16 @@
 .basic_styling_for_links__detail:hover {
     box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
 }
+
+.teas__all__ul__li__a {
+    color: white;
+}
+
+.reviews__image__upload__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__button {
+        margin: auto;
+    }
+}

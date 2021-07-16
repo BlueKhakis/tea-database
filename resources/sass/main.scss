@@ -44,11 +44,11 @@ footer {
 }
 
 .basic_styling_for_links {
-    background-color: rgba(113, 128, 185, 0.8);
+    background-color: rgba(113, 128, 185, 0.9);
     border-radius: 20px;
     box-sizing: border-box;
     padding: 20px;
-    width: 320px;
+    // width: 320px;
     text-align: center;
     /* background-color: rgba(172, 172, 172, 0.226); */
     box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
@@ -62,25 +62,11 @@ footer {
     box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
 }
 .red {
-    background-color: green;
+    background-color: red;
 }
 
 .blue {
-    background-color: rgba(113, 128, 185, 0.8);
-}
-
-.pagination {
-    display: flex;
-    &__link {
-        background-color: lightgrey;
-        padding: 5px;
-        margin: 0 5px;
-
-        svg {
-            width: 10px;
-            height: 10px;
-        }
-    }
+    background-color: blue;
 }
 
 .teas__all {
@@ -94,4 +80,4 @@ footer {
 @import "tea_page_body.scss";
 @import "list_search_bar.scss";
 @import "footer.scss";
-// @import "history.scss";
+@import "history.scss";

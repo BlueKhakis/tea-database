@@ -8,73 +8,76 @@
 @section('content')
 
 
-<main>
-<div class="form">
-    <div class="title">{{ $user->name }}</div>
+<main class="basic_styling_for_links user__page">
+    <div class="form">
+        <div class="title">{{ $user->name }}</div>
 
-    <div class="subtitle">Edit your info<hr></div>
+        <div class="subtitle">Edit your info<hr></div>
 
-<img class="user_profile_pic" src="{{$user->image}}">
+    <img class="user_profile_pic" src="{{$user->image}}">
 
-{{-- <div class="thanks">
-@if (session('status'))
-{{session('status')}}
-@endif
-</div> --}}
+    {{-- <div class="thanks">
+    @if (session('status'))
+    {{session('status')}}
+    @endif
+    </div> --}}
 
-{{-- User can change UserName --}}
-<div class="input-container ic2">
-<form method="post" action={{ action('UserController@userNameUpdate2') }}>
-    @method('PUT')
-    @csrf
-    <label for="name" class="placeholder">Edit User Name</label>
-    <input class="input" type="text" name="name" placeholder="{{ $user->name }}">
-    <input class="submit" type="submit" value="Submit">
-</form>
-</div>
-
-
-
-{{-- User can edit email --}}
-<div class="input-container ic2">
-<form method="post" action={{ action('UserController@userEmailUpdate') }}>
-    @method('PUT')
-    @csrf
-    <label for="editname" class="placeholder">Edit User E-mail</><br>
-        <input id="email" name="email" class="input" value="{{ old('email') }}" type="email" placeholder="{{ $user->email }}" /><br>
-<input class="submit" type="submit" value="Submit">
-</form>
-</div>
-
-{{-- Edit user password --}}
-<div class="input-container ic2">
-<form method="post" action={{ action('UserController@edit') }}>
-    @method('PUT')
-    @csrf
-
-    <label for="editname" class="placeholder">Edit User Password</><br>
-    <input class="input" type="password" name="password" id="" placeholder=""><br>
-<input class="submit" type="submit" value="Submit">
-</form>
-</div>
+    {{-- User can change UserName --}}
+        <div class="input-container ic2 column">
+            <form class="column" method="post" action={{ action('UserController@userNameUpdate2') }}>
+                @method('PUT')
+                @csrf
+                <label for="name" class="placeholder">Edit User Name</label>
+                <input class="input" type="text" name="name" placeholder="{{ $user->name }}">
+                <input class="submit" type="submit" value="Submit">
+            </form>
+        </div>
 
 
-{{-- Upload a files (PROFILE PICTURE) --}}
-<form class="form_upload" action={{ action('UserController@store') }} method="post" enctype="multipart/form-data">
+
+    {{-- User can edit email --}}
     <div class="input-container ic2">
-        @csrf
-    <label for="editname" class="placeholder">Add image</><br>
-    <input class="upload" id="upload" type="file" name="image">
-    <button class="submit button button--confirm-save">Upload</button>
-</form>
+        <form class="column" method="post" action={{ action('UserController@userEmailUpdate') }}>
+            @method('PUT')
+            @csrf
+            <label for="editname" class="placeholder">Edit User E-mail</><br>
+                <input id="email" name="email" class="input" value="{{ old('email') }}" type="email" placeholder="{{ $user->email }}" /><br>
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </div>
 
+    {{-- Edit user password --}}
+    <div class="input-container ic2">
+        <form method="post" action={{ action('UserController@edit') }}>
+            @method('PUT')
+            @csrf
+
+            <label for="editname" class="placeholder">Edit User Password</><br>
+                <input class="input" type="password" name="password" id="" placeholder=""><br>
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </div>
+
+
+    {{-- Upload a files (PROFILE PICTURE) --}}
+    <form class="form_upload" action={{ action('UserController@store') }} method="post" enctype="multipart/form-data">
+        <div class="input-container ic2">
+            @csrf
+            <label for="editname" class="placeholder">Add image</><br>
+                <input class="upload" id="upload" type="file" name="image">
+            <button class="submit button button--confirm-save">Upload</button>
+    </form>
+
+    </div>
+
+<div class="user__links">
+    <a class="user__links__link" href="/lists">Lists</a> <br>
+    <a class="user__links__link" href="/reviews">Reviews</a>
 </div>
-
-
 
 </main>
-<a href="/lists"><h3>Lists</h3></a>
-<a href="/reviews"><h3>Reviews</h3></a>
+
+
 <style>
       main {
 align-items: center;
@@ -90,32 +93,33 @@ justify-content: center;
 
 
 
-.form {
+/* .form {
 background-color: rgba(113, 128, 185, 0.8);
 /* background-color: rgba(54, 142, 102, 0.8); */
-border-radius: 20px;
+/* border-radius: 20px;
 box-sizing: border-box;
 height: 450px;
 padding: 20px;
 width: 320px;
-text-align: center;
+text-align: center; */
 
 /* background-color: rgba(172, 172, 172, 0.226); */
-    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
+    /* box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
     color: rgb(255, 255, 255);
     margin: 1em;
     padding: 1em;
     transition: all 0.2s ease-out;
-}
+} */
 
-.form:hover {
+/* .form:hover {
     box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
-}
+}  */
 
 
 .user_profile_pic {
     border-radius: 50%;
     margin-bottom: -40px;
+    width: 70%;
 }
 
 .title {
@@ -167,7 +171,7 @@ margin-top: 40px;
 }
 
 .ic2 {
-margin-top: 30px;
+margin-top: 60px;
 }
 
 .input {
@@ -181,7 +185,7 @@ font-size: 18px;
 height: 100%;
 outline: 0;
 padding: 4px 20px 0;
-width: 100%;
+width: 50%;
 }
 
 .input:hover {
@@ -217,6 +221,7 @@ height: 30px;
 // outline: 0;
 text-align: center;
 width: 70%;
+margin: 0 auto;
 }
 
 .submit:hover {
@@ -237,7 +242,28 @@ padding: 4px 20px 0;
 width: 100%;
 }
 
+.user__page {
+ width: 40%
+}
 
+.column {
+
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.user__links {
+    margin-top: 60px;
+    color:white;
+
+}
+
+.user__links__link {
+    color: white;
+    font-size: 19px;
+    font-weight: 300;
+}
 
 </style>
 
