@@ -62,16 +62,38 @@ footer {
     box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
 }
 .red {
-    background-color: red;
+    background-color: green;
 }
-
 .blue {
-    background-color: blue;
+    background-color: rgba(113, 128, 185, 0.9);
 }
 
 .teas__all {
     color: white;
     font-size: 2em;
+}
+
+.pagination {
+    display: flex;
+    &__link {
+        background-color: $secondary-blue;
+        color: white;
+        padding: 5px;
+        margin: 0 5px 15px 5px;
+        border-radius: 5px;
+        svg {
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
+
+.white {
+    color: white;
+    font-size: 20px;
+    width: auto;
+    line-height: 1.1;
+    margin: auto;
 }
 
 @import "navigation.scss";
