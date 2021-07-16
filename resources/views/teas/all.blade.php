@@ -23,8 +23,7 @@
             @endforeach
         </ul>
         <div class="teas__all__content"></div>
-</div>
-    {{$teas->onEachSide(3)->links()}}
+
 
 @if (Auth::user())
    <button class="button white">
@@ -35,5 +34,10 @@
         <a class="white" href="{{ route('login') }}">Log in to add a tea</a>
     </button>
 @endif
+
+</div>
+
+
+    {{$teas->onEachSide(3)->links()}}
 
 @endsection
