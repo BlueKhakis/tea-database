@@ -56,11 +56,11 @@ footer {
     margin: 1em;
     padding: 1em;
     transition: all 0.2s ease-out;
+    &:hover {
+        box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
+    }
 }
 
-.basic_styling_for_links:hover {
-    box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
-}
 .red {
     background-color: green;
 }
@@ -71,12 +71,10 @@ footer {
 .teas__all {
     color: white;
     font-size: 2em;
-
-   
 }
 
 .loremipsum {
-        font-size: 18px;
+    font-size: 18px;
 }
 
 li a {

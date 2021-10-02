@@ -89,48 +89,9 @@
     }
 }
 
-// .react__reviews__li {
-//     display: flex;
-//     align-items: center;
-//     width: 100%;
-//     height: 3em;
-//     max-width: $body_width;
+// .react__reviews__ul {
+//     // list-style: slavo;
 // }
-
-.react__reviews__li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0.75em;
-}
-
-.react__reviews__li__p {
-    margin: auto 1em auto 0;
-}
-
-.react__reviews__li__buttons {
-    display: flex;
-    height: 100%;
-}
-
-.react__reviews__ul {
-    list-style: slavo;
-}
-
-.react__reviews__edit {
-    display: flex;
-    flex-direction: column;
-    &__rating {
-        display: flex;
-        justify-content: center;
-        & label {
-            margin: auto 0;
-        }
-        & input {
-            margin: auto 0 auto 0.5em;
-        }
-    }
-}
 
 .recent__reviews {
     display: flex;
@@ -140,6 +101,33 @@
         text-transform: uppercase;
         font-weight: 300;
         text-align: center;
+    }
+    &__li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.75em;
+        &__p {
+            margin: auto 1em auto 0;
+        }
+        &__buttons {
+            display: flex;
+            height: 100%;
+        }
+    }
+    &__edit {
+        display: flex;
+        flex-direction: column;
+        &__rating {
+            display: flex;
+            justify-content: center;
+            & label {
+                margin: auto 0;
+            }
+            & input {
+                margin: auto 0 auto 0.5em;
+            }
+        }
     }
 }
 
