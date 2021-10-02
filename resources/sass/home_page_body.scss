@@ -9,51 +9,47 @@
     flex-direction: column;
     align-items: center;
     width: $body_width;
-}
 
-.main__home__section {
-    // max-width: $body_width;
-    width: 100%;
-    max-width: $body_width;
+    &__section {
+        width: 100%;
+        max-width: $body_width;
+        height: 25em;
+        background-color: rgba(172, 172, 172, 0.226);
+        box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
+        color: rgb(255, 255, 255);
+        margin: 1em;
+        padding: 1em;
+        opacity: 0.9;
+        transition: all 0.2s ease-out;
+        &:hover {
+            height: 25.5em;
+            box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
+            opacity: 1;
+        }
+        &__box {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
 
-    height: 25em;
-    background-color: rgba(172, 172, 172, 0.226);
-    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.37);
-    color: rgb(255, 255, 255);
-    margin: 1em;
-    padding: 1em;
-    opacity: 0.9;
-    transition: all 0.2s ease-out;
-}
+            &__types {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                height: 100%;
 
-.main__home__section:hover {
-    // width: 81vw;
-    height: 25.5em;
-    box-shadow: 0px 0px 30px 2px rgba(255, 255, 255, 0.37);
-    opacity: 1;
-}
+                &__type {
+                    width: 33%;
+                    background-color: rgba(255, 255, 255, 0.295);
+                    margin-bottom: 5px;
+                    border-radius: 5px;
 
-.main__home__section__box {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.main__home__section__box__types {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    height: 100%;
-}
-
-.main__home__section__box__types__type {
-    width: 33%;
-    background-color: rgba(255, 255, 255, 0.295);
-    margin-bottom: 5px;
-    border-radius: 5px;
-    &__header a {
-        color: white;
+                    &__header a {
+                        color: white;
+                    }
+                }
+            }
+        }
     }
 }
 

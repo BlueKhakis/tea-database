@@ -15,7 +15,7 @@
         <div style="background-color: rgba(113, 128, 185, 1);" class="main__home__section main__home__section__map"> 
         </div>
 
-    {{-- commented out for faster styling develop--}}
+    {{-- commented out for faster styling development--}}
         <script src="{{mix('js/map.js')}}">
         </script>
         
