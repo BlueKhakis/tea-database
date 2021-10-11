@@ -6,12 +6,12 @@ export default function Review(props)
     const [clicked, setClicked] = useState(false);
     const [disp, setDisp] = useState('');
     const [{ text, rating, tea, id, votes, likeStatus }, setValues] = useState({
-    text: [props.data.text],
-    rating: [props.data.rating],
-    id: [props.data.id],
-    tea: [props.data.tea_id],
-        votes: [props.data.votes],
-        likeStatus: [props.data.review_user.length ? 1 : 0]
+        text: [props.data.text],
+        rating: [props.data.rating],
+        id: [props.data.id],
+        tea: [props.data.tea_id],
+            votes: [props.data.votes],
+            likeStatus: [props.data.review_user.length ? 1 : 0]
         
     });
     console.log(props.data.review_user)
@@ -64,9 +64,8 @@ export default function Review(props)
         //     props.setRefr(false);
         // } else {props.setRefr(true)}
         event.preventDefault();
-// console.log(props.data.votes);
+
         const response = await fetch(`/review/${props.data.id}/like`, {
-            
             method: 'POST',
             body: JSON.stringify({ id }),
             headers: {
@@ -137,22 +136,7 @@ export default function Review(props)
                                 {/* <input type="submit" value="update pls"></input> */}
                             </form>
                         </>
-                        // (
-                        //     <form action={action('ReviewController@update', $review->id)} method="post">
-                        //             @csrf
-                        //             @method('PUT')
-                        //             <div>
-                        //                 <label htmlFor="">Text</label>
-                        //                 <input type="text" name="text" value="{{$review->text}}">
-                        //             </div>
-                        //             <div>
-                        //                 <label htmlFor="">Rating</label>
-                        //                 <input type="number" name="rating" value={{$review->rating}}>
-                        //             </div>
 
-                        //             <input type="submit" value="update pls">
-                        //     </form>
-                        // )
                 }
             </>
         );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Review from './Review.jsx';
 
-export default function Search(props) {
+export default function Reviews() {
 
 
     const [reviews, setReviews] = useState();
